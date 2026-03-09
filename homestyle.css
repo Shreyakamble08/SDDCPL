@@ -1,0 +1,142 @@
+
+.arch-shape {
+  clip-path: ellipse(100% 100% at 50% 100%);
+}
+
+.hero-dot {
+  width: 14px;
+  height: 14px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero-dot.active {
+  background: #facc15;
+  transform: scale(1.4);
+}
+
+.hero-dot:hover {
+  background: white;
+}
+
+/* sectors */
+ 
+        .card-hover {
+          transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card-hover:hover {
+          transform: translateY(-8px);
+        }
+
+        .fade-in-up {
+          opacity: 0;
+          transform: translateY(30px);
+          animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .stagger-animation > * {
+          opacity: 0;
+          transform: translateY(20px);
+          animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .stagger-animation > *:nth-child(1) {
+          animation-delay: 0.1s;
+        }
+        .stagger-animation > *:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+        .stagger-animation > *:nth-child(3) {
+          animation-delay: 0.3s;
+        }
+        .stagger-animation > *:nth-child(4) {
+          animation-delay: 0.4s;
+        }
+        .stagger-animation > *:nth-child(5) {
+          animation-delay: 0.5s;
+        }
+
+        .image-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(0, 0, 0, 0.7) 100%
+          );
+          opacity: 0;
+          transition: opacity 0.4s ease;
+        }
+
+        .card-hover:hover .image-overlay {
+          opacity: 1;
+        }
+
+        .arrow-icon {
+          transition: all 0.3s ease;
+        }
+
+        .card-hover:hover .arrow-icon {
+          transform: translate(3px, -3px);
+          background-color: #8b0000 !important;
+        }
+
+        .gradient-border {
+          position: relative;
+        }
+
+        .gradient-border::after {
+          content: "";
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 1px;
+          background: linear-gradient(90deg, #8b0000, #b22222);
+          transition: width 0.4s ease;
+        }
+
+        .gradient-border:hover::after {
+          width: 100%;
+        }
+
+        .pulse-dot {
+          width: 6px;
+          height: 6px;
+          background-color: #8b0000;
+          border-radius: 50%;
+          display: inline-block;
+          margin-right: 8px;
+          animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+          0% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(139, 0, 0, 0.7);
+          }
+
+          70% {
+            transform: scale(1);
+            box-shadow: 0 0 0 6px rgba(139, 0, 0, 0);
+          }
+
+          100% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(139, 0, 0, 0);
+          }
+        }
+    

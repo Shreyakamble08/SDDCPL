@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery & Events | Prospecta BuildX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      /* Custom styles */
+      .gallery-card {
+        transition: all 0.3s ease;
+        border-radius: 16px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .gallery-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .gallery-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          to bottom,
+          transparent 50%,
+          rgba(0, 0, 0, 0.8)
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 1;
+      }
+
+      .gallery-card:hover::before {
+        opacity: 1;
+      }
+
+      .gallery-info {
+        position: absolute;
+        bottom: -100%;
+        left: 0;
+        right: 0;
+        padding: 24px;
+        background: rgba(37, 99, 235, 0.95);
+        color: white;
+        transition: bottom 0.4s ease;
+        z-index: 2;
+      }
+
+      .gallery-card:hover .gallery-info {
+        bottom: 0;
+      }
+
+      .lightbox {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.95);
+        align-items: center;
+        justify-content: center;
+      }
+
+      .lightbox.open {
+        display: flex;
+        animation: fadeIn 0.3s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .lightbox-content {
+        position: relative;
+        max-width: 90%;
+        max-height: 90%;
+        animation: zoomIn 0.3s ease;
+      }
+
+      @keyframes zoomIn {
+        from {
+          transform: scale(0.9);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .lightbox img {
+        max-width: 100%;
+        max-height: 80vh;
+        object-fit: contain;
+        border-radius: 8px;
+      }
+
+      .close-lightbox {
+        position: absolute;
+        top: -40px;
+        right: 0;
+        color: white;
+        font-size: 32px;
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.1);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s ease;
+      }
+
+      .close-lightbox:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .nav-tabs {
+        border-bottom: 2px solid #e5e7eb;
+        padding-bottom: 16px;
+        margin-bottom: 40px;
+      }
+
+      .tab-btn {
+        padding: 12px 24px;
+        font-weight: 600;
+        color: #6b7280;
+        border: none;
+        background: none;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .tab-btn:hover {
+        color: #2563eb;
+      }
+
+      .tab-btn.active {
+        color: #2563eb;
+      }
+
+      .tab-btn.active::after {
+        content: "";
+        position: absolute;
+        bottom: -18px;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: #2563eb;
+        border-radius: 3px;
+      }
+
+      .event-tag {
+        display: inline-block;
+        padding: 4px 12px;
+        background: rgba(37, 99, 235, 0.1);
+        color: #2563eb;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .grid-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+      }
+
+      .grid-item img {
+        transition: transform 0.5s ease;
+      }
+
+      .grid-item:hover img {
+        transform: scale(1.05);
+      }
+
+      .grid-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.7) 0%,
+          transparent 50%
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        display: flex;
+        align-items: flex-end;
+        padding: 20px;
+      }
+
+      .grid-item:hover .grid-overlay {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Hero Section -->
+    <section
+      class="relative bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white py-24 md:py-28 overflow-hidden"
+    >
+      <div class="absolute inset-0 bg-black opacity-20"></div>
+      <div
+        class="absolute top-0 left-0 w-64 h-64 bg-blue-500 rounded-full -translate-x-32 -translate-y-32 opacity-20"
+      ></div>
+      <div
+        class="absolute bottom-0 right-0 w-96 h-96 bg-indigo-500 rounded-full translate-x-48 translate-y-48 opacity-20"
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="text-center">
+          <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+            Visual <span class="text-blue-300">Journey</span> Through Our Story
+          </h1>
+          <p class="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto mb-8">
+            Discover the moments that define our culture, celebrate our
+            achievements, and showcase our team spirit.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <span
+              class="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium"
+            >
+              <i class="fas fa-camera mr-2"></i> 200+ Photos
+            </span>
+            <span
+              class="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium"
+            >
+              <i class="fas fa-calendar-alt mr-2"></i> 50+ Events
+            </span>
+            <span
+              class="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium"
+            >
+              <i class="fas fa-trophy mr-2"></i> 15 Awards
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!----------WHY CHOOSE US--------------------------->
+    <section
+      class="py-16 md:py-24 bg-gradient-to-br from-blue-100 via-white to-blue-50"
+    >
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <!-- Heading -->
+        <div class="mb-12 -mt-10 text-center">
+          <h2 class="text-3xl md:text-4xl font-bold text-[#1A2A4F]">
+            Life at SDDCPL
+          </h2>
+          <p class="text-gray-600 mt-3 max-w-2xl mx-auto">
+            Explore our vibrant work culture filled with learning, growth,
+            celebrations, and team bonding.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10 items-start">
+          <!-- LEFT: Horizontal Scrolling Images -->
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg relative h-64 border border-blue-100"
+          >
+            <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
+              <div class="flex animate-scroll-horizontal w-max">
+                <!-- Replace these 4 images later -->
+                <img
+                  src="IMAGE"
+                  class="h-64 w-auto object-cover"
+                />
+                <img
+                  src="IMAGE"
+                  class="h-64 w-auto object-cover"
+                />
+                <img
+                  src="IMAGE"
+                  class="h-64 w-auto object-cover"
+                />
+                <img
+                  src="IMAGE"
+                  class="h-64 w-auto object-cover"
+                />
+                <img
+                  src="IMAGE"
+                  class="h-64 w-auto object-cover"
+                />
+                <img
+                  src="IMAGE"
+                  class="h-64 w-auto object-cover"
+                />
+                <img src="IMAGE" class="h-64 w-auto object-cover" />
+                <img
+                  src="IMAGE"
+                  class="h-64 w-auto object-cover"
+                />
+
+                <!-- Duplicate for continuous loop -->
+                <img
+                  src="IMAGE"
+                  class="h-64 w-auto object-cover"
+                />
+                <img
+                  src="IMAGE"
+                  class="h-64 w-auto object-cover"
+                />
+                <img
+                  src="IMAGE"
+                  class="h-64 w-auto object-cover"
+                />
+                <img
+                  src="IMAGE"
+                  class="h-64 w-auto object-cover"
+                />
+                <img
+                  src="IMAGE"
+                  class="h-64 w-auto object-cover"
+                />
+                <img src="IMAGE" class="h-64 w-auto object-cover" />
+                <img
+                  src=""
+                  class="h-64 w-auto object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: Vertical Auto Scroll Info (2 visible content cards) -->
+          <div class="h-64 overflow-hidden relative">
+            <div class="animate-scroll-vertical space-y-6">
+              <!-- Card 1 -->
+              <div class="bg-[#11224E] text-white p-6 rounded-xl shadow-md">
+                <h3 class="text-xl font-semibold mb-2">Team Celebrations</h3>
+                <p class="text-gray-200">
+                  Monthly birthday events, festival celebrations, and fun team
+                  gatherings.
+                </p>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="bg-white border p-6 rounded-xl shadow-sm">
+                <h3 class="text-xl font-semibold text-[#1A2A4F] mb-2">
+                  Training & Workshops
+                </h3>
+                <p class="text-gray-600">
+                  Skill-building sessions for construction, design, and
+                  management domains.
+                </p>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="bg-[#11224E] text-white p-6 rounded-xl shadow-md">
+                <h3 class="text-xl font-semibold mb-2">Site Visits</h3>
+                <p class="text-gray-200">
+                  Employees get hands-on learning through real project site
+                  experiences.
+                </p>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="bg-white border p-6 rounded-xl shadow-sm">
+                <h3 class="text-xl font-semibold text-[#1A2A4F] mb-2">
+                  Fun Activities
+                </h3>
+                <p class="text-gray-600">
+                  Team outings, competitions, and weekly engagement events.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animations -->
+      <style>
+        /* Horizontal scrolling */
+        @keyframes scroll-horizontal {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-scroll-horizontal {
+          animation: scroll-horizontal 18s linear infinite;
+        }
+
+        /* Vertical scrolling — tuned for exactly 2 cards visible */
+        @keyframes scroll-vertical {
+          0% {
+            transform: translateY(0);
+          }
+          100% {
+            transform: translateY(-50%);
+          }
+        }
+        .animate-scroll-vertical {
+          animation: scroll-vertical 14s linear infinite;
+        }
+      </style>
+    </section>
+
+    <!-- Gallery Navigation Tabs -->
+    <!-- <section class="py-10 bg-white -mt-12 md:-mt-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div
+          class="nav-tabs flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-3 sm:gap-6 md:gap-8"
+        >
+          <button
+            class="tab-btn active w-full sm:w-auto flex items-center justify-center"
+            onclick="filterGallery('all')"
+          >
+            <i class="fas fa-th-large mr-2"></i> All Events
+          </button>
+
+          <button
+            class="tab-btn w-full sm:w-auto flex items-center justify-center"
+            onclick="filterGallery('team')"
+          >
+            <i class="fas fa-users mr-2"></i> Team Events
+          </button>
+
+          <button
+            class="tab-btn w-full sm:w-auto flex items-center justify-center"
+            onclick="filterGallery('project')"
+          >
+            <i class="fas fa-building mr-2"></i> Project Milestones
+          </button>
+
+          <button
+            class="tab-btn w-full sm:w-auto flex items-center justify-center"
+            onclick="filterGallery('safety')"
+          >
+            <i class="fas fa-hard-hat mr-2"></i> Safety & Training
+          </button>
+
+          <button
+            class="tab-btn w-full sm:w-auto flex items-center justify-center"
+            onclick="filterGallery('awards')"
+          >
+            <i class="fas fa-trophy mr-2"></i> Awards & Recognition
+          </button>
+        </div>
+      </div>
+    </section> -->
+
+ <!-- TEAM EVENTS GALLERY - BLUE & YELLOW THEME -->
+<section class="py-12 bg-gradient-to-b from-blue-50 to-white relative overflow-hidden">
+
+  <!-- Background Shapes -->
+  <div class="absolute top-0 left-0 w-64 h-64 bg-yellow-200/30 rounded-full -z-10 -translate-x-1/4 -translate-y-1/4"></div>
+  <div class="absolute bottom-0 right-0 w-72 h-72 bg-blue-200/30 rounded-full -z-10 translate-x-1/4 translate-y-1/4"></div>
+
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <!-- Heading -->
+    <h2 class="text-3xl sm:text-4xl font-bold text-blue-900 mb-4">Team Events & Highlights</h2>
+    <p class="text-gray-700 max-w-2xl mx-auto mb-12 text-sm sm:text-base">
+      Celebrating our team's achievements, bonding moments, and milestones.
+    </p>
+
+    <!-- Gallery Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Card Template -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+        <div class="h-64 w-full bg-yellow-200 flex items-center justify-center text-gray-500 text-2xl font-bold cursor-pointer">
+          Image Placeholder
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-blue-900 mb-2">Diwali Celebration 2025</h3>
+          <p class="text-gray-600 text-sm mb-3">
+            A day filled with festive celebrations, team bonding, and joyful Diwali moments.
+          </p>
+          <div class="flex items-center justify-between text-sm text-gray-500">
+            <span>October 2025</span>
+            <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs">Team Event</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+        <div class="h-64 w-full bg-blue-200 flex items-center justify-center text-gray-500 text-2xl font-bold cursor-pointer">
+          Image Placeholder
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-blue-900 mb-2">Christmas Party 2025</h3>
+          <p class="text-gray-600 text-sm mb-3">
+            Joyful Christmas celebrations and a memorable festive gathering with our team.
+          </p>
+          <div class="flex items-center justify-between text-sm text-gray-500">
+            <span>December 2025</span>
+            <span class="px-2 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs">Festive Event</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+        <div class="h-64 w-full bg-blue-100 flex items-center justify-center text-gray-500 text-2xl font-bold cursor-pointer">
+          Image Placeholder
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-blue-900 mb-2">Health Checkup Camp 2024</h3>
+          <p class="text-gray-600 text-sm mb-3">
+            Organized a successful health camp, providing medical check-ups and wellness guidance to our team.
+          </p>
+          <div class="flex items-center justify-between text-sm text-gray-500">
+            <span>December 2024</span>
+            <span class="px-2 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs">Wellness Event</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Repeat cards with dummy content -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+        <div class="h-64 w-full bg-yellow-100 flex items-center justify-center text-gray-500 text-2xl font-bold cursor-pointer">
+          Image Placeholder
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-blue-900 mb-2">Safety Week 2025</h3>
+          <p class="text-gray-600 text-sm mb-3">
+            Comprehensive safety training and awareness program across all project sites.
+          </p>
+          <div class="flex items-center justify-between text-sm text-gray-500">
+            <span>February 2025</span>
+            <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs">Safety Event</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+        <div class="h-64 w-full bg-yellow-200 flex items-center justify-center text-gray-500 text-2xl font-bold cursor-pointer">
+          Image Placeholder
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-blue-900 mb-2">Employee of the Month</h3>
+          <p class="text-gray-600 text-sm mb-3">
+            Recognizing outstanding performance and innovation in construction excellence.
+          </p>
+          <div class="flex items-center justify-between text-sm text-gray-500">
+            <span>November 2024</span>
+            <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs">Recognition</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+        <div class="h-64 w-full bg-blue-100 flex items-center justify-center text-gray-500 text-2xl font-bold cursor-pointer">
+          Image Placeholder
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-blue-900 mb-2">Excellence Awards 2024</h3>
+          <p class="text-gray-600 text-sm mb-3">
+            Recognizing outstanding performance and innovation in construction excellence.
+          </p>
+          <div class="flex items-center justify-between text-sm text-gray-500">
+            <span>December 2024</span>
+            <span class="px-2 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs">Award</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+      <div class="lightbox-content" onclick="event.stopPropagation()">
+        <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged photo" />
+        <div
+          id="lightbox-caption"
+          class="text-white mt-4 text-center text-lg"
+        ></div>
+      </div>
+    </div>
+
+   
+  <!-- FOOTER -->
+  <footer class="relative text-white py-12 overflow-hidden 
+bg-gradient-to-b from-[#0E1B3D] via-[#11224E] to-[#0A1530]">
+
+    <!-- Background shapes -->
+    <div class="absolute top-0 right-0 w-72 h-72 bg-yellow-400/20 blur-3xl rounded-full"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-blue-400/10 blur-3xl rounded-full"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+
+        <!-- Company -->
+        <div>
+          <div class="mb-5">
+            <img src="Images/Sdcpl logo.png" alt="logo" class="h-24 object-contain">
+          </div>
+
+          <p class="text-gray-300 text-sm leading-relaxed mb-5">
+            Delivering innovative infrastructure and construction solutions
+            with a commitment to quality, reliability, and engineering excellence.
+          </p>
+
+          <div class="flex gap-3">
+
+            <a href="#"
+              class="w-9 h-9 bg-[#162B5B] rounded-md flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+
+            <a href="#"
+              class="w-9 h-9 bg-[#162B5B] rounded-md flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+              <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="#"
+              class="w-9 h-9 bg-[#162B5B] rounded-md flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+
+          </div>
+        </div>
+
+
+        <!-- Explore -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4 border-l-4 border-yellow-400 pl-3">
+            Explore
+          </h3>
+
+          <ul class="space-y-2 text-sm">
+
+            <li><a href="index.html" class="text-gray-300 hover:text-yellow-400 transition">Home</a></li>
+            <li><a href="about.html" class="text-gray-300 hover:text-yellow-400 transition">About</a></li>
+            <li><a href="projects.html" class="text-gray-300 hover:text-yellow-400 transition">Projects</a></li>
+            <li><a href="interior.html" class="text-gray-300 hover:text-yellow-400 transition">Interior Design</a></li>
+            <li><a href="gallery.html" class="text-gray-300 hover:text-yellow-400 transition">Gallery</a></li>
+            <li><a href="contact.html" class="text-gray-300 hover:text-yellow-400 transition">Contact</a></li>
+
+          </ul>
+        </div>
+
+
+        <!-- Sectors -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4 border-l-4 border-yellow-400 pl-3">
+            Sectors
+          </h3>
+
+          <ul class="space-y-2 text-sm">
+
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Residential</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Commercial</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Industrial</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Institutional</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Infrastructure</a></li>
+
+          </ul>
+        </div>
+
+
+        <!-- Contact -->
+        <div>
+
+          <h3 class="text-lg font-semibold mb-4 border-l-4 border-yellow-400 pl-3">
+            Contact
+          </h3>
+
+          <div class="space-y-4 text-sm text-gray-300">
+
+            <div class="flex gap-3 items-start">
+              <i class="fas fa-map-marker-alt text-yellow-400 mt-1"></i>
+              <a href="https://www.google.com/maps/place/C-803,+Amar+Business+Zone,+Baner,+Pune+411045" target="_blank"
+                class="hover:text-yellow-400 transition">
+                B-400 Amar Business Zone, Baner, Pune – 411047
+              </a>
+            </div>
+
+            <div class="flex gap-3 items-center">
+              <i class="fas fa-phone text-yellow-400"></i>
+              <a href="tel:+919549543838" class="hover:text-yellow-400 transition">
+                +91 95495 53538
+              </a>
+            </div>
+
+            <div class="flex gap-3 items-center">
+              <i class="fas fa-envelope text-yellow-400"></i>
+              <a href="mailto:info@sddcpl.com" class="hover:text-yellow-400 transition">
+                info@sddcpl.com
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Bottom -->
+      <div
+        class="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+
+        <span>
+          © 2025 SDDCPL. All rights reserved.Developed by Kunash Media.
+        </span>
+
+        <div class="flex gap-5 mt-3 md:mt-0">
+
+          <a href="#" class="hover:text-yellow-400 transition">Privacy</a>
+          <a href="#" class="hover:text-yellow-400 transition">Terms</a>
+          <a href="#" class="hover:text-yellow-400 transition">Sitemap</a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </footer>
+
+    <script>
+      // Filter gallery by category
+      function filterGallery(category) {
+        const cards = document.querySelectorAll(".gallery-card");
+        const tabs = document.querySelectorAll(".tab-btn");
+
+        // Update active tab
+        tabs.forEach((tab) => {
+          tab.classList.remove("active");
+          if (
+            tab.textContent.toLowerCase().includes(category) ||
+            (category === "all" && tab.textContent.includes("All Events"))
+          ) {
+            tab.classList.add("active");
+          }
+        });
+
+        // Filter cards
+        cards.forEach((card) => {
+          if (
+            category === "all" ||
+            card.getAttribute("data-category") === category
+          ) {
+            card.style.display = "block";
+            setTimeout(() => {
+              card.style.opacity = "1";
+              card.style.transform = "translateY(0)";
+            }, 10);
+          } else {
+            card.style.opacity = "0";
+            card.style.transform = "translateY(20px)";
+            setTimeout(() => {
+              card.style.display = "none";
+            }, 300);
+          }
+        });
+      }
+
+      // Lightbox functionality
+      function openLightbox(src, caption = "") {
+        document.getElementById("lightbox-img").src = src;
+        document.getElementById("lightbox-caption").textContent = caption;
+        document.getElementById("lightbox").classList.add("open");
+      }
+
+      function closeLightbox() {
+        document.getElementById("lightbox").classList.remove("open");
+      }
+
+      // Close lightbox with ESC key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeLightbox();
+      });
+
+      // Initialize tab functionality
+      document.addEventListener("DOMContentLoaded", () => {
+        // Set first tab as active
+        const tabs = document.querySelectorAll(".tab-btn");
+        if (tabs.length > 0) {
+          tabs[0].classList.add("active");
+        }
+      });
+
+ //header js
+// Load header.html and then initialize header JS
+fetch("header.html")
+  .then((res) => res.text())
+  .then((data) => {
+    document.getElementById("header").innerHTML = data;
+
+    // ✅ Elements
+    const mobileMenuToggle =
+      document.getElementById("mobile-menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuIcon = document.getElementById("menu-icon");
+
+    const mobileAboutToggle = document.getElementById(
+      "mobile-about-toggle"
+    );
+    const mobileAbout = document.getElementById("mobile-about");
+    const mobileSectorsToggle = document.getElementById(
+      "mobile-sectors-toggle"
+    );
+    const mobileSectors = document.getElementById("mobile-sectors");
+    const mobileCareersToggle = document.getElementById(
+      "mobile-careers-toggle"
+    );
+    const mobileCareers = document.getElementById("mobile-careers");
+
+    // Function to close all mobile dropdowns
+    function closeAllMobileDropdowns() {
+      mobileAbout?.classList.remove("open");
+      mobileSectors?.classList.remove("open");
+      mobileCareers?.classList.remove("open");
+      mobileAboutToggle?.classList.remove("active");
+      mobileSectorsToggle?.classList.remove("active");
+      mobileCareersToggle?.classList.remove("active");
+      
+      // Also close all sector submenus
+      document.querySelectorAll('.sector-menu').forEach(menu => {
+        menu.style.maxHeight = '0px';
+      });
+      document.querySelectorAll('.sector-toggle i').forEach(icon => {
+        icon.style.transform = 'rotate(0deg)';
+      });
+    }
+
+    // Toggle Mobile Menu
+    mobileMenuToggle?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      mobileMenu.classList.toggle("open");
+
+      if (mobileMenu.classList.contains("open")) {
+        menuIcon.classList.remove("fa-bars");
+        menuIcon.classList.add("fa-times");
+      } else {
+        menuIcon.classList.remove("fa-times");
+        menuIcon.classList.add("fa-bars");
+        closeAllMobileDropdowns();
+      }
+    });
+
+    // Toggle Mobile About Dropdown
+    mobileAboutToggle?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      mobileAbout.classList.toggle("open");
+      mobileAboutToggle.classList.toggle("active");
+
+      // Close other dropdowns if open
+      if (mobileAbout.classList.contains("open")) {
+        mobileSectors?.classList.remove("open");
+        mobileCareers?.classList.remove("open");
+        mobileSectorsToggle?.classList.remove("active");
+        mobileCareersToggle?.classList.remove("active");
+        
+        // Close sector submenus
+        document.querySelectorAll('.sector-menu').forEach(menu => {
+          menu.style.maxHeight = '0px';
+        });
+        document.querySelectorAll('.sector-toggle i').forEach(icon => {
+          icon.style.transform = 'rotate(0deg)';
+        });
+      }
+    });
+
+    // Toggle Mobile Sectors Dropdown
+    mobileSectorsToggle?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      
+      // Toggle main sectors dropdown
+      if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+        // Collapse main sectors
+        mobileSectors.style.maxHeight = '0px';
+        mobileSectorsToggle.querySelector('i').style.transform = 'rotate(0deg)';
+        mobileSectorsToggle.classList.remove("active");
+        
+        // Also collapse all sector submenus
+        document.querySelectorAll('.sector-menu').forEach(menu => {
+          menu.style.maxHeight = '0px';
+        });
+        document.querySelectorAll('.sector-toggle i').forEach(icon => {
+          icon.style.transform = 'rotate(0deg)';
+        });
+      } else {
+        // Expand main sectors
+        mobileSectors.style.maxHeight = mobileSectors.scrollHeight + 'px';
+        mobileSectorsToggle.querySelector('i').style.transform = 'rotate(180deg)';
+        mobileSectorsToggle.classList.add("active");
+      }
+
+      // Close other dropdowns if opening this one
+      if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+        mobileAbout?.classList.remove("open");
+        mobileCareers?.classList.remove("open");
+        mobileAboutToggle?.classList.remove("active");
+        mobileCareersToggle?.classList.remove("active");
+      }
+    });
+
+    // Toggle Mobile Careers Dropdown (NEW)
+    mobileCareersToggle?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      mobileCareers.classList.toggle("open");
+      mobileCareersToggle.classList.toggle("active");
+
+      // Close other dropdowns if open
+      if (mobileCareers.classList.contains("open")) {
+        mobileAbout?.classList.remove("open");
+        mobileSectors?.classList.remove("open");
+        mobileAboutToggle?.classList.remove("active");
+        mobileSectorsToggle?.classList.remove("active");
+        mobileSectors.style.maxHeight = '0px';
+        mobileSectorsToggle.querySelector('i').style.transform = 'rotate(0deg)';
+        
+        // Close sector submenus
+        document.querySelectorAll('.sector-menu').forEach(menu => {
+          menu.style.maxHeight = '0px';
+        });
+        document.querySelectorAll('.sector-toggle i').forEach(icon => {
+          icon.style.transform = 'rotate(0deg)';
+        });
+      }
+    });
+
+    // Handle sector toggle buttons (submenus)
+    document.querySelectorAll('.sector-toggle').forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const menu = this.nextElementSibling;
+        const icon = this.querySelector('i');
+        
+        // Toggle submenu
+        if (menu.style.maxHeight && menu.style.maxHeight !== '0px') {
+          // Collapse
+          menu.style.maxHeight = '0px';
+          icon.style.transform = 'rotate(0deg)';
+        } else {
+          // Expand
+          menu.style.maxHeight = menu.scrollHeight + 'px';
+          icon.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+
+    // Close mobile dropdowns when clicking on links inside them
+    document.querySelectorAll(".mobile-dropdown a, .sector-menu a").forEach((link) => {
+      link.addEventListener("click", () => {
+        closeAllMobileDropdowns();
+        mobileMenu?.classList.remove("open");
+        if (menuIcon) {
+          menuIcon.classList.remove("fa-times");
+          menuIcon.classList.add("fa-bars");
+        }
+      });
+    });
+
+    // Close menu if clicked outside
+    document.addEventListener("click", function (event) {
+      if (!mobileMenu || !mobileMenuToggle) return;
+
+      const isClickInsideMenu = mobileMenu.contains(event.target);
+      const isClickOnToggle = mobileMenuToggle.contains(event.target);
+
+      if (
+        !isClickInsideMenu &&
+        !isClickOnToggle &&
+        mobileMenu.classList.contains("open")
+      ) {
+        mobileMenu.classList.remove("open");
+        menuIcon.classList.remove("fa-times");
+        menuIcon.classList.add("fa-bars");
+        closeAllMobileDropdowns();
+      }
+    });
+
+    // Desktop dropdown hover functionality
+    const dropdowns = document.querySelectorAll(".dropdown");
+    dropdowns.forEach((dropdown) => {
+      dropdown.addEventListener("mouseenter", () => {
+        const content = dropdown.querySelector(".dropdown-content");
+        if (content) {
+          content.style.opacity = "1";
+          content.style.visibility = "visible";
+          content.style.transform = "translateY(0)";
+        }
+      });
+
+      dropdown.addEventListener("mouseleave", () => {
+        const content = dropdown.querySelector(".dropdown-content");
+        if (content) {
+          content.style.opacity = "0";
+          content.style.visibility = "hidden";
+          content.style.transform = "translateY(-10px)";
+        }
+      });
+    });
+    
+    // Handle window resize - recalculate maxHeight for open menus
+    window.addEventListener('resize', function() {
+      // Recalculate for main sectors dropdown
+      if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+        mobileSectors.style.maxHeight = mobileSectors.scrollHeight + 'px';
+      }
+      
+      // Recalculate for open sector submenus
+      document.querySelectorAll('.sector-menu').forEach(menu => {
+        if (menu.style.maxHeight && menu.style.maxHeight !== '0px') {
+          menu.style.maxHeight = menu.scrollHeight + 'px';
+        }
+      });
+    });
+  });
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        document
+          .getElementById("navbar")
+          ?.classList.toggle("scrolled", window.scrollY > 50);
+      });
+    </script>
+  </body>
+</html>

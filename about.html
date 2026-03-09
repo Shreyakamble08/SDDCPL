@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prospecta BuildX - Building Tomorrow</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="homestyle.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .hero-slider {
+      background-size: cover;
+      background-position: center;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .scroll-container {
+      animation: scroll 20s linear infinite;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Mobile overflow fixes */
+    .mobile-safe {
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+
+    .mobile-responsive-padding {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 1.875rem;
+        /* 30px */
+        line-height: 2.25rem;
+        /* 36px */
+      }
+
+      .section-title {
+        font-size: 2.25rem;
+        /* 36px */
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-title {
+        font-size: 1.5rem;
+        /* 24px */
+        line-height: 2rem;
+        /* 32px */
+      }
+
+      .section-title {
+        font-size: 1.875rem;
+        /* 30px */
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mission-vision-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body class="text-gray-800 mobile-safe">
+  <!-- HEADER -->
+  <div id="header"></div>
+
+  <!-- HERO BANNER - COMPACT WITH BACKGROUND IMAGE -->
+  <section class="relative py-16 overflow-hidden bg-cover bg-center"
+    style="background-image: url('https://images.unsplash.com/photo-1581092795368-7ecdb60dcb7b?auto=format&fit=crop&w=1400&q=80');">
+
+    <!-- Overlay to soften background -->
+    <div class="absolute inset-0 bg-blue-50/50 mix-blend-multiply -z-10"></div>
+
+    <!-- Background Accent Shapes -->
+    <div class="absolute top-0 left-0 w-72 h-72 bg-yellow-200/30 rounded-full -z-10 -translate-x-1/3 -translate-y-1/3">
+    </div>
+    <div class="absolute bottom-0 right-0 w-56 h-56 bg-blue-200/30 rounded-full -z-10 translate-x-1/3 translate-y-1/3">
+    </div>
+
+    <div class="relative max-w-4xl mx-auto px-6 flex flex-col items-center text-center space-y-6">
+
+      <!-- Small Heading -->
+      <span class="text-xs font-semibold text-blue-800 uppercase tracking-wider">About Us</span>
+
+      <!-- Main Heading -->
+      <h1 class="text-3xl sm:text-4xl font-bold text-blue-800 leading-snug">
+        Innovative <span class="text-yellow-400">Construction</span> Solutions
+      </h1>
+
+      <!-- Description -->
+      <p class="text-gray-800 text-sm md:text-base leading-relaxed max-w-md">
+        Delivering modern construction solutions with precision, care, and sustainable focus for residential and
+        commercial projects.
+      </p>
+
+      <!-- Button -->
+      <a href="#about-section"
+        class="inline-block px-6 py-2 bg-blue-700 text-white font-medium rounded-full hover:bg-yellow-400 hover:text-blue-900 transition-colors duration-300">
+        Learn More
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ABOUT US SECTION - BLUE & YELLOW THEME WITH BACKGROUND IMAGE -->
+  <section class="relative py-16 overflow-hidden bg-cover bg-center"
+    style="background-image: url('https://images.unsplash.com/photo-1581092795368-7ecdb60dcb7b?auto=format&fit=crop&w=1400&q=80');">
+
+    <!-- Overlay to soften background -->
+    <div class="absolute inset-0 bg-white/80 -z-10"></div>
+
+    <!-- Background Accent Shapes -->
+    <div class="absolute top-0 left-0 w-72 h-72 bg-blue-100/30 rounded-full -z-10 -translate-x-1/3 -translate-y-1/3">
+    </div>
+    <div
+      class="absolute bottom-0 right-0 w-56 h-56 bg-yellow-100/30 rounded-full -z-10 translate-x-1/3 translate-y-1/3">
+    </div>
+
+    <div class="relative max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+
+      <!-- IMAGE LEFT - SHORT HEIGHT -->
+      <div class="w-full">
+        <div class="rounded-xl overflow-hidden shadow-2xl border-4 border-blue-300 h-64 sm:h-80">
+          <img src="images/why2.png" alt="About Us" class="w-full h-full object-cover object-center">
+        </div>
+      </div>
+
+      <!-- CONTENT RIGHT -->
+      <div class="text-center md:text-left space-y-4">
+        <!-- Small Heading -->
+        <span class="text-xs font-semibold text-blue-700 uppercase tracking-wider">About Us</span>
+
+        <!-- Main Heading -->
+        <h2 class="text-3xl sm:text-4xl font-bold text-blue-900 leading-snug">
+          Building <span class="text-yellow-400">Excellence</span> Every Day
+        </h2>
+
+        <!-- Description Paragraphs -->
+        <p class="text-gray-700 text-sm sm:text-base leading-relaxed">
+          Founded in 2019, <span class="font-semibold text-blue-700">DemoBuild Co.</span> is a forward-thinking
+          construction company delivering innovative and reliable infrastructure solutions. Our work spans Industrial,
+          Commercial, and Residential projects.
+        </p>
+
+        <p class="text-gray-700 text-sm sm:text-base leading-relaxed">
+          We specialize in end-to-end project execution—from design and planning to procurement and
+          construction—ensuring quality, efficiency, and safety at every step.
+        </p>
+
+        <p class="text-gray-700 text-sm sm:text-base leading-relaxed">
+          Our team of experts is committed to delivering excellence, meeting client expectations, and contributing to
+          sustainable urban growth.
+        </p>
+
+        <!-- Call to Action Button -->
+        <a href="#contact-section"
+          class="inline-block mt-4 px-6 py-2 bg-blue-700 text-white font-medium rounded-full hover:bg-yellow-400 hover:text-blue-900 transition-colors duration-300">
+          Learn More
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values -->
+  <section class="py-12 sm:py-20 -mt-8 sm:-mt-16 bg-gradient-to-t from-[#E0F2FF] to-white mobile-responsive-padding">
+    <div class="container mx-auto px-4 text-center">
+      <!-- Heading -->
+      <h2
+        class="section-title text-[#0D2A5B] text-2xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-6xl font-medium mb-4">
+        Our Core Values
+      </h2>
+
+      <p class="text-gray-700 max-w-2xl mx-auto font-light mb-8 sm:mb-12 text-sm sm:text-base">
+        The principles that shape our work, guide our decisions, and define the way we build every project.
+      </p>
+
+      <!-- Values Grid -->
+      <div class="values-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+
+        <!-- CARD 1 -->
+        <div
+          class="value-card group p-4 sm:p-6 bg-white/50 border border-blue-200 rounded-xl backdrop-blur-md transition-all duration-500 hover:-translate-y-2 relative overflow-hidden hover:bg-blue-900 hover:border-yellow-400">
+          <span class="shine"></span>
+          <div
+            class="w-12 h-12 sm:w-14 sm:h-14 mx-auto flex items-center justify-center bg-blue-700 rounded-lg mb-4 group-hover:bg-yellow-400 transition-colors duration-300">
+            <i class="fas fa-shield-alt text-white text-xl sm:text-2xl group-hover:text-blue-900"></i>
+          </div>
+          <h3
+            class="text-blue-900 font-semibold text-base sm:text-lg mb-2 group-hover:text-yellow-400 group-hover:underline group-hover:underline-offset-4 transition-all">
+            Integrity
+          </h3>
+          <p class="text-gray-700 text-xs sm:text-sm group-hover:text-white transition-all">
+            Honest practices, transparent commitments, and work you can trust.
+          </p>
+        </div>
+
+        <!-- CARD 2 -->
+        <div
+          class="value-card group p-4 sm:p-6 bg-white/50 border border-blue-200 rounded-xl backdrop-blur-md transition-all duration-500 hover:-translate-y-2 relative overflow-hidden hover:bg-blue-900 hover:border-yellow-400">
+          <span class="shine"></span>
+          <div
+            class="w-12 h-12 sm:w-14 sm:h-14 mx-auto flex items-center justify-center bg-blue-700 rounded-lg mb-4 group-hover:bg-yellow-400 transition-colors duration-300">
+            <i class="fas fa-hands-helping text-white text-xl sm:text-2xl group-hover:text-blue-900"></i>
+          </div>
+          <h3
+            class="text-blue-900 font-semibold text-base sm:text-lg mb-2 group-hover:text-yellow-400 group-hover:underline group-hover:underline-offset-4 transition-all">
+            Commitment
+          </h3>
+          <p class="text-gray-700 text-xs sm:text-sm group-hover:text-white transition-all">
+            Dedicated to delivering high-quality results—on time, every time.
+          </p>
+        </div>
+
+        <!-- CARD 3 -->
+        <div
+          class="value-card group p-4 sm:p-6 bg-white/50 border border-blue-200 rounded-xl backdrop-blur-md transition-all duration-500 hover:-translate-y-2 relative overflow-hidden hover:bg-blue-900 hover:border-yellow-400">
+          <span class="shine"></span>
+          <div
+            class="w-12 h-12 sm:w-14 sm:h-14 mx-auto flex items-center justify-center bg-blue-700 rounded-lg mb-4 group-hover:bg-yellow-400 transition-colors duration-300">
+            <i class="fas fa-lightbulb text-white text-xl sm:text-2xl group-hover:text-blue-900"></i>
+          </div>
+          <h3
+            class="text-blue-900 font-semibold text-base sm:text-lg mb-2 group-hover:text-yellow-400 group-hover:underline group-hover:underline-offset-4 transition-all">
+            Innovation
+          </h3>
+          <p class="text-gray-700 text-xs sm:text-sm group-hover:text-white transition-all">
+            Adopting modern construction techniques and smarter solutions.
+          </p>
+        </div>
+
+        <!-- CARD 4 -->
+        <div
+          class="value-card group p-4 sm:p-6 bg-white/50 border border-blue-200 rounded-xl backdrop-blur-md transition-all duration-500 hover:-translate-y-2 relative overflow-hidden hover:bg-blue-900 hover:border-yellow-400">
+          <span class="shine"></span>
+          <div
+            class="w-12 h-12 sm:w-14 sm:h-14 mx-auto flex items-center justify-center bg-blue-700 rounded-lg mb-4 group-hover:bg-yellow-400 transition-colors duration-300">
+            <i class="fas fa-users text-white text-xl sm:text-2xl group-hover:text-blue-900"></i>
+          </div>
+          <h3
+            class="text-blue-900 font-semibold text-base sm:text-lg mb-2 group-hover:text-yellow-400 group-hover:underline group-hover:underline-offset-4 transition-all">
+            Teamwork
+          </h3>
+          <p class="text-gray-700 text-xs sm:text-sm group-hover:text-white transition-all">
+            Collaboration that ensures efficiency and smooth project execution.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="py-12 sm:py-20 bg-white relative bg-cover bg-center bg-no-repeat mobile-responsive-padding"
+    style="background-image: url('images/mission.jfif')">
+    <div class="container mx-auto px-4">
+      <!-- OPTIONAL OVERLAY (remove if not needed) -->
+      <div class="absolute inset-0 bg-white/80 pointer-events-none"></div>
+
+      <div class="relative">
+        <!-- Title -->
+        <div class="text-center mb-8 sm:mb-14">
+          <h2
+            class="section-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1A2A4F] flex items-center justify-center gap-2 sm:gap-4 flex-wrap">
+            <span class="h-px w-8 sm:w-14 bg-gray-300"></span>
+            Our Mission & Vision
+            <span class="h-px w-8 sm:w-14 bg-gray-300"></span>
+          </h2>
+          <p class="text-gray-500 text-xs sm:text-sm mt-3 tracking-wide">
+            What drives us today. Where we're headed tomorrow.
+          </p>
+        </div>
+
+        <!-- Cards -->
+        <div class="mission-vision-grid grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          <!-- Mission -->
+          <div
+            class="group relative rounded-2xl border border-gray-200 p-6 sm:p-10 transition-all duration-300 hover:border-gray-400 hover:bg-gray-50/70">
+            <div class="flex gap-4 sm:gap-6 items-start">
+              <div
+                class="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-bullseye text-xl sm:text-2xl text-gray-700"></i>
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3
+                  class="text-base sm:text-lg font-semibold text-gray-900 mb-2 flex items-center gap-2 sm:gap-3 flex-wrap">
+                  MISSION
+                  <span class="h-px flex-1 bg-gray-300 min-w-[50px]"></span>
+                </h3>
+                <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+                  To create exceptional living and working spaces that improve
+                  quality of life while contributing positively to
+                  communities.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vision -->
+          <div
+            class="group relative rounded-2xl border border-gray-200 p-6 sm:p-10 transition-all duration-300 hover:border-gray-400 hover:bg-gray-50/70">
+            <div class="flex gap-4 sm:gap-6 items-start">
+              <div
+                class="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-eye text-xl sm:text-2xl text-gray-700"></i>
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3
+                  class="text-base sm:text-lg font-semibold text-gray-900 mb-2 flex items-center gap-2 sm:gap-3 flex-wrap">
+                  VISION
+                  <span class="h-px flex-1 bg-gray-300 min-w-[50px]"></span>
+                </h3>
+                <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+                  To be the most trusted and innovative real estate developer,
+                  setting new standards in excellence and sustainability.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Foundation of Our Future -->
+  <section class="relative py-12 sm:py-16 text-white overflow-hidden mobile-responsive-padding">
+    <!-- Background Video -->
+    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+      <source src="Images/mission.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-black/60 z-0"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 container mx-auto px-4">
+      <div class="text-center mb-8 sm:mb-12">
+        <!-- Decorative Heading with Lines -->
+        <div class="flex items-center justify-center gap-2 sm:gap-4 mb-4 flex-wrap">
+          <!-- Heading Text -->
+          <h2 class="section-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium">
+            Foundation of Our Future
+          </h2>
+        </div>
+
+        <!-- Subtitle -->
+        <p class="text-lg sm:text-xl max-w-3xl mx-auto font-light">
+          Building tomorrow's communities with today's innovations
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        <!-- Smart Technology -->
+        <div class="text-center">
+          <div
+            class="bg-white/10 w-16 h-16 sm:w-20 sm:h-20 border border-cream rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+            <i class="fas fa-brain text-2xl sm:text-3xl"></i>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-semibold mb-4">
+            Smart Technology
+          </h3>
+          <p class="text-white/70 text-sm sm:text-base">
+            Integrating IoT, AI, and smart home solutions for enhanced living
+            experiences
+          </p>
+        </div>
+
+        <!-- Green Future -->
+        <div class="text-center">
+          <div
+            class="bg-white/10 w-16 h-16 sm:w-20 sm:h-20 border border-cream rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+            <i class="fas fa-seedling text-2xl sm:text-3xl"></i>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-semibold mb-4">Green Future</h3>
+          <p class="text-white/70 text-sm sm:text-base">
+            Carbon-neutral developments with renewable energy and sustainable
+            materials
+          </p>
+        </div>
+
+        <!-- Community Focus -->
+        <div class="text-center">
+          <div
+            class="bg-white/10 w-16 h-16 sm:w-20 sm:h-20 border border-cream rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+            <i class="fas fa-users text-2xl sm:text-3xl"></i>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-semibold mb-4">
+            Community Focus
+          </h3>
+          <p class="ttext-white/70 text-sm sm:text-base">
+            Creating vibrant communities that foster connection, wellness, and
+            shared prosperity
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="relative text-white py-12 overflow-hidden 
+bg-gradient-to-b from-[#0E1B3D] via-[#11224E] to-[#0A1530]">
+
+    <!-- Background shapes -->
+    <div class="absolute top-0 right-0 w-72 h-72 bg-yellow-400/20 blur-3xl rounded-full"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-blue-400/10 blur-3xl rounded-full"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+
+        <!-- Company -->
+        <div>
+          <div class="mb-5">
+            <img src="Images/Sdcpl logo.png" alt="logo" class="h-24 object-contain">
+          </div>
+
+          <p class="text-gray-300 text-sm leading-relaxed mb-5">
+            Delivering innovative infrastructure and construction solutions
+            with a commitment to quality, reliability, and engineering excellence.
+          </p>
+
+          <div class="flex gap-3">
+
+            <a href="#"
+              class="w-9 h-9 bg-[#162B5B] rounded-md flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+
+            <a href="#"
+              class="w-9 h-9 bg-[#162B5B] rounded-md flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+              <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="#"
+              class="w-9 h-9 bg-[#162B5B] rounded-md flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+
+          </div>
+        </div>
+
+
+        <!-- Explore -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4 border-l-4 border-yellow-400 pl-3">
+            Explore
+          </h3>
+
+          <ul class="space-y-2 text-sm">
+
+            <li><a href="index.html" class="text-gray-300 hover:text-yellow-400 transition">Home</a></li>
+            <li><a href="about.html" class="text-gray-300 hover:text-yellow-400 transition">About</a></li>
+            <li><a href="projects.html" class="text-gray-300 hover:text-yellow-400 transition">Projects</a></li>
+            <li><a href="interior.html" class="text-gray-300 hover:text-yellow-400 transition">Interior Design</a></li>
+            <li><a href="gallery.html" class="text-gray-300 hover:text-yellow-400 transition">Gallery</a></li>
+            <li><a href="contact.html" class="text-gray-300 hover:text-yellow-400 transition">Contact</a></li>
+
+          </ul>
+        </div>
+
+
+        <!-- Sectors -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4 border-l-4 border-yellow-400 pl-3">
+            Sectors
+          </h3>
+
+          <ul class="space-y-2 text-sm">
+
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Residential</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Commercial</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Industrial</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Institutional</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Infrastructure</a></li>
+
+          </ul>
+        </div>
+
+
+        <!-- Contact -->
+        <div>
+
+          <h3 class="text-lg font-semibold mb-4 border-l-4 border-yellow-400 pl-3">
+            Contact
+          </h3>
+
+          <div class="space-y-4 text-sm text-gray-300">
+
+            <div class="flex gap-3 items-start">
+              <i class="fas fa-map-marker-alt text-yellow-400 mt-1"></i>
+              <a href="https://www.google.com/maps/place/C-803,+Amar+Business+Zone,+Baner,+Pune+411045" target="_blank"
+                class="hover:text-yellow-400 transition">
+                B-400 Amar Business Zone, Baner, Pune – 411047
+              </a>
+            </div>
+
+            <div class="flex gap-3 items-center">
+              <i class="fas fa-phone text-yellow-400"></i>
+              <a href="tel:+919549543838" class="hover:text-yellow-400 transition">
+                +91 95495 53538
+              </a>
+            </div>
+
+            <div class="flex gap-3 items-center">
+              <i class="fas fa-envelope text-yellow-400"></i>
+              <a href="mailto:info@sddcpl.com" class="hover:text-yellow-400 transition">
+                info@sddcpl.com
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Bottom -->
+      <div
+        class="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+
+        <span>
+          © 2025 SDDCPL. All rights reserved.Developed by Kunash Media.
+        </span>
+
+        <div class="flex gap-5 mt-3 md:mt-0">
+
+          <a href="#" class="hover:text-yellow-400 transition">Privacy</a>
+          <a href="#" class="hover:text-yellow-400 transition">Terms</a>
+          <a href="#" class="hover:text-yellow-400 transition">Sitemap</a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </footer>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script>
+    //header js
+    // Load header.html and then initialize header JS
+    fetch("header.html")
+      .then((res) => res.text())
+      .then((data) => {
+        document.getElementById("header").innerHTML = data;
+
+        // ✅ Elements
+        const mobileMenuToggle =
+          document.getElementById("mobile-menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const menuIcon = document.getElementById("menu-icon");
+
+        const mobileAboutToggle = document.getElementById(
+          "mobile-about-toggle"
+        );
+        const mobileAbout = document.getElementById("mobile-about");
+        const mobileSectorsToggle = document.getElementById(
+          "mobile-sectors-toggle"
+        );
+        const mobileSectors = document.getElementById("mobile-sectors");
+        const mobileCareersToggle = document.getElementById(
+          "mobile-careers-toggle"
+        );
+        const mobileCareers = document.getElementById("mobile-careers");
+
+        // Function to close all mobile dropdowns
+        function closeAllMobileDropdowns() {
+          mobileAbout?.classList.remove("open");
+          mobileSectors?.classList.remove("open");
+          mobileCareers?.classList.remove("open");
+          mobileAboutToggle?.classList.remove("active");
+          mobileSectorsToggle?.classList.remove("active");
+          mobileCareersToggle?.classList.remove("active");
+
+          // Also close all sector submenus
+          document.querySelectorAll('.sector-menu').forEach(menu => {
+            menu.style.maxHeight = '0px';
+          });
+          document.querySelectorAll('.sector-toggle i').forEach(icon => {
+            icon.style.transform = 'rotate(0deg)';
+          });
+        }
+
+        // Toggle Mobile Menu
+        mobileMenuToggle?.addEventListener("click", (e) => {
+          e.stopPropagation();
+          mobileMenu.classList.toggle("open");
+
+          if (mobileMenu.classList.contains("open")) {
+            menuIcon.classList.remove("fa-bars");
+            menuIcon.classList.add("fa-times");
+          } else {
+            menuIcon.classList.remove("fa-times");
+            menuIcon.classList.add("fa-bars");
+            closeAllMobileDropdowns();
+          }
+        });
+
+        // Toggle Mobile About Dropdown
+        mobileAboutToggle?.addEventListener("click", (e) => {
+          e.stopPropagation();
+          mobileAbout.classList.toggle("open");
+          mobileAboutToggle.classList.toggle("active");
+
+          // Close other dropdowns if open
+          if (mobileAbout.classList.contains("open")) {
+            mobileSectors?.classList.remove("open");
+            mobileCareers?.classList.remove("open");
+            mobileSectorsToggle?.classList.remove("active");
+            mobileCareersToggle?.classList.remove("active");
+
+            // Close sector submenus
+            document.querySelectorAll('.sector-menu').forEach(menu => {
+              menu.style.maxHeight = '0px';
+            });
+            document.querySelectorAll('.sector-toggle i').forEach(icon => {
+              icon.style.transform = 'rotate(0deg)';
+            });
+          }
+        });
+
+        // Toggle Mobile Sectors Dropdown
+        mobileSectorsToggle?.addEventListener("click", (e) => {
+          e.stopPropagation();
+
+          // Toggle main sectors dropdown
+          if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+            // Collapse main sectors
+            mobileSectors.style.maxHeight = '0px';
+            mobileSectorsToggle.querySelector('i').style.transform = 'rotate(0deg)';
+            mobileSectorsToggle.classList.remove("active");
+
+            // Also collapse all sector submenus
+            document.querySelectorAll('.sector-menu').forEach(menu => {
+              menu.style.maxHeight = '0px';
+            });
+            document.querySelectorAll('.sector-toggle i').forEach(icon => {
+              icon.style.transform = 'rotate(0deg)';
+            });
+          } else {
+            // Expand main sectors
+            mobileSectors.style.maxHeight = mobileSectors.scrollHeight + 'px';
+            mobileSectorsToggle.querySelector('i').style.transform = 'rotate(180deg)';
+            mobileSectorsToggle.classList.add("active");
+          }
+
+          // Close other dropdowns if opening this one
+          if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+            mobileAbout?.classList.remove("open");
+            mobileCareers?.classList.remove("open");
+            mobileAboutToggle?.classList.remove("active");
+            mobileCareersToggle?.classList.remove("active");
+          }
+        });
+
+        // Toggle Mobile Careers Dropdown (NEW)
+        mobileCareersToggle?.addEventListener("click", (e) => {
+          e.stopPropagation();
+          mobileCareers.classList.toggle("open");
+          mobileCareersToggle.classList.toggle("active");
+
+          // Close other dropdowns if open
+          if (mobileCareers.classList.contains("open")) {
+            mobileAbout?.classList.remove("open");
+            mobileSectors?.classList.remove("open");
+            mobileAboutToggle?.classList.remove("active");
+            mobileSectorsToggle?.classList.remove("active");
+            mobileSectors.style.maxHeight = '0px';
+            mobileSectorsToggle.querySelector('i').style.transform = 'rotate(0deg)';
+
+            // Close sector submenus
+            document.querySelectorAll('.sector-menu').forEach(menu => {
+              menu.style.maxHeight = '0px';
+            });
+            document.querySelectorAll('.sector-toggle i').forEach(icon => {
+              icon.style.transform = 'rotate(0deg)';
+            });
+          }
+        });
+
+        // Handle sector toggle buttons (submenus)
+        document.querySelectorAll('.sector-toggle').forEach(button => {
+          button.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const menu = this.nextElementSibling;
+            const icon = this.querySelector('i');
+
+            // Toggle submenu
+            if (menu.style.maxHeight && menu.style.maxHeight !== '0px') {
+              // Collapse
+              menu.style.maxHeight = '0px';
+              icon.style.transform = 'rotate(0deg)';
+            } else {
+              // Expand
+              menu.style.maxHeight = menu.scrollHeight + 'px';
+              icon.style.transform = 'rotate(180deg)';
+            }
+          });
+        });
+
+        // Close mobile dropdowns when clicking on links inside them
+        document.querySelectorAll(".mobile-dropdown a, .sector-menu a").forEach((link) => {
+          link.addEventListener("click", () => {
+            closeAllMobileDropdowns();
+            mobileMenu?.classList.remove("open");
+            if (menuIcon) {
+              menuIcon.classList.remove("fa-times");
+              menuIcon.classList.add("fa-bars");
+            }
+          });
+        });
+
+        // Close menu if clicked outside
+        document.addEventListener("click", function (event) {
+          if (!mobileMenu || !mobileMenuToggle) return;
+
+          const isClickInsideMenu = mobileMenu.contains(event.target);
+          const isClickOnToggle = mobileMenuToggle.contains(event.target);
+
+          if (
+            !isClickInsideMenu &&
+            !isClickOnToggle &&
+            mobileMenu.classList.contains("open")
+          ) {
+            mobileMenu.classList.remove("open");
+            menuIcon.classList.remove("fa-times");
+            menuIcon.classList.add("fa-bars");
+            closeAllMobileDropdowns();
+          }
+        });
+
+        // Desktop dropdown hover functionality
+        const dropdowns = document.querySelectorAll(".dropdown");
+        dropdowns.forEach((dropdown) => {
+          dropdown.addEventListener("mouseenter", () => {
+            const content = dropdown.querySelector(".dropdown-content");
+            if (content) {
+              content.style.opacity = "1";
+              content.style.visibility = "visible";
+              content.style.transform = "translateY(0)";
+            }
+          });
+
+          dropdown.addEventListener("mouseleave", () => {
+            const content = dropdown.querySelector(".dropdown-content");
+            if (content) {
+              content.style.opacity = "0";
+              content.style.visibility = "hidden";
+              content.style.transform = "translateY(-10px)";
+            }
+          });
+        });
+
+        // Handle window resize - recalculate maxHeight for open menus
+        window.addEventListener('resize', function () {
+          // Recalculate for main sectors dropdown
+          if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+            mobileSectors.style.maxHeight = mobileSectors.scrollHeight + 'px';
+          }
+
+          // Recalculate for open sector submenus
+          document.querySelectorAll('.sector-menu').forEach(menu => {
+            if (menu.style.maxHeight && menu.style.maxHeight !== '0px') {
+              menu.style.maxHeight = menu.scrollHeight + 'px';
+            }
+          });
+        });
+      });
+
+    // Navbar scroll effect
+    window.addEventListener("scroll", () => {
+      document
+        .getElementById("navbar")
+        ?.classList.toggle("scrolled", window.scrollY > 50);
+    });
+  </script>
+</body>
+
+</html>

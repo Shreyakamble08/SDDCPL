@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prospecta BuildX - Building Tomorrow</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="homestyle.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .fade-up {
+            animation: fadeUp 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+            opacity: 0;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+            opacity: 0;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+
+    <!-- INTERIOR DESIGN LANDING PAGE - NO HEADER, BLUE & YELLOW THEME -->
+    <main class="overflow-hidden">
+
+        <!-- HEADER -->
+        <div id="header"></div>
+
+        <!-- HERO SECTION - minimal, full bleed -->
+        <section
+            class="relative min-h-screen flex items-center bg-gradient-to-br from-[#0A2647] via-[#1A365D] to-[#2C4A7F] overflow-hidden">
+            <!-- Abstract geometric shapes (yellow accents) -->
+            <div class="absolute inset-0 opacity-20">
+                <div class="absolute top-20 left-10 w-64 h-64 border border-[#FBBF24] rounded-full"></div>
+                <div class="absolute bottom-20 right-10 w-96 h-96 border border-[#FBBF24] rounded-full"></div>
+                <div class="absolute top-1/2 left-1/3 w-32 h-32 bg-[#FBBF24] blur-3xl"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="relative container mx-auto px-6 md:px-12 z-10">
+                <div class="max-w-3xl">
+                    <!-- Minimal label -->
+                    <div class="flex items-center gap-3 mb-6 fade-up">
+                        <div class="w-12 h-[2px] bg-[#FBBF24]"></div>
+                        <span class="text-[#FBBF24] text-sm tracking-[0.3em] font-light">INTERIOR DESIGN</span>
+                    </div>
+
+                    <!-- Main headline - light + bold contrast -->
+                    <h1 class="text-5xl md:text-7xl font-light text-white leading-tight fade-up delay-1">
+                        spaces that
+                        <span class="block font-bold text-[#FBBF24] mt-2">breathe</span>
+                    </h1>
+
+                    <!-- Description -->
+                    <p
+                        class="text-white/70 text-lg md:text-xl max-w-xl mt-8 leading-relaxed font-light fade-up delay-2">
+                        Minimalist interiors · warm accents · timeless elegance. We craft environments where blue meets
+                        yellow in perfect harmony.
+                    </p>
+
+                    <!-- CTA - minimal line button -->
+                    <div class="mt-12 fade-up delay-3">
+                        <a href="#discover" class="inline-flex items-center gap-4 text-white group">
+                            <span class="text-sm tracking-widest uppercase">discover</span>
+                            <div class="w-12 h-px bg-[#FBBF24] group-hover:w-20 transition-all duration-300"></div>
+                            <i class="fas fa-arrow-right text-[#FBBF24] text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floating yellow accent (bottom right) -->
+            <div class="absolute bottom-10 right-10 text-[#FBBF24]/20 text-8xl font-light rotate-12">✧</div>
+        </section>
+
+        <!-- PHILOSOPHY SECTION - Modern Feature Layout -->
+        <section class="py-20 bg-white" id="discover">
+            <div class="container mx-auto px-6 md:px-12 max-w-6xl">
+
+                <!-- Section Header (shifted slightly upward) -->
+                <div class="max-w-2xl mb-14">
+                    <span
+                        class="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-[#0A2647] text-xs font-semibold tracking-wider uppercase mb-4 border border-blue-100">
+                        <i class="fas fa-circle text-[#FBBF24] mr-1 text-[8px]"></i> our philosophy
+                    </span>
+
+                    <h2 class="text-4xl md:text-5xl font-light text-[#0A2647] leading-tight">
+                        where blue <span class="font-bold text-[#FBBF24]">meets</span> yellow
+                    </h2>
+
+                    <div class="w-16 h-[2px] bg-[#FBBF24]/60 mt-6"></div>
+                </div>
+
+                <!-- Philosophy Blocks -->
+                <div class="grid md:grid-cols-2 gap-10">
+
+                    <!-- Card 1 -->
+                    <div
+                        class="flex items-start gap-6 bg-blue-50/40 p-8 rounded-2xl border border-blue-100 hover:shadow-md transition">
+
+                        <div
+                            class="w-14 h-14 flex items-center justify-center rounded-xl bg-[#FBBF24]/10 text-[#FBBF24] text-xl">
+                            <i class="fas fa-feather"></i>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-semibold text-[#0A2647] mb-2">
+                                Lightness
+                            </h3>
+
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Airy spaces, natural lighting, and clean structural lines create environments that feel
+                                open, calm, and balanced.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div
+                        class="flex items-start gap-6 bg-[#0A2647]/5 p-8 rounded-2xl border border-[#0A2647]/10 hover:shadow-md transition">
+
+                        <div
+                            class="w-14 h-14 flex items-center justify-center rounded-xl bg-[#0A2647]/10 text-[#0A2647] text-xl">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-semibold text-[#0A2647] mb-2">
+                                Depth
+                            </h3>
+
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Strong structural foundations combined with thoughtful material selection create lasting
+                                architectural value.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div
+                        class="flex items-start gap-6 bg-gradient-to-br from-yellow-50 to-blue-50 p-8 rounded-2xl border border-yellow-100 hover:shadow-md transition">
+
+                        <div
+                            class="w-14 h-14 flex items-center justify-center rounded-xl bg-[#FBBF24]/10 text-[#FBBF24] text-xl">
+                            <i class="fas fa-sun"></i>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-semibold text-[#0A2647] mb-2">
+                                Warmth
+                            </h3>
+
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Yellow accents bring energy and optimism to spaces, balancing the calm tones of blue
+                                architecture.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div
+                        class="flex items-start gap-6 bg-blue-50/40 p-8 rounded-2xl border border-blue-100 hover:shadow-md transition">
+
+                        <div
+                            class="w-14 h-14 flex items-center justify-center rounded-xl bg-[#0A2647]/10 text-[#0A2647] text-xl">
+                            <i class="fas fa-compass"></i>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-semibold text-[#0A2647] mb-2">
+                                Precision
+                            </h3>
+
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                Every project reflects careful engineering, accurate execution, and a commitment to
+                                long-term durability.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FEATURED PROJECT - large image + text (alternating) -->
+        <section class="pb-24 md:pb-32">
+            <div class="container mx-auto px-6 md:px-12 max-w-7xl">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <!-- Image side - abstract blue/yellow composition -->
+                    <div class="relative order-2 lg:order-1">
+                        <div class="relative rounded-3xl overflow-hidden aspect-[4/3] bg-[#0A2647] shadow-2xl">
+                            <!-- abstract interior representation -->
+                            <svg class="w-full h-full" viewBox="0 0 600 450" preserveAspectRatio="none">
+                                <rect width="600" height="450" fill="#0A2647" />
+                                <!-- window / frame -->
+                                <rect x="100" y="100" width="150" height="220" fill="#FBBF24" fill-opacity="0.15" />
+                                <rect x="350" y="150" width="120" height="200" fill="#FBBF24" fill-opacity="0.2" />
+                                <!-- floor line -->
+                                <path d="M50 380 L550 380" stroke="#FBBF24" stroke-width="4" stroke-dasharray="8 8"
+                                    stroke-opacity="0.3" />
+                                <!-- furniture abstract -->
+                                <circle cx="200" cy="320" r="30" fill="#FBBF24" fill-opacity="0.2" />
+                                <rect x="400" y="300" width="100" height="20" fill="#FBBF24" fill-opacity="0.2" />
+                            </svg>
+                            <!-- yellow overlay badge -->
+                            <div
+                                class="absolute bottom-6 left-6 bg-[#FBBF24] text-[#0A2647] px-5 py-2 rounded-full text-sm font-medium">
+                                living room concept
+                            </div>
+                        </div>
+                        <!-- floating yellow element -->
+                        <div class="absolute -top-4 -right-4 w-24 h-24 bg-[#FBBF24]/20 rounded-full blur-2xl -z-10">
+                        </div>
+                    </div>
+
+                    <!-- Text side -->
+                    <div class="order-1 lg:order-2 space-y-6">
+                        <span
+                            class="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-[#0A2647] text-xs font-semibold tracking-wider uppercase border border-blue-100">
+                            <i class="fas fa-star text-[#FBBF24] mr-1"></i> featured project
+                        </span>
+                        <h3 class="text-4xl md:text-5xl font-light text-[#0A2647]">the <span
+                                class="font-bold text-[#FBBF24]">amber</span> residence</h3>
+                        <p class="text-gray-500 leading-relaxed max-w-md">A study in contrasts: deep blue walls with
+                            warm yellow accents, raw concrete softened by natural oak. This Mumbai apartment reimagines
+                            urban living through a minimalist lens.</p>
+                        <div class="grid grid-cols-2 gap-6 pt-4">
+                            <div>
+                                <div class="text-xs text-gray-400 uppercase tracking-wider">area</div>
+                                <div class="text-2xl font-light text-[#0A2647]">2,800 <span class="text-sm">sq ft</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="text-xs text-gray-400 uppercase tracking-wider">year</div>
+                                <div class="text-2xl font-light text-[#FBBF24]">2026</div>
+                            </div>
+                        </div>
+                        <!-- minimal divider line -->
+                        <div class="w-full h-px bg-blue-100 my-6"></div>
+                        <div class="flex items-center gap-6">
+                            <div class="flex -space-x-2">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-[#FBBF24]/20 border-2 border-white flex items-center justify-center text-[#0A2647] text-xs">
+                                    JD</div>
+                                <div
+                                    class="w-10 h-10 rounded-full bg-[#0A2647]/20 border-2 border-white flex items-center justify-center text-[#0A2647] text-xs">
+                                    AK</div>
+                            </div>
+                            <span class="text-sm text-gray-500">design team · dummy credits</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES GRID - minimal cards -->
+        <section class="py-12 bg-blue-50/30 relative overflow-hidden">
+
+            <!-- background shapes -->
+            <div class="absolute -top-24 -left-24 w-96 h-96 bg-[#FBBF24]/20 rounded-full blur-3xl"></div>
+            <div class="absolute top-1/2 -right-32 w-[420px] h-[420px] bg-[#0A2647]/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-1/3 w-72 h-72 bg-[#FBBF24]/10 rounded-full blur-2xl"></div>
+
+            <div class="container mx-auto px-6 md:px-12 max-w-7xl relative z-10">
+
+                <!-- header -->
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span
+                        class="inline-block px-4 py-1.5 rounded-full bg-[#FBBF24]/10 text-[#0A2647] text-xs font-semibold tracking-wider uppercase mb-3 border border-[#FBBF24]/20">
+                        <i class="fas fa-compass mr-2 text-[#FBBF24]"></i> what we do
+                    </span>
+                    <h2 class="text-4xl md:text-5xl font-light text-[#0A2647]">
+                        design <span class="font-bold text-[#FBBF24]">services</span>
+                    </h2>
+                </div>
+
+                <!-- service cards -->
+                <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+
+                    <!-- service 1 -->
+                    <div class="bg-white p-8 rounded-3xl border border-blue-100 hover:shadow-xl transition-all group">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-[#FBBF24] text-[#0A2647] flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition-transform">
+                            01</div>
+                        <h3 class="text-xl font-medium text-[#0A2647] mb-3">interior architecture</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Spatial planning, volume manipulation, and
+                            structural interventions — the bones of every project.</p>
+                    </div>
+
+                    <!-- service 2 -->
+                    <div class="bg-white p-8 rounded-3xl border border-blue-100 hover:shadow-xl transition-all group">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-[#0A2647] text-[#FBBF24] flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition-transform">
+                            02</div>
+                        <h3 class="text-xl font-medium text-[#0A2647] mb-3">furniture design</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Custom pieces — from sofas to lighting —
+                            designed to fit your space and your story.</p>
+                    </div>
+
+                    <!-- service 3 -->
+                    <div class="bg-white p-8 rounded-3xl border border-blue-100 hover:shadow-xl transition-all group">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-[#FBBF24] text-[#0A2647] flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition-transform">
+                            03</div>
+                        <h3 class="text-xl font-medium text-[#0A2647] mb-3">styling & curation</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">The final layer — art, objects, textiles. We
+                            curate pieces that add warmth and personality.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO GRID - image placeholders (abstract) -->
+        <section class="py-12 md:py-14 bg-white">
+            <div class="container mx-auto px-6 md:px-12 max-w-7xl">
+
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span
+                        class="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-[#0A2647] text-xs font-semibold tracking-wider uppercase mb-3 border border-blue-100">
+                        <i class="fas fa-camera mr-2 text-[#FBBF24]"></i> recent work
+                    </span>
+
+                    <h2 class="text-3xl md:text-4xl font-light text-[#0A2647]">
+                        selected <span class="font-bold text-[#FBBF24]">interiors</span>
+                    </h2>
+                </div>
+
+                <!-- Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <!-- item 1 -->
+                    <div class="group relative aspect-square rounded-3xl overflow-hidden bg-[#0A2647]">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-tr from-[#FBBF24]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                        </div>
+
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <svg class="w-32 h-32 opacity-30" viewBox="0 0 100 100">
+                                <rect x="20" y="30" width="60" height="40" fill="#FBBF24" fill-opacity="0.3" />
+                                <circle cx="50" cy="50" r="15" fill="#FBBF24" fill-opacity="0.2" />
+                            </svg>
+                        </div>
+
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h4 class="text-lg font-light">sky lounge</h4>
+                            <p class="text-xs text-white/60">dummy project</p>
+                        </div>
+                    </div>
+
+                    <!-- item 2 -->
+                    <div class="group relative aspect-square rounded-3xl overflow-hidden bg-[#FBBF24]">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-bl from-[#0A2647]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
+
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <svg class="w-32 h-32 opacity-30" viewBox="0 0 100 100">
+                                <rect x="20" y="20" width="60" height="60" fill="#0A2647" fill-opacity="0.3" />
+                            </svg>
+                        </div>
+
+                        <div class="absolute bottom-6 left-6 text-[#0A2647]">
+                            <h4 class="text-lg font-light">ochre house</h4>
+                            <p class="text-xs text-[#0A2647]/60">dummy project</p>
+                        </div>
+                    </div>
+
+                    <!-- item 3 -->
+                    <div class="group relative aspect-square rounded-3xl overflow-hidden bg-[#1A365D]">
+                        <div
+                            class="absolute inset-0 bg-[#FBBF24]/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
+
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <svg class="w-32 h-32 opacity-30" viewBox="0 0 100 100">
+                                <line x1="20" y1="20" x2="80" y2="80" stroke="#FBBF24" stroke-width="4" />
+                                <line x1="80" y1="20" x2="20" y2="80" stroke="#FBBF24" stroke-width="4" />
+                            </svg>
+                        </div>
+
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h4 class="text-lg font-light">cobalt studio</h4>
+                            <p class="text-xs text-white/60">dummy project</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="relative text-white py-12 overflow-hidden 
+bg-gradient-to-b from-[#0E1B3D] via-[#11224E] to-[#0A1530]">
+
+        <!-- Background shapes -->
+        <div class="absolute top-0 right-0 w-72 h-72 bg-yellow-400/20 blur-3xl rounded-full"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-blue-400/10 blur-3xl rounded-full"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+
+                <!-- Company -->
+                <div>
+                    <div class="mb-5">
+                        <img src="Images/Sdcpl logo.png" alt="logo" class="h-24 object-contain">
+                    </div>
+
+                    <p class="text-gray-300 text-sm leading-relaxed mb-5">
+                        Delivering innovative infrastructure and construction solutions
+                        with a commitment to quality, reliability, and engineering excellence.
+                    </p>
+
+                    <div class="flex gap-3">
+
+                        <a href="#"
+                            class="w-9 h-9 bg-[#162B5B] rounded-md flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+
+                        <a href="#"
+                            class="w-9 h-9 bg-[#162B5B] rounded-md flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                        <a href="#"
+                            class="w-9 h-9 bg-[#162B5B] rounded-md flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+
+                <!-- Explore -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 border-l-4 border-yellow-400 pl-3">
+                        Explore
+                    </h3>
+
+                    <ul class="space-y-2 text-sm">
+
+                        <li><a href="index.html" class="text-gray-300 hover:text-yellow-400 transition">Home</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-yellow-400 transition">About</a></li>
+                        <li><a href="projects.html" class="text-gray-300 hover:text-yellow-400 transition">Projects</a>
+                        </li>
+                        <li><a href="interior.html" class="text-gray-300 hover:text-yellow-400 transition">Interior
+                                Design</a></li>
+                        <li><a href="gallery.html" class="text-gray-300 hover:text-yellow-400 transition">Gallery</a>
+                        </li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-yellow-400 transition">Contact</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+
+                <!-- Sectors -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 border-l-4 border-yellow-400 pl-3">
+                        Sectors
+                    </h3>
+
+                    <ul class="space-y-2 text-sm">
+
+                        <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Residential</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Commercial</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Industrial</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Institutional</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Infrastructure</a></li>
+
+                    </ul>
+                </div>
+
+
+                <!-- Contact -->
+                <div>
+
+                    <h3 class="text-lg font-semibold mb-4 border-l-4 border-yellow-400 pl-3">
+                        Contact
+                    </h3>
+
+                    <div class="space-y-4 text-sm text-gray-300">
+
+                        <div class="flex gap-3 items-start">
+                            <i class="fas fa-map-marker-alt text-yellow-400 mt-1"></i>
+                            <a href="https://www.google.com/maps/place/C-803,+Amar+Business+Zone,+Baner,+Pune+411045"
+                                target="_blank" class="hover:text-yellow-400 transition">
+                                B-400 Amar Business Zone, Baner, Pune – 411047
+                            </a>
+                        </div>
+
+                        <div class="flex gap-3 items-center">
+                            <i class="fas fa-phone text-yellow-400"></i>
+                            <a href="tel:+919549543838" class="hover:text-yellow-400 transition">
+                                +91 95495 53538
+                            </a>
+                        </div>
+
+                        <div class="flex gap-3 items-center">
+                            <i class="fas fa-envelope text-yellow-400"></i>
+                            <a href="mailto:info@sddcpl.com" class="hover:text-yellow-400 transition">
+                                info@sddcpl.com
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Bottom -->
+            <div
+                class="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+
+                <span>
+                    © 2025 SDDCPL. All rights reserved.Developed by Kunash Media.
+                </span>
+
+                <div class="flex gap-5 mt-3 md:mt-0">
+
+                    <a href="#" class="hover:text-yellow-400 transition">Privacy</a>
+                    <a href="#" class="hover:text-yellow-400 transition">Terms</a>
+                    <a href="#" class="hover:text-yellow-400 transition">Sitemap</a>
+
+                </div>
+
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        // Load header.html and then initialize header JS
+        //header js
+        // Load header.html and then initialize header JS
+        fetch("header.html")
+            .then((res) => res.text())
+            .then((data) => {
+                document.getElementById("header").innerHTML = data;
+
+                // ✅ Elements
+                const mobileMenuToggle =
+                    document.getElementById("mobile-menu-toggle");
+                const mobileMenu = document.getElementById("mobile-menu");
+                const menuIcon = document.getElementById("menu-icon");
+
+                const mobileAboutToggle = document.getElementById(
+                    "mobile-about-toggle"
+                );
+                const mobileAbout = document.getElementById("mobile-about");
+                const mobileSectorsToggle = document.getElementById(
+                    "mobile-sectors-toggle"
+                );
+                const mobileSectors = document.getElementById("mobile-sectors");
+                const mobileCareersToggle = document.getElementById(
+                    "mobile-careers-toggle"
+                );
+                const mobileCareers = document.getElementById("mobile-careers");
+
+                // Function to close all mobile dropdowns
+                function closeAllMobileDropdowns() {
+                    mobileAbout?.classList.remove("open");
+                    mobileSectors?.classList.remove("open");
+                    mobileCareers?.classList.remove("open");
+                    mobileAboutToggle?.classList.remove("active");
+                    mobileSectorsToggle?.classList.remove("active");
+                    mobileCareersToggle?.classList.remove("active");
+
+                    // Also close all sector submenus
+                    document.querySelectorAll('.sector-menu').forEach(menu => {
+                        menu.style.maxHeight = '0px';
+                    });
+                    document.querySelectorAll('.sector-toggle i').forEach(icon => {
+                        icon.style.transform = 'rotate(0deg)';
+                    });
+                }
+
+                // Toggle Mobile Menu
+                mobileMenuToggle?.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    mobileMenu.classList.toggle("open");
+
+                    if (mobileMenu.classList.contains("open")) {
+                        menuIcon.classList.remove("fa-bars");
+                        menuIcon.classList.add("fa-times");
+                    } else {
+                        menuIcon.classList.remove("fa-times");
+                        menuIcon.classList.add("fa-bars");
+                        closeAllMobileDropdowns();
+                    }
+                });
+
+                // Toggle Mobile About Dropdown
+                mobileAboutToggle?.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    mobileAbout.classList.toggle("open");
+                    mobileAboutToggle.classList.toggle("active");
+
+                    // Close other dropdowns if open
+                    if (mobileAbout.classList.contains("open")) {
+                        mobileSectors?.classList.remove("open");
+                        mobileCareers?.classList.remove("open");
+                        mobileSectorsToggle?.classList.remove("active");
+                        mobileCareersToggle?.classList.remove("active");
+
+                        // Close sector submenus
+                        document.querySelectorAll('.sector-menu').forEach(menu => {
+                            menu.style.maxHeight = '0px';
+                        });
+                        document.querySelectorAll('.sector-toggle i').forEach(icon => {
+                            icon.style.transform = 'rotate(0deg)';
+                        });
+                    }
+                });
+
+                // Toggle Mobile Sectors Dropdown
+                mobileSectorsToggle?.addEventListener("click", (e) => {
+                    e.stopPropagation();
+
+                    // Toggle main sectors dropdown
+                    if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+                        // Collapse main sectors
+                        mobileSectors.style.maxHeight = '0px';
+                        mobileSectorsToggle.querySelector('i').style.transform = 'rotate(0deg)';
+                        mobileSectorsToggle.classList.remove("active");
+
+                        // Also collapse all sector submenus
+                        document.querySelectorAll('.sector-menu').forEach(menu => {
+                            menu.style.maxHeight = '0px';
+                        });
+                        document.querySelectorAll('.sector-toggle i').forEach(icon => {
+                            icon.style.transform = 'rotate(0deg)';
+                        });
+                    } else {
+                        // Expand main sectors
+                        mobileSectors.style.maxHeight = mobileSectors.scrollHeight + 'px';
+                        mobileSectorsToggle.querySelector('i').style.transform = 'rotate(180deg)';
+                        mobileSectorsToggle.classList.add("active");
+                    }
+
+                    // Close other dropdowns if opening this one
+                    if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+                        mobileAbout?.classList.remove("open");
+                        mobileCareers?.classList.remove("open");
+                        mobileAboutToggle?.classList.remove("active");
+                        mobileCareersToggle?.classList.remove("active");
+                    }
+                });
+
+                // Toggle Mobile Careers Dropdown (NEW)
+                mobileCareersToggle?.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    mobileCareers.classList.toggle("open");
+                    mobileCareersToggle.classList.toggle("active");
+
+                    // Close other dropdowns if open
+                    if (mobileCareers.classList.contains("open")) {
+                        mobileAbout?.classList.remove("open");
+                        mobileSectors?.classList.remove("open");
+                        mobileAboutToggle?.classList.remove("active");
+                        mobileSectorsToggle?.classList.remove("active");
+                        mobileSectors.style.maxHeight = '0px';
+                        mobileSectorsToggle.querySelector('i').style.transform = 'rotate(0deg)';
+
+                        // Close sector submenus
+                        document.querySelectorAll('.sector-menu').forEach(menu => {
+                            menu.style.maxHeight = '0px';
+                        });
+                        document.querySelectorAll('.sector-toggle i').forEach(icon => {
+                            icon.style.transform = 'rotate(0deg)';
+                        });
+                    }
+                });
+
+                // Handle sector toggle buttons (submenus)
+                document.querySelectorAll('.sector-toggle').forEach(button => {
+                    button.addEventListener('click', function (e) {
+                        e.stopPropagation();
+                        const menu = this.nextElementSibling;
+                        const icon = this.querySelector('i');
+
+                        // Toggle submenu
+                        if (menu.style.maxHeight && menu.style.maxHeight !== '0px') {
+                            // Collapse
+                            menu.style.maxHeight = '0px';
+                            icon.style.transform = 'rotate(0deg)';
+                        } else {
+                            // Expand
+                            menu.style.maxHeight = menu.scrollHeight + 'px';
+                            icon.style.transform = 'rotate(180deg)';
+                        }
+                    });
+                });
+
+                // Close mobile dropdowns when clicking on links inside them
+                document.querySelectorAll(".mobile-dropdown a, .sector-menu a").forEach((link) => {
+                    link.addEventListener("click", () => {
+                        closeAllMobileDropdowns();
+                        mobileMenu?.classList.remove("open");
+                        if (menuIcon) {
+                            menuIcon.classList.remove("fa-times");
+                            menuIcon.classList.add("fa-bars");
+                        }
+                    });
+                });
+
+                // Close menu if clicked outside
+                document.addEventListener("click", function (event) {
+                    if (!mobileMenu || !mobileMenuToggle) return;
+
+                    const isClickInsideMenu = mobileMenu.contains(event.target);
+                    const isClickOnToggle = mobileMenuToggle.contains(event.target);
+
+                    if (
+                        !isClickInsideMenu &&
+                        !isClickOnToggle &&
+                        mobileMenu.classList.contains("open")
+                    ) {
+                        mobileMenu.classList.remove("open");
+                        menuIcon.classList.remove("fa-times");
+                        menuIcon.classList.add("fa-bars");
+                        closeAllMobileDropdowns();
+                    }
+                });
+
+                // Desktop dropdown hover functionality
+                const dropdowns = document.querySelectorAll(".dropdown");
+                dropdowns.forEach((dropdown) => {
+                    dropdown.addEventListener("mouseenter", () => {
+                        const content = dropdown.querySelector(".dropdown-content");
+                        if (content) {
+                            content.style.opacity = "1";
+                            content.style.visibility = "visible";
+                            content.style.transform = "translateY(0)";
+                        }
+                    });
+
+                    dropdown.addEventListener("mouseleave", () => {
+                        const content = dropdown.querySelector(".dropdown-content");
+                        if (content) {
+                            content.style.opacity = "0";
+                            content.style.visibility = "hidden";
+                            content.style.transform = "translateY(-10px)";
+                        }
+                    });
+                });
+
+                // Handle window resize - recalculate maxHeight for open menus
+                window.addEventListener('resize', function () {
+                    // Recalculate for main sectors dropdown
+                    if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+                        mobileSectors.style.maxHeight = mobileSectors.scrollHeight + 'px';
+                    }
+
+                    // Recalculate for open sector submenus
+                    document.querySelectorAll('.sector-menu').forEach(menu => {
+                        if (menu.style.maxHeight && menu.style.maxHeight !== '0px') {
+                            menu.style.maxHeight = menu.scrollHeight + 'px';
+                        }
+                    });
+                });
+            });
+
+        // Navbar scroll effect
+        window.addEventListener("scroll", () => {
+            document
+                .getElementById("navbar")
+                ?.classList.toggle("scrolled", window.scrollY > 50);
+        });
+
+
+    </script>
+</body>
+
+</html>

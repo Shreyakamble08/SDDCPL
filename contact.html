@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Prospecta BuildX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background: #fafafa;
+        color: #333;
+      }
+
+      .form-input {
+        transition: border 0.2s ease;
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: #2563eb;
+      }
+
+      .contact-card {
+        transition: transform 0.2s ease;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-white">
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 py-12">
+      <!-- Page Header -->
+      <!-- Banner Section -->
+ <div
+  class="relative w-full h-48 md:h-64 mb-16 rounded-xl overflow-hidden"
+>
+  <!-- Background Video -->
+  <video
+    class="absolute inset-0 w-full h-full object-cover"
+    autoplay
+    loop
+    muted
+    playsinline
+  >
+    <source src="images/aboutvideo.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Dark Overlay -->
+  <div class="absolute inset-0 bg-black/30"></div>
+
+  <!-- Text -->
+  <div
+    class="absolute inset-0 flex flex-col items-center justify-center text-center px-4"
+  >
+    <h1 class="text-3xl md:text-4xl font-semibold text-white mb-2">
+      Contact Us
+    </h1>
+    <p class="text-gray-200 max-w-2xl">
+      Get in touch with our construction team
+    </p>
+  </div>
+</div>
+
+
+      <div class="grid lg:grid-cols-3 gap-8">
+        <!-- Contact Information -->
+        <div class="lg:col-span-1 space-y-6">
+          <!-- Contact Card: Phone -->
+          <div
+            class="contact-card bg-white p-6 border border-gray-200 rounded-lg"
+          >
+            <div class="flex items-start space-x-4">
+              <div
+                class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center"
+              >
+                <i class="fas fa-phone text-blue-600"></i>
+              </div>
+              <div>
+                <h3 class="font-medium text-gray-900 mb-1">Call Us</h3>
+                <p class="text-gray-600 text-sm mb-2">
+                  Available Mon-Sat, 9:30 pm - 6:30 pm
+                </p>
+                <a
+                  href="tel:+919549543838"
+                  class="text-lg font-semibold text-gray-900 hover:text-blue-600"
+                >
+                  +91 95495 43838
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Card: Email -->
+          <div
+            class="contact-card bg-white p-6 border border-gray-200 rounded-lg"
+          >
+            <div class="flex items-start space-x-4">
+              <div
+                class="w-12 h-12 bg-green-50 rounded-lg flex items-center justify-center"
+              >
+                <i class="fas fa-envelope text-green-600"></i>
+              </div>
+              <div>
+                <h3 class="font-medium text-gray-900 mb-1">Email Us</h3>
+                <p class="text-gray-600 text-sm mb-2">
+                  Response within 24 hours
+                </p>
+                <a
+                  href="mailto:info@sddcpl.com"
+                  class="text-base text-gray-900 hover:text-blue-600"
+                >
+                  info@sddcpl.com
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Card: Location -->
+          <div
+            class="contact-card bg-white p-6 border border-gray-200 rounded-lg"
+          >
+            <div class="flex items-start space-x-4">
+              <div
+                class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center"
+              >
+                <i class="fas fa-map-marker-alt text-gray-600"></i>
+              </div>
+              <div>
+                <h3 class="font-medium text-gray-900 mb-1">Office</h3>
+                <p class="text-gray-600 text-sm mb-2">Visit our headquarters</p>
+                <address class="text-gray-700 not-italic">
+                  C-803, Amar Business Zone<br />
+                  Baner, Pune - 411045
+                </address>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Stats -->
+          <!-- <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+            <h3 class="font-medium text-gray-900 mb-4">Why Choose Us</h3>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <div class="text-2xl font-semibold text-gray-900">150+</div>
+                <div class="text-sm text-gray-600">Projects</div>
+              </div>
+              <div>
+                <div class="text-2xl font-semibold text-gray-900">15+</div>
+                <div class="text-sm text-gray-600">Years</div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+
+        <!-- Contact Form -->
+        <div class="lg:col-span-2">
+          <div
+            class="relative p-8 border border-gray-200 rounded-lg overflow-hidden"
+          >
+            <!-- Background Image -->
+            <div class="absolute inset-0">
+              <img
+                src="images/mission.jfif"
+                class="w-full h-full object-cover object-center"
+                alt="Background"
+              />
+            </div>
+
+            <!-- Light transparent overlay (more visibility for image) -->
+            <div class="absolute inset-0 bg-white/60 backdrop-blur-[1px]"></div>
+
+            <!-- Content -->
+            <div class="relative">
+              <h2 class="text-xl font-semibold text-gray-900 mb-6">
+                Send a Message
+              </h2>
+
+              <form id="contactForm" class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                      First Name
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg bg-white/70"
+                      placeholder="Your first name"
+                    />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                      Last Name
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg bg-white/70"
+                      placeholder="Your last name"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg bg-white/70"
+                    placeholder="you@example.com"
+                  />
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg bg-white/70"
+                    placeholder="+91 12345 67890"
+                  />
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">
+                    Project Type
+                  </label>
+                  <select
+                    required
+                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg bg-white/70"
+                  >
+                    <option value="">Select project type</option>
+                    <option value="residential">Residential</option>
+                    <option value="commercial">Commercial</option>
+                    <option value="industrial">Industrial</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    required
+                    rows="4"
+                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg bg-white/70 resize-none"
+                    placeholder="Tell us about your project..."
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  class="w-full bg-gray-900 text-white py-3 rounded-lg font-medium hover:bg-black transition-colors"
+                >
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+
+  <!-- FOOTER -->
+  <footer class="relative text-white py-12 overflow-hidden 
+bg-gradient-to-b from-[#0E1B3D] via-[#11224E] to-[#0A1530]">
+
+    <!-- Background shapes -->
+    <div class="absolute top-0 right-0 w-72 h-72 bg-yellow-400/20 blur-3xl rounded-full"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-blue-400/10 blur-3xl rounded-full"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+
+        <!-- Company -->
+        <div>
+          <div class="mb-5">
+            <img src="Images/Sdcpl logo.png" alt="logo" class="h-24 object-contain">
+          </div>
+
+          <p class="text-gray-300 text-sm leading-relaxed mb-5">
+            Delivering innovative infrastructure and construction solutions
+            with a commitment to quality, reliability, and engineering excellence.
+          </p>
+
+          <div class="flex gap-3">
+
+            <a href="#"
+              class="w-9 h-9 bg-[#162B5B] rounded-md flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+
+            <a href="#"
+              class="w-9 h-9 bg-[#162B5B] rounded-md flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+              <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="#"
+              class="w-9 h-9 bg-[#162B5B] rounded-md flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+
+          </div>
+        </div>
+
+
+        <!-- Explore -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4 border-l-4 border-yellow-400 pl-3">
+            Explore
+          </h3>
+
+          <ul class="space-y-2 text-sm">
+
+            <li><a href="index.html" class="text-gray-300 hover:text-yellow-400 transition">Home</a></li>
+            <li><a href="about.html" class="text-gray-300 hover:text-yellow-400 transition">About</a></li>
+            <li><a href="projects.html" class="text-gray-300 hover:text-yellow-400 transition">Projects</a></li>
+            <li><a href="interior.html" class="text-gray-300 hover:text-yellow-400 transition">Interior Design</a></li>
+            <li><a href="gallery.html" class="text-gray-300 hover:text-yellow-400 transition">Gallery</a></li>
+            <li><a href="contact.html" class="text-gray-300 hover:text-yellow-400 transition">Contact</a></li>
+
+          </ul>
+        </div>
+
+
+        <!-- Sectors -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4 border-l-4 border-yellow-400 pl-3">
+            Sectors
+          </h3>
+
+          <ul class="space-y-2 text-sm">
+
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Residential</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Commercial</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Industrial</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Institutional</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Infrastructure</a></li>
+
+          </ul>
+        </div>
+
+
+        <!-- Contact -->
+        <div>
+
+          <h3 class="text-lg font-semibold mb-4 border-l-4 border-yellow-400 pl-3">
+            Contact
+          </h3>
+
+          <div class="space-y-4 text-sm text-gray-300">
+
+            <div class="flex gap-3 items-start">
+              <i class="fas fa-map-marker-alt text-yellow-400 mt-1"></i>
+              <a href="https://www.google.com/maps/place/C-803,+Amar+Business+Zone,+Baner,+Pune+411045" target="_blank"
+                class="hover:text-yellow-400 transition">
+                B-400 Amar Business Zone, Baner, Pune – 411047
+              </a>
+            </div>
+
+            <div class="flex gap-3 items-center">
+              <i class="fas fa-phone text-yellow-400"></i>
+              <a href="tel:+919549543838" class="hover:text-yellow-400 transition">
+                +91 95495 53538
+              </a>
+            </div>
+
+            <div class="flex gap-3 items-center">
+              <i class="fas fa-envelope text-yellow-400"></i>
+              <a href="mailto:info@sddcpl.com" class="hover:text-yellow-400 transition">
+                info@sddcpl.com
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Bottom -->
+      <div
+        class="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+
+        <span>
+          © 2025 SDDCPL. All rights reserved.Developed by Kunash Media.
+        </span>
+
+        <div class="flex gap-5 mt-3 md:mt-0">
+
+          <a href="#" class="hover:text-yellow-400 transition">Privacy</a>
+          <a href="#" class="hover:text-yellow-400 transition">Terms</a>
+          <a href="#" class="hover:text-yellow-400 transition">Sitemap</a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </footer>
+
+    <script>
+ //header js
+// Load header.html and then initialize header JS
+fetch("header.html")
+  .then((res) => res.text())
+  .then((data) => {
+    document.getElementById("header").innerHTML = data;
+
+    // ✅ Elements
+    const mobileMenuToggle =
+      document.getElementById("mobile-menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuIcon = document.getElementById("menu-icon");
+
+    const mobileAboutToggle = document.getElementById(
+      "mobile-about-toggle"
+    );
+    const mobileAbout = document.getElementById("mobile-about");
+    const mobileSectorsToggle = document.getElementById(
+      "mobile-sectors-toggle"
+    );
+    const mobileSectors = document.getElementById("mobile-sectors");
+    const mobileCareersToggle = document.getElementById(
+      "mobile-careers-toggle"
+    );
+    const mobileCareers = document.getElementById("mobile-careers");
+
+    // Function to close all mobile dropdowns
+    function closeAllMobileDropdowns() {
+      mobileAbout?.classList.remove("open");
+      mobileSectors?.classList.remove("open");
+      mobileCareers?.classList.remove("open");
+      mobileAboutToggle?.classList.remove("active");
+      mobileSectorsToggle?.classList.remove("active");
+      mobileCareersToggle?.classList.remove("active");
+      
+      // Also close all sector submenus
+      document.querySelectorAll('.sector-menu').forEach(menu => {
+        menu.style.maxHeight = '0px';
+      });
+      document.querySelectorAll('.sector-toggle i').forEach(icon => {
+        icon.style.transform = 'rotate(0deg)';
+      });
+    }
+
+    // Toggle Mobile Menu
+    mobileMenuToggle?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      mobileMenu.classList.toggle("open");
+
+      if (mobileMenu.classList.contains("open")) {
+        menuIcon.classList.remove("fa-bars");
+        menuIcon.classList.add("fa-times");
+      } else {
+        menuIcon.classList.remove("fa-times");
+        menuIcon.classList.add("fa-bars");
+        closeAllMobileDropdowns();
+      }
+    });
+
+    // Toggle Mobile About Dropdown
+    mobileAboutToggle?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      mobileAbout.classList.toggle("open");
+      mobileAboutToggle.classList.toggle("active");
+
+      // Close other dropdowns if open
+      if (mobileAbout.classList.contains("open")) {
+        mobileSectors?.classList.remove("open");
+        mobileCareers?.classList.remove("open");
+        mobileSectorsToggle?.classList.remove("active");
+        mobileCareersToggle?.classList.remove("active");
+        
+        // Close sector submenus
+        document.querySelectorAll('.sector-menu').forEach(menu => {
+          menu.style.maxHeight = '0px';
+        });
+        document.querySelectorAll('.sector-toggle i').forEach(icon => {
+          icon.style.transform = 'rotate(0deg)';
+        });
+      }
+    });
+
+    // Toggle Mobile Sectors Dropdown
+    mobileSectorsToggle?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      
+      // Toggle main sectors dropdown
+      if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+        // Collapse main sectors
+        mobileSectors.style.maxHeight = '0px';
+        mobileSectorsToggle.querySelector('i').style.transform = 'rotate(0deg)';
+        mobileSectorsToggle.classList.remove("active");
+        
+        // Also collapse all sector submenus
+        document.querySelectorAll('.sector-menu').forEach(menu => {
+          menu.style.maxHeight = '0px';
+        });
+        document.querySelectorAll('.sector-toggle i').forEach(icon => {
+          icon.style.transform = 'rotate(0deg)';
+        });
+      } else {
+        // Expand main sectors
+        mobileSectors.style.maxHeight = mobileSectors.scrollHeight + 'px';
+        mobileSectorsToggle.querySelector('i').style.transform = 'rotate(180deg)';
+        mobileSectorsToggle.classList.add("active");
+      }
+
+      // Close other dropdowns if opening this one
+      if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+        mobileAbout?.classList.remove("open");
+        mobileCareers?.classList.remove("open");
+        mobileAboutToggle?.classList.remove("active");
+        mobileCareersToggle?.classList.remove("active");
+      }
+    });
+
+    // Toggle Mobile Careers Dropdown (NEW)
+    mobileCareersToggle?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      mobileCareers.classList.toggle("open");
+      mobileCareersToggle.classList.toggle("active");
+
+      // Close other dropdowns if open
+      if (mobileCareers.classList.contains("open")) {
+        mobileAbout?.classList.remove("open");
+        mobileSectors?.classList.remove("open");
+        mobileAboutToggle?.classList.remove("active");
+        mobileSectorsToggle?.classList.remove("active");
+        mobileSectors.style.maxHeight = '0px';
+        mobileSectorsToggle.querySelector('i').style.transform = 'rotate(0deg)';
+        
+        // Close sector submenus
+        document.querySelectorAll('.sector-menu').forEach(menu => {
+          menu.style.maxHeight = '0px';
+        });
+        document.querySelectorAll('.sector-toggle i').forEach(icon => {
+          icon.style.transform = 'rotate(0deg)';
+        });
+      }
+    });
+
+    // Handle sector toggle buttons (submenus)
+    document.querySelectorAll('.sector-toggle').forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const menu = this.nextElementSibling;
+        const icon = this.querySelector('i');
+        
+        // Toggle submenu
+        if (menu.style.maxHeight && menu.style.maxHeight !== '0px') {
+          // Collapse
+          menu.style.maxHeight = '0px';
+          icon.style.transform = 'rotate(0deg)';
+        } else {
+          // Expand
+          menu.style.maxHeight = menu.scrollHeight + 'px';
+          icon.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+
+    // Close mobile dropdowns when clicking on links inside them
+    document.querySelectorAll(".mobile-dropdown a, .sector-menu a").forEach((link) => {
+      link.addEventListener("click", () => {
+        closeAllMobileDropdowns();
+        mobileMenu?.classList.remove("open");
+        if (menuIcon) {
+          menuIcon.classList.remove("fa-times");
+          menuIcon.classList.add("fa-bars");
+        }
+      });
+    });
+
+    // Close menu if clicked outside
+    document.addEventListener("click", function (event) {
+      if (!mobileMenu || !mobileMenuToggle) return;
+
+      const isClickInsideMenu = mobileMenu.contains(event.target);
+      const isClickOnToggle = mobileMenuToggle.contains(event.target);
+
+      if (
+        !isClickInsideMenu &&
+        !isClickOnToggle &&
+        mobileMenu.classList.contains("open")
+      ) {
+        mobileMenu.classList.remove("open");
+        menuIcon.classList.remove("fa-times");
+        menuIcon.classList.add("fa-bars");
+        closeAllMobileDropdowns();
+      }
+    });
+
+    // Desktop dropdown hover functionality
+    const dropdowns = document.querySelectorAll(".dropdown");
+    dropdowns.forEach((dropdown) => {
+      dropdown.addEventListener("mouseenter", () => {
+        const content = dropdown.querySelector(".dropdown-content");
+        if (content) {
+          content.style.opacity = "1";
+          content.style.visibility = "visible";
+          content.style.transform = "translateY(0)";
+        }
+      });
+
+      dropdown.addEventListener("mouseleave", () => {
+        const content = dropdown.querySelector(".dropdown-content");
+        if (content) {
+          content.style.opacity = "0";
+          content.style.visibility = "hidden";
+          content.style.transform = "translateY(-10px)";
+        }
+      });
+    });
+    
+    // Handle window resize - recalculate maxHeight for open menus
+    window.addEventListener('resize', function() {
+      // Recalculate for main sectors dropdown
+      if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+        mobileSectors.style.maxHeight = mobileSectors.scrollHeight + 'px';
+      }
+      
+      // Recalculate for open sector submenus
+      document.querySelectorAll('.sector-menu').forEach(menu => {
+        if (menu.style.maxHeight && menu.style.maxHeight !== '0px') {
+          menu.style.maxHeight = menu.scrollHeight + 'px';
+        }
+      });
+    });
+  });
+
+  // Navbar scroll effect
+  window.addEventListener("scroll", () => {
+    document
+      .getElementById("navbar")
+      ?.classList.toggle("scrolled", window.scrollY > 50);
+  });
+
+      // Form Submission
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const submitBtn = this.querySelector('button[type="submit"]');
+          const originalText = submitBtn.textContent;
+
+          // Show loading
+          submitBtn.textContent = "Sending...";
+          submitBtn.disabled = true;
+
+          // Simulate API call
+          setTimeout(() => {
+            // Show success
+            submitBtn.textContent = "Message Sent!";
+            submitBtn.style.background = "#10b981";
+
+            // Reset after delay
+            setTimeout(() => {
+              this.reset();
+              submitBtn.textContent = originalText;
+              submitBtn.disabled = false;
+              submitBtn.style.background = "";
+
+              // Show notification
+              alert("Thank you! We will contact you soon.");
+            }, 2000);
+          }, 1000);
+        });
+
+      // Add subtle focus effects
+      const inputs = document.querySelectorAll(".form-input");
+      inputs.forEach((input) => {
+        input.addEventListener("focus", () => {
+          input.parentElement.classList.add("opacity-100");
+        });
+
+        input.addEventListener("blur", () => {
+          if (!input.value) {
+            input.parentElement.classList.remove("opacity-100");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

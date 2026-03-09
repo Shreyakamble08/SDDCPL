@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prospecta BuildX - Building Tomorrow</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="homestyle.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #f8fafc;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .serif {
+      font-family: "Newsreader", serif;
+      font-weight: 300;
+    }
+
+    .mono {
+      font-family: "Space Mono", monospace;
+    }
+
+    /* Fluid Typography */
+    html {
+      font-size: clamp(14px, 1.5vw, 16px);
+    }
+
+    /* Responsive Masonry Grid */
+    .masonry {
+      column-count: 1;
+      column-gap: 1rem;
+    }
+
+    @media (min-width: 480px) {
+      .masonry {
+        column-gap: 1.5rem;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .masonry {
+        column-count: 2;
+        column-gap: 2rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .masonry {
+        column-count: 3;
+      }
+    }
+
+    @media (min-width: 1400px) {
+      .masonry {
+        column-count: 4;
+      }
+    }
+
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: clamp(1rem, 2vw, 2rem);
+      display: inline-block;
+      width: 100%;
+    }
+
+    /* Unified Card Design - Responsive */
+    .card {
+      position: relative;
+      background: radial-gradient(circle at 15% 15%,
+          rgba(219, 234, 254, 0.32),
+          transparent 55%),
+        radial-gradient(circle at 85% 80%,
+          rgba(191, 219, 254, 0.22),
+          transparent 65%),
+        white;
+      border-radius: clamp(16px, 3vw, 32px);
+      padding: clamp(1.5rem, 4vw, 3.5rem) clamp(1rem, 4vw, 3rem) clamp(2rem, 5vw, 4rem) clamp(1rem, 4vw, 3rem);
+      padding-right: clamp(6rem, 12vw, 12rem);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.07);
+      border-top: 6px solid #3b82f6;
+      transition: all 0.45s ease;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.16);
+    }
+
+    .card.active {
+      background: radial-gradient(circle at 15% 15%,
+          rgba(147, 197, 253, 0.44),
+          transparent 60%),
+        radial-gradient(circle at 85% 75%,
+          rgba(147, 197, 253, 0.34),
+          transparent 70%),
+        #f8faff;
+      box-shadow: 0 35px 90px rgba(59, 130, 246, 0.18);
+    }
+
+    /* Highly Visible Profile Photos - Responsive */
+    .avatar {
+      position: absolute;
+      top: clamp(1rem, 3vw, 3rem);
+      right: clamp(1rem, 3vw, 2.5rem);
+      width: clamp(60px, 12vw, 140px);
+      height: clamp(60px, 12vw, 140px);
+      border-radius: clamp(12px, 3vw, 30px);
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+      border: clamp(3px, 0.8vw, 5px) solid white;
+      opacity: 0.92;
+      transition: all 0.5s ease;
+      z-index: 20;
+    }
+
+    .card:hover .avatar {
+      opacity: 1;
+      transform: scale(1.06);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .card.active .avatar {
+      opacity: 1;
+      transform: scale(1.12);
+      box-shadow: 0 30px 70px rgba(59, 130, 246, 0.3);
+    }
+
+    /* Responsive Container */
+    .responsive-container {
+      width: 100%;
+      max-width: 100%;
+      padding-left: clamp(0.5rem, 4vw, 1.5rem);
+      padding-right: clamp(0.5rem, 4vw, 1.5rem);
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+
+    /* Hero Section Responsiveness */
+    .hero-responsive {
+      padding-top: clamp(5rem, 12vh, 10rem);
+      padding-bottom: clamp(4rem, 10vh, 8rem);
+      padding-left: clamp(0.5rem, 4vw, 1.5rem);
+      padding-right: clamp(0.5rem, 4vw, 1.5rem);
+    }
+
+    /* Toggle Button Responsiveness */
+    .toggle-btn {
+      position: absolute;
+      bottom: clamp(0.75rem, 2vw, 2.5rem);
+      right: clamp(0.75rem, 2vw, 2.5rem);
+      width: clamp(2.5rem, 8vw, 3.5rem);
+      height: clamp(2.5rem, 8vw, 3.5rem);
+      border-radius: 50%;
+      border: 2px solid #d1d5db;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .toggle-btn:hover {
+      background: #3b82f6;
+      color: white;
+      border-color: #3b82f6;
+    }
+
+    /* Footer Responsiveness */
+    footer .container {
+      width: 100%;
+      max-width: 100%;
+      padding-left: clamp(0.5rem, 4vw, 1rem);
+      padding-right: clamp(0.5rem, 4vw, 1rem);
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+
+    /* Mobile-specific adjustments */
+    @media (max-width: 640px) {
+      .card {
+        padding-right: clamp(4rem, 20vw, 8rem);
+      }
+
+      .avatar {
+        width: clamp(50px, 20vw, 80px);
+        height: clamp(50px, 20vw, 80px);
+        top: clamp(0.75rem, 3vw, 1.25rem);
+        right: clamp(0.75rem, 3vw, 1.25rem);
+      }
+
+      .toggle-btn {
+        width: clamp(2rem, 15vw, 2.5rem);
+        height: clamp(2rem, 15vw, 2.5rem);
+        bottom: clamp(0.5rem, 4vw, 1rem);
+        right: clamp(0.5rem, 4vw, 1rem);
+      }
+    }
+
+    /* Ultra small screens */
+    @media (max-width: 360px) {
+      .card {
+        padding: 1rem 0.75rem 1.5rem 0.75rem;
+        padding-right: 3.5rem;
+      }
+
+      .avatar {
+        width: 45px;
+        height: 45px;
+        top: 0.5rem;
+        right: 0.5rem;
+      }
+
+      .toggle-btn {
+        width: 1.75rem;
+        height: 1.75rem;
+        bottom: 0.5rem;
+        right: 0.5rem;
+      }
+    }
+
+    /* Prevent horizontal overflow on all devices */
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    /* Ensure all text elements don't overflow */
+    /* h1, h2, h3, h4, h5, h6, p, span, div {
+        max-width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      } */
+
+    /* Smooth scrolling with overflow protection */
+    * {
+      scroll-behavior: smooth;
+    }
+
+    /* Ensure masonry items don't cause overflow */
+    .masonry-item {
+      page-break-inside: avoid;
+      break-inside: avoid;
+      min-width: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <div id="header"></div>
+
+  <!-- Hero -->
+  <section class="bg-cover bg-center bg-no-repeat relative flex items-center justify-center text-center hero-responsive"
+    style="background-image: url('images/teambg.jfif')">
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-white/20"></div>
+
+    <div class="relative max-w-4xl mx-auto responsive-container">
+      <h1 class="font-semibold tracking-tight text-[#11224E] mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+        Voices Behind Our Vision
+      </h1>
+
+      <p class="text-[#11224E] font-light leading-relaxed text-base sm:text-lg md:text-xl lg:text-2xl">
+        Meet the minds shaping our journey six perspectives, each bringing
+        creativity, purpose, and a unique approach to building excellence.
+      </p>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <style>
+    /* Ensure expanded content is closed by default and transitions smoothly */
+    #expand1,
+    #expand2,
+    #expand3,
+    #expand4,
+    #expand5,
+    #expand6 {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 320ms ease;
+    }
+
+    /* Expand only the hovered card's own content */
+    #card1:hover #expand1,
+    #card1:focus-within #expand1 {
+      max-height: 220px;
+    }
+
+    #card2:hover #expand2,
+    #card2:focus-within #expand2 {
+      max-height: 220px;
+    }
+
+    #card3:hover #expand3,
+    #card3:focus-within #expand3 {
+      max-height: 220px;
+    }
+
+    #card4:hover #expand4,
+    #card4:focus-within #expand4 {
+      max-height: 220px;
+    }
+
+    #card5:hover #expand5,
+    #card5:focus-within #expand5 {
+      max-height: 220px;
+    }
+
+    #card6:hover #expand6,
+    #card6:focus-within #expand6 {
+      max-height: 220px;
+    }
+
+    /* Card base styles (keeps your existing visual look) */
+    .team-card {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 220ms ease, box-shadow 220ms ease;
+      overflow: hidden;
+    }
+
+    .team-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(59, 130, 246, 0.12);
+    }
+  </style>
+
+  <!-- TEAM SECTION - BLUE & YELLOW THEME -->
+  <section id="team" class="py-16 bg-gradient-to-b from-blue-50 to-white relative overflow-hidden">
+
+    <!-- Background Accent Shapes -->
+    <div class="absolute top-0 left-0 w-64 h-64 bg-yellow-200/30 rounded-full -z-10 -translate-x-1/4 -translate-y-1/4">
+    </div>
+    <div class="absolute bottom-0 right-0 w-72 h-72 bg-blue-200/30 rounded-full -z-10 translate-x-1/4 translate-y-1/4">
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <!-- Heading -->
+      <h2 class="text-3xl sm:text-4xl font-bold text-blue-900 mb-4">Meet Our Team</h2>
+      <p class="text-gray-700 max-w-2xl mx-auto mb-12 text-sm sm:text-base">
+        A group of dedicated professionals committed to building excellence and delivering results.
+      </p>
+
+      <!-- Team Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Card Template -->
+        <div
+          class="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-2xl transition-shadow duration-300">
+          <div class="w-28 h-28 mb-4 rounded-full overflow-hidden border-4 border-blue-300">
+            <img src="https://via.placeholder.com/150" alt="Team Member" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-xl font-semibold text-blue-900 mb-1">John Doe</h3>
+          <p class="text-yellow-500 font-medium text-sm uppercase mb-2">CEO</p>
+          <p class="text-gray-600 text-sm">Experienced leader driving innovation and growth across multiple sectors.</p>
+        </div>
+
+        <div
+          class="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-2xl transition-shadow duration-300">
+          <div class="w-28 h-28 mb-4 rounded-full overflow-hidden border-4 border-blue-300">
+            <img src="https://via.placeholder.com/150" alt="Team Member" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-xl font-semibold text-blue-900 mb-1">Jane Smith</h3>
+          <p class="text-yellow-500 font-medium text-sm uppercase mb-2">COO</p>
+          <p class="text-gray-600 text-sm">Operations expert ensuring projects are delivered efficiently and safely.</p>
+        </div>
+
+        <div
+          class="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-2xl transition-shadow duration-300">
+          <div class="w-28 h-28 mb-4 rounded-full overflow-hidden border-4 border-blue-300">
+            <img src="https://via.placeholder.com/150" alt="Team Member" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-xl font-semibold text-blue-900 mb-1">Michael Lee</h3>
+          <p class="text-yellow-500 font-medium text-sm uppercase mb-2">Head of Design</p>
+          <p class="text-gray-600 text-sm">Architectural visionary delivering creative and sustainable design solutions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- FOOTER -->
+  <footer class="relative text-white py-12 overflow-hidden 
+bg-gradient-to-b from-[#0E1B3D] via-[#11224E] to-[#0A1530]">
+
+    <!-- Background shapes -->
+    <div class="absolute top-0 right-0 w-72 h-72 bg-yellow-400/20 blur-3xl rounded-full"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-blue-400/10 blur-3xl rounded-full"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+
+        <!-- Company -->
+        <div>
+          <div class="mb-5">
+            <img src="Images/Sdcpl logo.png" alt="logo" class="h-24 object-contain">
+          </div>
+
+          <p class="text-gray-300 text-sm leading-relaxed mb-5">
+            Delivering innovative infrastructure and construction solutions
+            with a commitment to quality, reliability, and engineering excellence.
+          </p>
+
+          <div class="flex gap-3">
+
+            <a href="#"
+              class="w-9 h-9 bg-[#162B5B] rounded-md flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+
+            <a href="#"
+              class="w-9 h-9 bg-[#162B5B] rounded-md flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+              <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="#"
+              class="w-9 h-9 bg-[#162B5B] rounded-md flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+
+          </div>
+        </div>
+
+
+        <!-- Explore -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4 border-l-4 border-yellow-400 pl-3">
+            Explore
+          </h3>
+
+          <ul class="space-y-2 text-sm">
+
+            <li><a href="index.html" class="text-gray-300 hover:text-yellow-400 transition">Home</a></li>
+            <li><a href="about.html" class="text-gray-300 hover:text-yellow-400 transition">About</a></li>
+            <li><a href="projects.html" class="text-gray-300 hover:text-yellow-400 transition">Projects</a></li>
+            <li><a href="interior.html" class="text-gray-300 hover:text-yellow-400 transition">Interior Design</a></li>
+            <li><a href="gallery.html" class="text-gray-300 hover:text-yellow-400 transition">Gallery</a></li>
+            <li><a href="contact.html" class="text-gray-300 hover:text-yellow-400 transition">Contact</a></li>
+
+          </ul>
+        </div>
+
+
+        <!-- Sectors -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4 border-l-4 border-yellow-400 pl-3">
+            Sectors
+          </h3>
+
+          <ul class="space-y-2 text-sm">
+
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Residential</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Commercial</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Industrial</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Institutional</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Infrastructure</a></li>
+
+          </ul>
+        </div>
+
+
+        <!-- Contact -->
+        <div>
+
+          <h3 class="text-lg font-semibold mb-4 border-l-4 border-yellow-400 pl-3">
+            Contact
+          </h3>
+
+          <div class="space-y-4 text-sm text-gray-300">
+
+            <div class="flex gap-3 items-start">
+              <i class="fas fa-map-marker-alt text-yellow-400 mt-1"></i>
+              <a href="https://www.google.com/maps/place/C-803,+Amar+Business+Zone,+Baner,+Pune+411045" target="_blank"
+                class="hover:text-yellow-400 transition">
+                B-400 Amar Business Zone, Baner, Pune – 411047
+              </a>
+            </div>
+
+            <div class="flex gap-3 items-center">
+              <i class="fas fa-phone text-yellow-400"></i>
+              <a href="tel:+919549543838" class="hover:text-yellow-400 transition">
+                +91 95495 53538
+              </a>
+            </div>
+
+            <div class="flex gap-3 items-center">
+              <i class="fas fa-envelope text-yellow-400"></i>
+              <a href="mailto:info@sddcpl.com" class="hover:text-yellow-400 transition">
+                info@sddcpl.com
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Bottom -->
+      <div
+        class="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+
+        <span>
+          © 2025 SDDCPL. All rights reserved.Developed by Kunash Media.
+        </span>
+
+        <div class="flex gap-5 mt-3 md:mt-0">
+
+          <a href="#" class="hover:text-yellow-400 transition">Privacy</a>
+          <a href="#" class="hover:text-yellow-400 transition">Terms</a>
+          <a href="#" class="hover:text-yellow-400 transition">Sitemap</a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </footer>
+  
+  <script>
+    document.querySelectorAll(".card").forEach((card) => {
+      const btn = card.querySelector(".toggle-btn");
+      const full = card.querySelector(".member-full");
+      const icon = btn.querySelector("i");
+
+      const toggle = () => {
+        const isActive = card.classList.contains("active");
+        document.querySelectorAll(".card").forEach((c) => {
+          c.classList.remove("active");
+          const f = c.querySelector(".member-full");
+          if (f) f.classList.add("hidden");
+          c.querySelector("i").classList.replace("fa-minus", "fa-plus");
+        });
+        if (!isActive) {
+          card.classList.add("active");
+          if (full) full.classList.remove("hidden");
+          icon.classList.replace("fa-plus", "fa-minus");
+        }
+      };
+
+      card.addEventListener(
+        "click",
+        (e) => !e.target.closest(".toggle-btn") && toggle()
+      );
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggle();
+      });
+    });
+
+    document.addEventListener("click", () => {
+      document.querySelectorAll(".card").forEach((c) => {
+        c.classList.remove("active");
+        const f = c.querySelector(".member-full");
+        if (f) f.classList.add("hidden");
+        c.querySelector("i").classList.replace("fa-minus", "fa-plus");
+      });
+    });
+    document
+      .querySelector("#team")
+      .addEventListener("click", (e) => e.stopPropagation());
+    document.addEventListener(
+      "keydown",
+      (e) =>
+        e.key === "Escape" &&
+        document.querySelectorAll(".card").forEach((c) => {
+          c.classList.remove("active");
+          const f = c.querySelector(".member-full");
+          if (f) f.classList.add("hidden");
+          c.querySelector("i").classList.replace("fa-minus", "fa-plus");
+        })
+    );
+
+    // Load header.html and then initialize header JS
+    //header js
+    // Load header.html and then initialize header JS
+    fetch("header.html")
+      .then((res) => res.text())
+      .then((data) => {
+        document.getElementById("header").innerHTML = data;
+
+        // ✅ Elements
+        const mobileMenuToggle =
+          document.getElementById("mobile-menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const menuIcon = document.getElementById("menu-icon");
+
+        const mobileAboutToggle = document.getElementById(
+          "mobile-about-toggle"
+        );
+        const mobileAbout = document.getElementById("mobile-about");
+        const mobileSectorsToggle = document.getElementById(
+          "mobile-sectors-toggle"
+        );
+        const mobileSectors = document.getElementById("mobile-sectors");
+        const mobileCareersToggle = document.getElementById(
+          "mobile-careers-toggle"
+        );
+        const mobileCareers = document.getElementById("mobile-careers");
+
+        // Function to close all mobile dropdowns
+        function closeAllMobileDropdowns() {
+          mobileAbout?.classList.remove("open");
+          mobileSectors?.classList.remove("open");
+          mobileCareers?.classList.remove("open");
+          mobileAboutToggle?.classList.remove("active");
+          mobileSectorsToggle?.classList.remove("active");
+          mobileCareersToggle?.classList.remove("active");
+
+          // Also close all sector submenus
+          document.querySelectorAll('.sector-menu').forEach(menu => {
+            menu.style.maxHeight = '0px';
+          });
+          document.querySelectorAll('.sector-toggle i').forEach(icon => {
+            icon.style.transform = 'rotate(0deg)';
+          });
+        }
+
+        // Toggle Mobile Menu
+        mobileMenuToggle?.addEventListener("click", (e) => {
+          e.stopPropagation();
+          mobileMenu.classList.toggle("open");
+
+          if (mobileMenu.classList.contains("open")) {
+            menuIcon.classList.remove("fa-bars");
+            menuIcon.classList.add("fa-times");
+          } else {
+            menuIcon.classList.remove("fa-times");
+            menuIcon.classList.add("fa-bars");
+            closeAllMobileDropdowns();
+          }
+        });
+
+        // Toggle Mobile About Dropdown
+        mobileAboutToggle?.addEventListener("click", (e) => {
+          e.stopPropagation();
+          mobileAbout.classList.toggle("open");
+          mobileAboutToggle.classList.toggle("active");
+
+          // Close other dropdowns if open
+          if (mobileAbout.classList.contains("open")) {
+            mobileSectors?.classList.remove("open");
+            mobileCareers?.classList.remove("open");
+            mobileSectorsToggle?.classList.remove("active");
+            mobileCareersToggle?.classList.remove("active");
+
+            // Close sector submenus
+            document.querySelectorAll('.sector-menu').forEach(menu => {
+              menu.style.maxHeight = '0px';
+            });
+            document.querySelectorAll('.sector-toggle i').forEach(icon => {
+              icon.style.transform = 'rotate(0deg)';
+            });
+          }
+        });
+
+        // Toggle Mobile Sectors Dropdown
+        mobileSectorsToggle?.addEventListener("click", (e) => {
+          e.stopPropagation();
+
+          // Toggle main sectors dropdown
+          if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+            // Collapse main sectors
+            mobileSectors.style.maxHeight = '0px';
+            mobileSectorsToggle.querySelector('i').style.transform = 'rotate(0deg)';
+            mobileSectorsToggle.classList.remove("active");
+
+            // Also collapse all sector submenus
+            document.querySelectorAll('.sector-menu').forEach(menu => {
+              menu.style.maxHeight = '0px';
+            });
+            document.querySelectorAll('.sector-toggle i').forEach(icon => {
+              icon.style.transform = 'rotate(0deg)';
+            });
+          } else {
+            // Expand main sectors
+            mobileSectors.style.maxHeight = mobileSectors.scrollHeight + 'px';
+            mobileSectorsToggle.querySelector('i').style.transform = 'rotate(180deg)';
+            mobileSectorsToggle.classList.add("active");
+          }
+
+          // Close other dropdowns if opening this one
+          if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+            mobileAbout?.classList.remove("open");
+            mobileCareers?.classList.remove("open");
+            mobileAboutToggle?.classList.remove("active");
+            mobileCareersToggle?.classList.remove("active");
+          }
+        });
+
+        // Toggle Mobile Careers Dropdown (NEW)
+        mobileCareersToggle?.addEventListener("click", (e) => {
+          e.stopPropagation();
+          mobileCareers.classList.toggle("open");
+          mobileCareersToggle.classList.toggle("active");
+
+          // Close other dropdowns if open
+          if (mobileCareers.classList.contains("open")) {
+            mobileAbout?.classList.remove("open");
+            mobileSectors?.classList.remove("open");
+            mobileAboutToggle?.classList.remove("active");
+            mobileSectorsToggle?.classList.remove("active");
+            mobileSectors.style.maxHeight = '0px';
+            mobileSectorsToggle.querySelector('i').style.transform = 'rotate(0deg)';
+
+            // Close sector submenus
+            document.querySelectorAll('.sector-menu').forEach(menu => {
+              menu.style.maxHeight = '0px';
+            });
+            document.querySelectorAll('.sector-toggle i').forEach(icon => {
+              icon.style.transform = 'rotate(0deg)';
+            });
+          }
+        });
+
+        // Handle sector toggle buttons (submenus)
+        document.querySelectorAll('.sector-toggle').forEach(button => {
+          button.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const menu = this.nextElementSibling;
+            const icon = this.querySelector('i');
+
+            // Toggle submenu
+            if (menu.style.maxHeight && menu.style.maxHeight !== '0px') {
+              // Collapse
+              menu.style.maxHeight = '0px';
+              icon.style.transform = 'rotate(0deg)';
+            } else {
+              // Expand
+              menu.style.maxHeight = menu.scrollHeight + 'px';
+              icon.style.transform = 'rotate(180deg)';
+            }
+          });
+        });
+
+        // Close mobile dropdowns when clicking on links inside them
+        document.querySelectorAll(".mobile-dropdown a, .sector-menu a").forEach((link) => {
+          link.addEventListener("click", () => {
+            closeAllMobileDropdowns();
+            mobileMenu?.classList.remove("open");
+            if (menuIcon) {
+              menuIcon.classList.remove("fa-times");
+              menuIcon.classList.add("fa-bars");
+            }
+          });
+        });
+
+        // Close menu if clicked outside
+        document.addEventListener("click", function (event) {
+          if (!mobileMenu || !mobileMenuToggle) return;
+
+          const isClickInsideMenu = mobileMenu.contains(event.target);
+          const isClickOnToggle = mobileMenuToggle.contains(event.target);
+
+          if (
+            !isClickInsideMenu &&
+            !isClickOnToggle &&
+            mobileMenu.classList.contains("open")
+          ) {
+            mobileMenu.classList.remove("open");
+            menuIcon.classList.remove("fa-times");
+            menuIcon.classList.add("fa-bars");
+            closeAllMobileDropdowns();
+          }
+        });
+
+        // Desktop dropdown hover functionality
+        const dropdowns = document.querySelectorAll(".dropdown");
+        dropdowns.forEach((dropdown) => {
+          dropdown.addEventListener("mouseenter", () => {
+            const content = dropdown.querySelector(".dropdown-content");
+            if (content) {
+              content.style.opacity = "1";
+              content.style.visibility = "visible";
+              content.style.transform = "translateY(0)";
+            }
+          });
+
+          dropdown.addEventListener("mouseleave", () => {
+            const content = dropdown.querySelector(".dropdown-content");
+            if (content) {
+              content.style.opacity = "0";
+              content.style.visibility = "hidden";
+              content.style.transform = "translateY(-10px)";
+            }
+          });
+        });
+
+        // Handle window resize - recalculate maxHeight for open menus
+        window.addEventListener('resize', function () {
+          // Recalculate for main sectors dropdown
+          if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+            mobileSectors.style.maxHeight = mobileSectors.scrollHeight + 'px';
+          }
+
+          // Recalculate for open sector submenus
+          document.querySelectorAll('.sector-menu').forEach(menu => {
+            if (menu.style.maxHeight && menu.style.maxHeight !== '0px') {
+              menu.style.maxHeight = menu.scrollHeight + 'px';
+            }
+          });
+        });
+      });
+
+    // Navbar scroll effect
+    window.addEventListener("scroll", () => {
+      document
+        .getElementById("navbar")
+        ?.classList.toggle("scrolled", window.scrollY > 50);
+    });
+  </script>
+</body>
+
+</html>

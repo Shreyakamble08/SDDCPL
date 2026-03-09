@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Urban Infrastructure - Clone Section</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body class="antialiased text-gray-800">
+  <!-- HEADER -->
+  <div id="header"></div>
+
+  <!-- HERO / BANNER -->
+  <section
+    class="relative bg-gradient-to-r from-blue-800 to-yellow-500 h-[55vh] flex items-center justify-center overflow-hidden">
+    <!-- Decorative Shapes -->
+    <div class="absolute -top-10 -left-20 w-[600px] h-[600px] bg-yellow-300/20 rounded-full rotate-45"></div>
+    <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-300/20 rounded-full rotate-12"></div>
+
+    <!-- Content -->
+    <div class="relative text-center px-6">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-wide">
+        Industrial Projects
+      </h1>
+      <p class="mt-4 text-white text-lg sm:text-xl">
+        Modern industrial facilities crafted with innovative engineering solutions
+      </p>
+      <a href="#projects"
+        class="mt-6 inline-block bg-white text-blue-700 font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-blue-100 transition">Explore
+        Projects</a>
+    </div>
+  </section>
+
+  <!-- ICON OVERVIEW CARDS -->
+  <section class="py-16 bg-blue-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-blue-900 mb-12">Our Expertise</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-blue-100 rounded-full">
+            <i class="fas fa-industry text-blue-700 text-2xl"></i>
+          </div>
+          <h3 class="font-semibold text-lg text-blue-900 mb-2">Civil Engineering</h3>
+          <p class="text-blue-700/70 text-sm">Designing durable structures for industrial facilities.</p>
+        </div>
+        <div class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-yellow-100 rounded-full">
+            <i class="fas fa-cogs text-yellow-700 text-2xl"></i>
+          </div>
+          <h3 class="font-semibold text-lg text-blue-900 mb-2">Mechanical Works</h3>
+          <p class="text-blue-700/70 text-sm">Installation and maintenance of advanced machinery.</p>
+        </div>
+        <div class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-blue-100 rounded-full">
+            <i class="fas fa-bolt text-blue-700 text-2xl"></i>
+          </div>
+          <h3 class="font-semibold text-lg text-blue-900 mb-2">Electrical Systems</h3>
+          <p class="text-blue-700/70 text-sm">Efficient and safe power distribution across facilities.</p>
+        </div>
+        <div class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-yellow-100 rounded-full">
+            <i class="fas fa-hard-hat text-yellow-700 text-2xl"></i>
+          </div>
+          <h3 class="font-semibold text-lg text-blue-900 mb-2">Project Management</h3>
+          <p class="text-blue-700/70 text-sm">Ensuring timely and quality delivery for all projects.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIAL PROJECTS GALLERY -->
+  <section id="projects" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-blue-900 mb-12 text-center">Featured Projects</h2>
+
+      <!-- Masonry Grid -->
+      <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+        <!-- Project Card 1 -->
+        <div
+          class="break-inside-avoid bg-blue-50 rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-500">
+          <img src="https://picsum.photos/500/300?random=1" alt="Project 1" class="w-full h-64 object-cover">
+          <div class="p-6">
+            <span
+              class="inline-block bg-blue-200 text-blue-900 px-3 py-1 rounded-full text-xs font-semibold mb-2">Industrial</span>
+            <h3 class="font-bold text-xl mb-2 text-blue-900">Alpha Manufacturing Facility</h3>
+            <p class="text-blue-800 text-sm mb-4"><i class="fas fa-map-marker-alt mr-1"></i>Pune, Maharashtra</p>
+            <p class="text-blue-700 text-sm">Civil works, PEB structure, utilities, flooring setup, and equipment
+              installation.</p>
+          </div>
+        </div>
+
+        <!-- Project Card 2 -->
+        <div
+          class="break-inside-avoid bg-yellow-50 rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-500">
+          <img src="https://picsum.photos/500/300?random=2" alt="Project 2" class="w-full h-64 object-cover">
+          <div class="p-6">
+            <span
+              class="inline-block bg-yellow-200 text-yellow-900 px-3 py-1 rounded-full text-xs font-semibold mb-2">Industrial</span>
+            <h3 class="font-bold text-xl mb-2 text-blue-900">Beta Logistics Hub</h3>
+            <p class="text-blue-800 text-sm mb-4"><i class="fas fa-map-marker-alt mr-1"></i>Talegaon, Pune</p>
+            <p class="text-blue-700 text-sm">Warehouse setup, PEB installation, utilities, and modern storage systems.
+            </p>
+          </div>
+        </div>
+
+        <!-- Project Card 3 -->
+        <div
+          class="break-inside-avoid bg-blue-50 rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-500">
+          <img src="https://picsum.photos/500/300?random=3" alt="Project 3" class="w-full h-64 object-cover">
+          <div class="p-6">
+            <span
+              class="inline-block bg-blue-200 text-blue-900 px-3 py-1 rounded-full text-xs font-semibold mb-2">Industrial</span>
+            <h3 class="font-bold text-xl mb-2 text-blue-900">Gamma Automotive Plant</h3>
+            <p class="text-blue-800 text-sm mb-4"><i class="fas fa-map-marker-alt mr-1"></i>Chakan, Pune</p>
+            <p class="text-blue-700 text-sm">Complete civil, mechanical, electrical, and utility works with modern tech
+              integration.</p>
+          </div>
+        </div>
+
+        <!-- Project Card 4 -->
+        <div
+          class="break-inside-avoid bg-yellow-50 rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-500">
+          <img src="https://picsum.photos/500/300?random=4" alt="Project 4" class="w-full h-64 object-cover">
+          <div class="p-6">
+            <span
+              class="inline-block bg-yellow-200 text-yellow-900 px-3 py-1 rounded-full text-xs font-semibold mb-2">Industrial</span>
+            <h3 class="font-bold text-xl mb-2 text-blue-900">Delta Manufacturing Hub</h3>
+            <p class="text-blue-800 text-sm mb-4"><i class="fas fa-map-marker-alt mr-1"></i>Navi Mumbai</p>
+            <p class="text-blue-700 text-sm">Civil, mechanical, electrical works, flooring, and complete utilities
+              setup.</p>
+          </div>
+        </div>
+
+        <!-- Project Card 5 -->
+        <div
+          class="break-inside-avoid bg-blue-50 rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-500">
+          <img src="https://picsum.photos/500/300?random=5" alt="Project 5" class="w-full h-64 object-cover">
+          <div class="p-6">
+            <span
+              class="inline-block bg-blue-200 text-blue-900 px-3 py-1 rounded-full text-xs font-semibold mb-2">Industrial</span>
+            <h3 class="font-bold text-xl mb-2 text-blue-900">Epsilon Electronics Plant</h3>
+            <p class="text-blue-800 text-sm mb-4"><i class="fas fa-map-marker-alt mr-1"></i>Chennai, Tamil Nadu</p>
+            <p class="text-blue-700 text-sm">Electronics assembly units with high-tech electrical & mechanical
+              integration.</p>
+          </div>
+        </div>
+
+        <!-- Project Card 6 -->
+        <div
+          class="break-inside-avoid bg-yellow-50 rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-500">
+          <img src="https://picsum.photos/500/300?random=6" alt="Project 6" class="w-full h-64 object-cover">
+          <div class="p-6">
+            <span
+              class="inline-block bg-yellow-200 text-yellow-900 px-3 py-1 rounded-full text-xs font-semibold mb-2">Industrial</span>
+            <h3 class="font-bold text-xl mb-2 text-blue-900">Zeta Packaging Facility</h3>
+            <p class="text-blue-800 text-sm mb-4"><i class="fas fa-map-marker-alt mr-1"></i>Surat, Gujarat</p>
+            <p class="text-blue-700 text-sm">High-speed packaging lines, utilities, civil and mechanical works
+              completed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="relative text-white py-12 overflow-hidden 
+bg-gradient-to-b from-[#0E1B3D] via-[#11224E] to-[#0A1530]">
+
+    <!-- Background shapes -->
+    <div class="absolute top-0 right-0 w-72 h-72 bg-yellow-400/20 blur-3xl rounded-full"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-blue-400/10 blur-3xl rounded-full"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+
+        <!-- Company -->
+        <div>
+          <div class="mb-5">
+            <img src="Images/Sdcpl logo.png" alt="logo" class="h-24 object-contain">
+          </div>
+
+          <p class="text-gray-300 text-sm leading-relaxed mb-5">
+            Delivering innovative infrastructure and construction solutions
+            with a commitment to quality, reliability, and engineering excellence.
+          </p>
+
+          <div class="flex gap-3">
+
+            <a href="#"
+              class="w-9 h-9 bg-[#162B5B] rounded-md flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+
+            <a href="#"
+              class="w-9 h-9 bg-[#162B5B] rounded-md flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+              <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="#"
+              class="w-9 h-9 bg-[#162B5B] rounded-md flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+
+          </div>
+        </div>
+
+
+        <!-- Explore -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4 border-l-4 border-yellow-400 pl-3">
+            Explore
+          </h3>
+
+          <ul class="space-y-2 text-sm">
+
+            <li><a href="index.html" class="text-gray-300 hover:text-yellow-400 transition">Home</a></li>
+            <li><a href="about.html" class="text-gray-300 hover:text-yellow-400 transition">About</a></li>
+            <li><a href="projects.html" class="text-gray-300 hover:text-yellow-400 transition">Projects</a></li>
+            <li><a href="interior.html" class="text-gray-300 hover:text-yellow-400 transition">Interior Design</a></li>
+            <li><a href="gallery.html" class="text-gray-300 hover:text-yellow-400 transition">Gallery</a></li>
+            <li><a href="contact.html" class="text-gray-300 hover:text-yellow-400 transition">Contact</a></li>
+
+          </ul>
+        </div>
+
+
+        <!-- Sectors -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4 border-l-4 border-yellow-400 pl-3">
+            Sectors
+          </h3>
+
+          <ul class="space-y-2 text-sm">
+
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Residential</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Commercial</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Industrial</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Institutional</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Infrastructure</a></li>
+
+          </ul>
+        </div>
+
+
+        <!-- Contact -->
+        <div>
+
+          <h3 class="text-lg font-semibold mb-4 border-l-4 border-yellow-400 pl-3">
+            Contact
+          </h3>
+
+          <div class="space-y-4 text-sm text-gray-300">
+
+            <div class="flex gap-3 items-start">
+              <i class="fas fa-map-marker-alt text-yellow-400 mt-1"></i>
+              <a href="https://www.google.com/maps/place/C-803,+Amar+Business+Zone,+Baner,+Pune+411045" target="_blank"
+                class="hover:text-yellow-400 transition">
+                B-400 Amar Business Zone, Baner, Pune – 411047
+              </a>
+            </div>
+
+            <div class="flex gap-3 items-center">
+              <i class="fas fa-phone text-yellow-400"></i>
+              <a href="tel:+919549543838" class="hover:text-yellow-400 transition">
+                +91 95495 53538
+              </a>
+            </div>
+
+            <div class="flex gap-3 items-center">
+              <i class="fas fa-envelope text-yellow-400"></i>
+              <a href="mailto:info@sddcpl.com" class="hover:text-yellow-400 transition">
+                info@sddcpl.com
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Bottom -->
+      <div
+        class="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+
+        <span>
+          © 2025 SDDCPL. All rights reserved.Developed by Kunash Media.
+        </span>
+
+        <div class="flex gap-5 mt-3 md:mt-0">
+
+          <a href="#" class="hover:text-yellow-400 transition">Privacy</a>
+          <a href="#" class="hover:text-yellow-400 transition">Terms</a>
+          <a href="#" class="hover:text-yellow-400 transition">Sitemap</a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    //header js
+    // Load header.html and then initialize header JS
+    fetch("header.html")
+      .then((res) => res.text())
+      .then((data) => {
+        document.getElementById("header").innerHTML = data;
+
+        // ✅ Elements
+        const mobileMenuToggle =
+          document.getElementById("mobile-menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const menuIcon = document.getElementById("menu-icon");
+
+        const mobileAboutToggle = document.getElementById(
+          "mobile-about-toggle"
+        );
+        const mobileAbout = document.getElementById("mobile-about");
+        const mobileSectorsToggle = document.getElementById(
+          "mobile-sectors-toggle"
+        );
+        const mobileSectors = document.getElementById("mobile-sectors");
+        const mobileCareersToggle = document.getElementById(
+          "mobile-careers-toggle"
+        );
+        const mobileCareers = document.getElementById("mobile-careers");
+
+        // Function to close all mobile dropdowns
+        function closeAllMobileDropdowns() {
+          mobileAbout?.classList.remove("open");
+          mobileSectors?.classList.remove("open");
+          mobileCareers?.classList.remove("open");
+          mobileAboutToggle?.classList.remove("active");
+          mobileSectorsToggle?.classList.remove("active");
+          mobileCareersToggle?.classList.remove("active");
+
+          // Also close all sector submenus
+          document.querySelectorAll('.sector-menu').forEach(menu => {
+            menu.style.maxHeight = '0px';
+          });
+          document.querySelectorAll('.sector-toggle i').forEach(icon => {
+            icon.style.transform = 'rotate(0deg)';
+          });
+        }
+
+        // Toggle Mobile Menu
+        mobileMenuToggle?.addEventListener("click", (e) => {
+          e.stopPropagation();
+          mobileMenu.classList.toggle("open");
+
+          if (mobileMenu.classList.contains("open")) {
+            menuIcon.classList.remove("fa-bars");
+            menuIcon.classList.add("fa-times");
+          } else {
+            menuIcon.classList.remove("fa-times");
+            menuIcon.classList.add("fa-bars");
+            closeAllMobileDropdowns();
+          }
+        });
+
+        // Toggle Mobile About Dropdown
+        mobileAboutToggle?.addEventListener("click", (e) => {
+          e.stopPropagation();
+          mobileAbout.classList.toggle("open");
+          mobileAboutToggle.classList.toggle("active");
+
+          // Close other dropdowns if open
+          if (mobileAbout.classList.contains("open")) {
+            mobileSectors?.classList.remove("open");
+            mobileCareers?.classList.remove("open");
+            mobileSectorsToggle?.classList.remove("active");
+            mobileCareersToggle?.classList.remove("active");
+
+            // Close sector submenus
+            document.querySelectorAll('.sector-menu').forEach(menu => {
+              menu.style.maxHeight = '0px';
+            });
+            document.querySelectorAll('.sector-toggle i').forEach(icon => {
+              icon.style.transform = 'rotate(0deg)';
+            });
+          }
+        });
+
+        // Toggle Mobile Sectors Dropdown
+        mobileSectorsToggle?.addEventListener("click", (e) => {
+          e.stopPropagation();
+
+          // Toggle main sectors dropdown
+          if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+            // Collapse main sectors
+            mobileSectors.style.maxHeight = '0px';
+            mobileSectorsToggle.querySelector('i').style.transform = 'rotate(0deg)';
+            mobileSectorsToggle.classList.remove("active");
+
+            // Also collapse all sector submenus
+            document.querySelectorAll('.sector-menu').forEach(menu => {
+              menu.style.maxHeight = '0px';
+            });
+            document.querySelectorAll('.sector-toggle i').forEach(icon => {
+              icon.style.transform = 'rotate(0deg)';
+            });
+          } else {
+            // Expand main sectors
+            mobileSectors.style.maxHeight = mobileSectors.scrollHeight + 'px';
+            mobileSectorsToggle.querySelector('i').style.transform = 'rotate(180deg)';
+            mobileSectorsToggle.classList.add("active");
+          }
+
+          // Close other dropdowns if opening this one
+          if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+            mobileAbout?.classList.remove("open");
+            mobileCareers?.classList.remove("open");
+            mobileAboutToggle?.classList.remove("active");
+            mobileCareersToggle?.classList.remove("active");
+          }
+        });
+
+        // Toggle Mobile Careers Dropdown (NEW)
+        mobileCareersToggle?.addEventListener("click", (e) => {
+          e.stopPropagation();
+          mobileCareers.classList.toggle("open");
+          mobileCareersToggle.classList.toggle("active");
+
+          // Close other dropdowns if open
+          if (mobileCareers.classList.contains("open")) {
+            mobileAbout?.classList.remove("open");
+            mobileSectors?.classList.remove("open");
+            mobileAboutToggle?.classList.remove("active");
+            mobileSectorsToggle?.classList.remove("active");
+            mobileSectors.style.maxHeight = '0px';
+            mobileSectorsToggle.querySelector('i').style.transform = 'rotate(0deg)';
+
+            // Close sector submenus
+            document.querySelectorAll('.sector-menu').forEach(menu => {
+              menu.style.maxHeight = '0px';
+            });
+            document.querySelectorAll('.sector-toggle i').forEach(icon => {
+              icon.style.transform = 'rotate(0deg)';
+            });
+          }
+        });
+
+        // Handle sector toggle buttons (submenus)
+        document.querySelectorAll('.sector-toggle').forEach(button => {
+          button.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const menu = this.nextElementSibling;
+            const icon = this.querySelector('i');
+
+            // Toggle submenu
+            if (menu.style.maxHeight && menu.style.maxHeight !== '0px') {
+              // Collapse
+              menu.style.maxHeight = '0px';
+              icon.style.transform = 'rotate(0deg)';
+            } else {
+              // Expand
+              menu.style.maxHeight = menu.scrollHeight + 'px';
+              icon.style.transform = 'rotate(180deg)';
+            }
+          });
+        });
+
+        // Close mobile dropdowns when clicking on links inside them
+        document.querySelectorAll(".mobile-dropdown a, .sector-menu a").forEach((link) => {
+          link.addEventListener("click", () => {
+            closeAllMobileDropdowns();
+            mobileMenu?.classList.remove("open");
+            if (menuIcon) {
+              menuIcon.classList.remove("fa-times");
+              menuIcon.classList.add("fa-bars");
+            }
+          });
+        });
+
+        // Close menu if clicked outside
+        document.addEventListener("click", function (event) {
+          if (!mobileMenu || !mobileMenuToggle) return;
+
+          const isClickInsideMenu = mobileMenu.contains(event.target);
+          const isClickOnToggle = mobileMenuToggle.contains(event.target);
+
+          if (
+            !isClickInsideMenu &&
+            !isClickOnToggle &&
+            mobileMenu.classList.contains("open")
+          ) {
+            mobileMenu.classList.remove("open");
+            menuIcon.classList.remove("fa-times");
+            menuIcon.classList.add("fa-bars");
+            closeAllMobileDropdowns();
+          }
+        });
+
+        // Desktop dropdown hover functionality
+        const dropdowns = document.querySelectorAll(".dropdown");
+        dropdowns.forEach((dropdown) => {
+          dropdown.addEventListener("mouseenter", () => {
+            const content = dropdown.querySelector(".dropdown-content");
+            if (content) {
+              content.style.opacity = "1";
+              content.style.visibility = "visible";
+              content.style.transform = "translateY(0)";
+            }
+          });
+
+          dropdown.addEventListener("mouseleave", () => {
+            const content = dropdown.querySelector(".dropdown-content");
+            if (content) {
+              content.style.opacity = "0";
+              content.style.visibility = "hidden";
+              content.style.transform = "translateY(-10px)";
+            }
+          });
+        });
+
+        // Handle window resize - recalculate maxHeight for open menus
+        window.addEventListener('resize', function () {
+          // Recalculate for main sectors dropdown
+          if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+            mobileSectors.style.maxHeight = mobileSectors.scrollHeight + 'px';
+          }
+
+          // Recalculate for open sector submenus
+          document.querySelectorAll('.sector-menu').forEach(menu => {
+            if (menu.style.maxHeight && menu.style.maxHeight !== '0px') {
+              menu.style.maxHeight = menu.scrollHeight + 'px';
+            }
+          });
+        });
+      });
+
+    // Navbar scroll effect
+    window.addEventListener("scroll", () => {
+      document
+        .getElementById("navbar")
+        ?.classList.toggle("scrolled", window.scrollY > 50);
+    });
+  </script>
+</body>
+
+</html>

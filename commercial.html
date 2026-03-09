@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Commercial Infrastructure - Prospecta BuildX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .gradient-border {
+        position: relative;
+        border-radius: 0.75rem;
+        overflow: hidden;
+      }
+      .gradient-border::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(45deg, #3b82f6, #8b5cf6, #3b82f6);
+        border-radius: 0.75rem;
+        z-index: -1;
+        animation: borderRotate 3s linear infinite;
+      }
+      @keyframes borderRotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body class="antialiased text-gray-800">
+    <!-- HEADER -->
+    <div id="header"></div>
+
+  <!-- HERO / BANNER -->
+<section class="relative bg-gradient-to-r from-blue-800 to-yellow-500 h-[70vh] flex items-center justify-center overflow-hidden">
+  <!-- Decorative Shapes -->
+  <div class="absolute -top-10 -left-20 w-[600px] h-[600px] bg-yellow-300/30 rounded-full rotate-45"></div>
+  <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-300/30 rounded-full rotate-12"></div>
+
+  <!-- Background Image -->
+  <img src="images/commercial-proj1.png" alt="Commercial Infrastructure" class="absolute inset-0 w-full h-full object-cover opacity-30">
+
+  <!-- Content -->
+  <div class="relative text-center max-w-3xl px-6">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight">Commercial Infrastructure</h1>
+    <p class="mt-4 text-white text-lg sm:text-xl">
+      Crafting innovative commercial spaces blending aesthetics with functionality – from office complexes and retail centers to institutional buildings.
+    </p>
+    <a href="#commercial-projects" class="mt-6 inline-block bg-white text-blue-700 font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-blue-100 transition">View Projects</a>
+  </div>
+</section>
+
+<!-- MODERN COMMERCIAL PROJECT CARDS -->
+<section class="py-16 bg-blue-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl md:text-4xl font-bold text-blue-900 text-center mb-4">Featured Commercial Projects</h2>
+    <p class="text-center text-lg text-blue-700 mb-12 max-w-2xl mx-auto">
+      Showcasing our expertise in commercial construction – from corporate offices to specialized facilities.
+    </p>
+
+    <!-- Grid Container -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Card Template -->
+      <div class="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+        <!-- Image -->
+        <div class="relative overflow-hidden rounded-t-3xl">
+          <img src="https://picsum.photos/500/300?random=11" alt="Project 1" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105">
+          <!-- Badge -->
+          <span class="absolute top-4 left-4 bg-yellow-400 text-white font-semibold text-xs px-3 py-1 rounded-full shadow-lg">COMMERCIAL</span>
+        </div>
+
+        <!-- Content -->
+        <div class="p-6 space-y-3">
+          <h3 class="font-bold text-xl text-blue-900 group-hover:text-blue-700 transition-colors">Capital Land Office Complex</h3>
+          <p class="text-blue-700 text-sm flex items-center"><i class="fas fa-map-marker-alt mr-1"></i>Hinjewadi Phase 1, Pune</p>
+          <ul class="list-disc pl-5 text-gray-700 text-sm space-y-1">
+            <li>Sanitary Fit-outs</li>
+            <li>Tiling Works</li>
+            <li>Interior Finishing</li>
+            <li>Quality Control & Inspection</li>
+          </ul>
+          <div class="flex justify-between text-sm text-gray-600 font-semibold">
+            <span>Completed: 2023</span>
+            <span>Cost: ₹10.5 Cr</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Duplicate for Card 2 -->
+      <div class="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+        <div class="relative overflow-hidden rounded-t-3xl">
+          <img src="https://picsum.photos/500/300?random=12" alt="Project 2" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105">
+          <span class="absolute top-4 left-4 bg-blue-400 text-white font-semibold text-xs px-3 py-1 rounded-full shadow-lg">RETAIL</span>
+        </div>
+        <div class="p-6 space-y-3">
+          <h3 class="font-bold text-xl text-blue-900 group-hover:text-blue-700 transition-colors">Nalanda Shelters Water Reservoir</h3>
+          <p class="text-blue-700 text-sm flex items-center"><i class="fas fa-map-marker-alt mr-1"></i>Hinjewadi Phase 1, Pune</p>
+          <ul class="list-disc pl-5 text-gray-700 text-sm space-y-1">
+            <li>Underground Water Tank Construction</li>
+            <li>Structural Engineering Works</li>
+            <li>Waterproofing Systems</li>
+            <li>Safety Compliance</li>
+          </ul>
+          <div class="flex justify-between text-sm text-gray-600 font-semibold">
+            <span>Capacity: 10M litres</span>
+            <span>Cost: ₹12.5 Cr</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+        <div class="relative overflow-hidden rounded-t-3xl">
+          <img src="https://picsum.photos/500/300?random=13" alt="Project 3" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105">
+          <span class="absolute top-4 left-4 bg-yellow-400 text-white font-semibold text-xs px-3 py-1 rounded-full shadow-lg">R&D</span>
+        </div>
+        <div class="p-6 space-y-3">
+          <h3 class="font-bold text-xl text-blue-900 group-hover:text-blue-700 transition-colors">IISER Pune Research Building</h3>
+          <p class="text-blue-700 text-sm flex items-center"><i class="fas fa-map-marker-alt mr-1"></i>Pune, Maharashtra</p>
+          <ul class="list-disc pl-5 text-gray-700 text-sm space-y-1">
+            <li>Advanced R&D Building Construction</li>
+            <li>RO Plant Installation</li>
+            <li>Laboratory Setup & Equipment</li>
+            <li>Specialized Research Facilities</li>
+          </ul>
+          <div class="flex justify-between text-sm text-gray-600 font-semibold">
+            <span>Type: Advanced R&D</span>
+            <span>Feature: RO Plant</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+        <div class="relative overflow-hidden rounded-t-3xl">
+          <img src="https://picsum.photos/500/300?random=14" alt="Project 4" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105">
+          <span class="absolute top-4 left-4 bg-blue-400 text-white font-semibold text-xs px-3 py-1 rounded-full shadow-lg">INDUSTRIAL</span>
+        </div>
+        <div class="p-6 space-y-3">
+          <h3 class="font-bold text-xl text-blue-900 group-hover:text-blue-700 transition-colors">Pidilite Industries Facility</h3>
+          <p class="text-blue-700 text-sm flex items-center"><i class="fas fa-map-marker-alt mr-1"></i>Shirwal, Pune</p>
+          <ul class="list-disc pl-5 text-gray-700 text-sm space-y-1">
+            <li>PEB & Civil Works</li>
+            <li>Utility & Infrastructure Development</li>
+            <li>Chemical Processing Area Setup</li>
+            <li>Safety & Environmental Systems</li>
+          </ul>
+          <div class="flex justify-between text-sm text-gray-600 font-semibold">
+            <span>Area: 80,000 sq.ft</span>
+            <span>Cost: ₹12.5 Cr</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+        <div class="relative overflow-hidden rounded-t-3xl">
+          <img src="https://picsum.photos/500/300?random=15" alt="Project 5" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105">
+          <span class="absolute top-4 left-4 bg-yellow-400 text-white font-semibold text-xs px-3 py-1 rounded-full shadow-lg">RETAIL</span>
+        </div>
+        <div class="p-6 space-y-3">
+          <h3 class="font-bold text-xl text-blue-900 group-hover:text-blue-700 transition-colors">Vanguard Retail Center</h3>
+          <p class="text-blue-700 text-sm flex items-center"><i class="fas fa-map-marker-alt mr-1"></i>Baner, Pune</p>
+          <ul class="list-disc pl-5 text-gray-700 text-sm space-y-1">
+            <li>Interior Design & Fit-outs</li>
+            <li>Lighting & HVAC Installation</li>
+            <li>Security & Fire Systems</li>
+          </ul>
+          <div class="flex justify-between text-sm text-gray-600 font-semibold">
+            <span>Completed: 2022</span>
+            <span>Cost: ₹8 Cr</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+        <div class="relative overflow-hidden rounded-t-3xl">
+          <img src="https://picsum.photos/500/300?random=16" alt="Project 6" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105">
+          <span class="absolute top-4 left-4 bg-blue-400 text-white font-semibold text-xs px-3 py-1 rounded-full shadow-lg">OFFICE</span>
+        </div>
+        <div class="p-6 space-y-3">
+          <h3 class="font-bold text-xl text-blue-900 group-hover:text-blue-700 transition-colors">Horizon Office Tower</h3>
+          <p class="text-blue-700 text-sm flex items-center"><i class="fas fa-map-marker-alt mr-1"></i>Koregaon Park, Pune</p>
+          <ul class="list-disc pl-5 text-gray-700 text-sm space-y-1">
+            <li>Full Interior Design</li>
+            <li>Smart Office Automation</li>
+            <li>Green Building Compliance</li>
+          </ul>
+          <div class="flex justify-between text-sm text-gray-600 font-semibold">
+            <span>Completed: 2023</span>
+            <span>Cost: ₹15 Cr</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+   
+  <!-- FOOTER -->
+  <footer class="relative text-white py-12 overflow-hidden 
+bg-gradient-to-b from-[#0E1B3D] via-[#11224E] to-[#0A1530]">
+
+    <!-- Background shapes -->
+    <div class="absolute top-0 right-0 w-72 h-72 bg-yellow-400/20 blur-3xl rounded-full"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-blue-400/10 blur-3xl rounded-full"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+
+        <!-- Company -->
+        <div>
+          <div class="mb-5">
+            <img src="Images/Sdcpl logo.png" alt="logo" class="h-24 object-contain">
+          </div>
+
+          <p class="text-gray-300 text-sm leading-relaxed mb-5">
+            Delivering innovative infrastructure and construction solutions
+            with a commitment to quality, reliability, and engineering excellence.
+          </p>
+
+          <div class="flex gap-3">
+
+            <a href="#"
+              class="w-9 h-9 bg-[#162B5B] rounded-md flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+
+            <a href="#"
+              class="w-9 h-9 bg-[#162B5B] rounded-md flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+              <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="#"
+              class="w-9 h-9 bg-[#162B5B] rounded-md flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+
+          </div>
+        </div>
+
+
+        <!-- Explore -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4 border-l-4 border-yellow-400 pl-3">
+            Explore
+          </h3>
+
+          <ul class="space-y-2 text-sm">
+
+            <li><a href="index.html" class="text-gray-300 hover:text-yellow-400 transition">Home</a></li>
+            <li><a href="about.html" class="text-gray-300 hover:text-yellow-400 transition">About</a></li>
+            <li><a href="projects.html" class="text-gray-300 hover:text-yellow-400 transition">Projects</a></li>
+            <li><a href="interior.html" class="text-gray-300 hover:text-yellow-400 transition">Interior Design</a></li>
+            <li><a href="gallery.html" class="text-gray-300 hover:text-yellow-400 transition">Gallery</a></li>
+            <li><a href="contact.html" class="text-gray-300 hover:text-yellow-400 transition">Contact</a></li>
+
+          </ul>
+        </div>
+
+
+        <!-- Sectors -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4 border-l-4 border-yellow-400 pl-3">
+            Sectors
+          </h3>
+
+          <ul class="space-y-2 text-sm">
+
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Residential</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Commercial</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Industrial</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Institutional</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Infrastructure</a></li>
+
+          </ul>
+        </div>
+
+
+        <!-- Contact -->
+        <div>
+
+          <h3 class="text-lg font-semibold mb-4 border-l-4 border-yellow-400 pl-3">
+            Contact
+          </h3>
+
+          <div class="space-y-4 text-sm text-gray-300">
+
+            <div class="flex gap-3 items-start">
+              <i class="fas fa-map-marker-alt text-yellow-400 mt-1"></i>
+              <a href="https://www.google.com/maps/place/C-803,+Amar+Business+Zone,+Baner,+Pune+411045" target="_blank"
+                class="hover:text-yellow-400 transition">
+                B-400 Amar Business Zone, Baner, Pune – 411047
+              </a>
+            </div>
+
+            <div class="flex gap-3 items-center">
+              <i class="fas fa-phone text-yellow-400"></i>
+              <a href="tel:+919549543838" class="hover:text-yellow-400 transition">
+                +91 95495 53538
+              </a>
+            </div>
+
+            <div class="flex gap-3 items-center">
+              <i class="fas fa-envelope text-yellow-400"></i>
+              <a href="mailto:info@sddcpl.com" class="hover:text-yellow-400 transition">
+                info@sddcpl.com
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Bottom -->
+      <div
+        class="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+
+        <span>
+          © 2025 SDDCPL. All rights reserved.Developed by Kunash Media.
+        </span>
+
+        <div class="flex gap-5 mt-3 md:mt-0">
+
+          <a href="#" class="hover:text-yellow-400 transition">Privacy</a>
+          <a href="#" class="hover:text-yellow-400 transition">Terms</a>
+          <a href="#" class="hover:text-yellow-400 transition">Sitemap</a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </footer>
+
+    <script>
+ //header js
+// Load header.html and then initialize header JS
+fetch("header.html")
+  .then((res) => res.text())
+  .then((data) => {
+    document.getElementById("header").innerHTML = data;
+
+    // ✅ Elements
+    const mobileMenuToggle =
+      document.getElementById("mobile-menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuIcon = document.getElementById("menu-icon");
+
+    const mobileAboutToggle = document.getElementById(
+      "mobile-about-toggle"
+    );
+    const mobileAbout = document.getElementById("mobile-about");
+    const mobileSectorsToggle = document.getElementById(
+      "mobile-sectors-toggle"
+    );
+    const mobileSectors = document.getElementById("mobile-sectors");
+    const mobileCareersToggle = document.getElementById(
+      "mobile-careers-toggle"
+    );
+    const mobileCareers = document.getElementById("mobile-careers");
+
+    // Function to close all mobile dropdowns
+    function closeAllMobileDropdowns() {
+      mobileAbout?.classList.remove("open");
+      mobileSectors?.classList.remove("open");
+      mobileCareers?.classList.remove("open");
+      mobileAboutToggle?.classList.remove("active");
+      mobileSectorsToggle?.classList.remove("active");
+      mobileCareersToggle?.classList.remove("active");
+      
+      // Also close all sector submenus
+      document.querySelectorAll('.sector-menu').forEach(menu => {
+        menu.style.maxHeight = '0px';
+      });
+      document.querySelectorAll('.sector-toggle i').forEach(icon => {
+        icon.style.transform = 'rotate(0deg)';
+      });
+    }
+
+    // Toggle Mobile Menu
+    mobileMenuToggle?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      mobileMenu.classList.toggle("open");
+
+      if (mobileMenu.classList.contains("open")) {
+        menuIcon.classList.remove("fa-bars");
+        menuIcon.classList.add("fa-times");
+      } else {
+        menuIcon.classList.remove("fa-times");
+        menuIcon.classList.add("fa-bars");
+        closeAllMobileDropdowns();
+      }
+    });
+
+    // Toggle Mobile About Dropdown
+    mobileAboutToggle?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      mobileAbout.classList.toggle("open");
+      mobileAboutToggle.classList.toggle("active");
+
+      // Close other dropdowns if open
+      if (mobileAbout.classList.contains("open")) {
+        mobileSectors?.classList.remove("open");
+        mobileCareers?.classList.remove("open");
+        mobileSectorsToggle?.classList.remove("active");
+        mobileCareersToggle?.classList.remove("active");
+        
+        // Close sector submenus
+        document.querySelectorAll('.sector-menu').forEach(menu => {
+          menu.style.maxHeight = '0px';
+        });
+        document.querySelectorAll('.sector-toggle i').forEach(icon => {
+          icon.style.transform = 'rotate(0deg)';
+        });
+      }
+    });
+
+    // Toggle Mobile Sectors Dropdown
+    mobileSectorsToggle?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      
+      // Toggle main sectors dropdown
+      if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+        // Collapse main sectors
+        mobileSectors.style.maxHeight = '0px';
+        mobileSectorsToggle.querySelector('i').style.transform = 'rotate(0deg)';
+        mobileSectorsToggle.classList.remove("active");
+        
+        // Also collapse all sector submenus
+        document.querySelectorAll('.sector-menu').forEach(menu => {
+          menu.style.maxHeight = '0px';
+        });
+        document.querySelectorAll('.sector-toggle i').forEach(icon => {
+          icon.style.transform = 'rotate(0deg)';
+        });
+      } else {
+        // Expand main sectors
+        mobileSectors.style.maxHeight = mobileSectors.scrollHeight + 'px';
+        mobileSectorsToggle.querySelector('i').style.transform = 'rotate(180deg)';
+        mobileSectorsToggle.classList.add("active");
+      }
+
+      // Close other dropdowns if opening this one
+      if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+        mobileAbout?.classList.remove("open");
+        mobileCareers?.classList.remove("open");
+        mobileAboutToggle?.classList.remove("active");
+        mobileCareersToggle?.classList.remove("active");
+      }
+    });
+
+    // Toggle Mobile Careers Dropdown (NEW)
+    mobileCareersToggle?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      mobileCareers.classList.toggle("open");
+      mobileCareersToggle.classList.toggle("active");
+
+      // Close other dropdowns if open
+      if (mobileCareers.classList.contains("open")) {
+        mobileAbout?.classList.remove("open");
+        mobileSectors?.classList.remove("open");
+        mobileAboutToggle?.classList.remove("active");
+        mobileSectorsToggle?.classList.remove("active");
+        mobileSectors.style.maxHeight = '0px';
+        mobileSectorsToggle.querySelector('i').style.transform = 'rotate(0deg)';
+        
+        // Close sector submenus
+        document.querySelectorAll('.sector-menu').forEach(menu => {
+          menu.style.maxHeight = '0px';
+        });
+        document.querySelectorAll('.sector-toggle i').forEach(icon => {
+          icon.style.transform = 'rotate(0deg)';
+        });
+      }
+    });
+
+    // Handle sector toggle buttons (submenus)
+    document.querySelectorAll('.sector-toggle').forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const menu = this.nextElementSibling;
+        const icon = this.querySelector('i');
+        
+        // Toggle submenu
+        if (menu.style.maxHeight && menu.style.maxHeight !== '0px') {
+          // Collapse
+          menu.style.maxHeight = '0px';
+          icon.style.transform = 'rotate(0deg)';
+        } else {
+          // Expand
+          menu.style.maxHeight = menu.scrollHeight + 'px';
+          icon.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+
+    // Close mobile dropdowns when clicking on links inside them
+    document.querySelectorAll(".mobile-dropdown a, .sector-menu a").forEach((link) => {
+      link.addEventListener("click", () => {
+        closeAllMobileDropdowns();
+        mobileMenu?.classList.remove("open");
+        if (menuIcon) {
+          menuIcon.classList.remove("fa-times");
+          menuIcon.classList.add("fa-bars");
+        }
+      });
+    });
+
+    // Close menu if clicked outside
+    document.addEventListener("click", function (event) {
+      if (!mobileMenu || !mobileMenuToggle) return;
+
+      const isClickInsideMenu = mobileMenu.contains(event.target);
+      const isClickOnToggle = mobileMenuToggle.contains(event.target);
+
+      if (
+        !isClickInsideMenu &&
+        !isClickOnToggle &&
+        mobileMenu.classList.contains("open")
+      ) {
+        mobileMenu.classList.remove("open");
+        menuIcon.classList.remove("fa-times");
+        menuIcon.classList.add("fa-bars");
+        closeAllMobileDropdowns();
+      }
+    });
+
+    // Desktop dropdown hover functionality
+    const dropdowns = document.querySelectorAll(".dropdown");
+    dropdowns.forEach((dropdown) => {
+      dropdown.addEventListener("mouseenter", () => {
+        const content = dropdown.querySelector(".dropdown-content");
+        if (content) {
+          content.style.opacity = "1";
+          content.style.visibility = "visible";
+          content.style.transform = "translateY(0)";
+        }
+      });
+
+      dropdown.addEventListener("mouseleave", () => {
+        const content = dropdown.querySelector(".dropdown-content");
+        if (content) {
+          content.style.opacity = "0";
+          content.style.visibility = "hidden";
+          content.style.transform = "translateY(-10px)";
+        }
+      });
+    });
+    
+    // Handle window resize - recalculate maxHeight for open menus
+    window.addEventListener('resize', function() {
+      // Recalculate for main sectors dropdown
+      if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+        mobileSectors.style.maxHeight = mobileSectors.scrollHeight + 'px';
+      }
+      
+      // Recalculate for open sector submenus
+      document.querySelectorAll('.sector-menu').forEach(menu => {
+        if (menu.style.maxHeight && menu.style.maxHeight !== '0px') {
+          menu.style.maxHeight = menu.scrollHeight + 'px';
+        }
+      });
+    });
+  });
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        document
+          .getElementById("navbar")
+          ?.classList.toggle("scrolled", window.scrollY > 50);
+      });
+    </script>
+  </body>
+</html>

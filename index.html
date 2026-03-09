@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prospecta BuildX - Building Tomorrow</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="homestyle.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #f8fafc;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Optimized Hero Video Background */
+    .hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .hero-overlay {
+      background: linear-gradient(to bottom,
+          rgba(0, 0, 0, 0.7),
+          rgba(0, 0, 0, 0.4));
+    }
+
+    /* Section Animations - Optimized */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+      will-change: opacity, transform;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered animation for cards */
+    .stagger-animation .card-hover {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .stagger-animation .card-hover.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Image loading optimization */
+    img {
+      loading: lazy;
+      transition: opacity 0.3s ease;
+    }
+
+    img[loading="lazy"] {
+      opacity: 0;
+    }
+
+    img[loading="lazy"].loaded {
+      opacity: 1;
+    }
+
+    /* Pulse dot animation */
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: #ef4444;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.7;
+        transform: scale(1.1);
+      }
+    }
+
+    /* Image overlay */
+    .image-overlay {
+      background: linear-gradient(to top,
+          rgba(0, 0, 0, 0.8) 0%,
+          rgba(0, 0, 0, 0.4) 50%,
+          transparent 100%);
+    }
+
+    /* Card hover effects */
+    .card-hover {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card-hover:hover {
+      transform: translateY(-8px);
+    }
+
+    .arrow-icon {
+      transition: all 0.3s ease;
+    }
+
+    .card-hover:hover .arrow-icon {
+      transform: rotate(45deg);
+    }
+
+    /* Responsive fixes */
+    @media (max-width: 1024px) {
+      .logo {
+        position: static;
+        transform: none;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block !important;
+        font-size: 28px;
+        cursor: pointer;
+      }
+    }
+
+    /* Performance optimizations */
+    .will-change-transform {
+      will-change: transform;
+    }
+
+    /* Loading states */
+    .loading-shimmer {
+      background: linear-gradient(90deg,
+          #f0f0f0 25%,
+          #e0e0e0 50%,
+          #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: shimmer 2s infinite;
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: -200% 0;
+      }
+
+      100% {
+        background-position: 200% 0;
+      }
+    }
+
+    /* Auto-scroll optimization */
+    .animate-autoscroll {
+      display: flex;
+      width: max-content;
+      animation: autoscroll 40s linear infinite;
+      will-change: transform;
+    }
+
+    .pause-autoscroll:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes autoscroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Performance: GPU acceleration for animations */
+    .gpu-accelerated {
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      perspective: 1000px;
+    }
+  </style>
+</head>
+
+<body class="text-gray-800">
+  <!-- HEADER -->
+  <div id="header"></div>
+
+  <!-- HERO SECTION -->
+  <section class="relative h-[80vh] w-full overflow-hidden">
+    <div class="w-full h-full overflow-hidden">
+      <div id="heroSlider" class="flex h-full transition-transform duration-1000 ease-in-out">
+
+        <!-- BANNER 1 -->
+        <div class="slide w-full min-h-screen flex-shrink-0 bg-cover bg-center relative"
+          style="background-image: url('images/why2.png')">
+
+          <!-- <div class="absolute inset-0 bg-gradient-to-t from-white/40 via-white/30 to-white/40"></div> -->
+
+          <div class="relative z-10 w-full h-full flex items-center px-6 sm:px-10 lg:px-20">
+
+            <div class="max-w-xl text-[#12306A] mb-10">
+
+              <!-- <h1 class="font-serif tracking-tight leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+                Safety & Sustainability
+              </h1>
+
+              <p class="mt-4 text-sm sm:text-base md:text-lg text-gray-600 max-w-md">
+                Building safer, greener and responsible infrastructure for
+                future generations.
+              </p> -->
+
+              <div class="mt-8 flex gap-4 flex-wrap">
+
+                <a href="#"
+                  class="bg-yellow-400 hover:bg-yellow-500 text-black font-medium py-3 px-6 rounded-full text-sm transition">
+                  Learn More
+                </a>
+
+                <a href="#"
+                  class="border border-gray-300 hover:bg-white hover:text-black font-semibold py-3 px-6 rounded-full text-sm transition">
+                  Our Projects
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BANNER 2 -->
+        <div class="slide w-full min-h-screen flex-shrink-0 bg-cover bg-center relative"
+          style="background-image: url('images/s-2.jfif')">
+
+          <div class="absolute inset-0 bg-gradient-to-t from-white/40 via-white/30 to-white/40"></div>
+
+          <div class="relative z-10 w-full h-full flex items-center px-6 sm:px-10 lg:px-20">
+
+            <div class="max-w-xl mb-10 text-[#12306A]">
+
+              <div class="w-14 h-[3px] bg-yellow-400 mb-6"></div>
+
+              <h1 class="font-serif tracking-tight leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+                Commercial Development
+              </h1>
+
+              <p class="mt-4 text-sm sm:text-base md:text-lg text-white max-w-md">
+                Strong foundations for modern cities
+              </p>
+
+              <div class="mt-8 flex gap-4 flex-wrap">
+
+                <a href="#"
+                  class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 px-7 rounded-full text-sm transition">
+                  Learn More
+                </a>
+
+                <a href="#"
+                  class="border border-[#12306A]/40 text-[#12306A] hover:bg-[#12306A] hover:text-white font-semibold py-3 px-7 rounded-full text-sm transition">
+                  Our Projects
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BANNER 3 -->
+        <div class="slide w-full min-h-screen flex-shrink-0 bg-cover bg-center relative"
+          style="background-image: url('images/home4.png')">
+
+          <div class="absolute inset-0 bg-black/30"></div>
+
+          <div class="relative z-10 w-full h-full flex items-center justify-end px-6 sm:px-10 lg:px-20">
+
+            <div class="max-w-lg bg-white/20 backdrop-blur-md border border-white/20 p-8 rounded-2xl mb-10">
+
+              <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif text-[#12306A] leading-tight">
+                Industrial Construction
+              </h1>
+
+              <p class="mt-4 text-sm sm:text-base text-black/70">
+                Engineering robust, scalable and efficient industrial facilities
+                that drive production and growth.
+              </p>
+
+              <div class="mt-6 flex gap-3 flex-wrap">
+
+                <a href="#"
+                  class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 px-6 rounded-full text-sm transition">
+                  Explore
+                </a>
+
+                <a href="#"
+                  class="border border-[#12306A] text-[#12306A] hover:bg-white hover:text-black font-semibold py-3 px-6 rounded-full text-sm transition">
+                  View Projects
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ARROWS -->
+      <button id="prevBtn"
+        class="absolute left-5 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 p-4 rounded-full text-white z-40">
+        ❮
+      </button>
+
+      <button id="nextBtn"
+        class="absolute right-5 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 p-4 rounded-full text-white z-40">
+        ❯
+      </button>
+
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="relative py-12 bg-white overflow-hidden">
+
+    <!-- background accents -->
+    <div class="absolute top-0 right-0 w-56 h-56 bg-[#F6B100]/5 rounded-full -translate-y-24 translate-x-24"></div>
+    <div class="absolute bottom-0 left-0 w-72 h-72 bg-[#0F2A4F]/5 rounded-full translate-y-32 -translate-x-32"></div>
+
+    <div class="relative z-10 container mx-auto px-6">
+
+      <!-- marker -->
+      <div class="flex justify-center mb-8">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-[2px] bg-[#F6B100]"></div>
+          <span class="text-xs uppercase tracking-[0.35em] text-[#0F2A4F] font-medium">
+            ABOUT US
+          </span>
+          <div class="w-8 h-[2px] bg-[#F6B100]"></div>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+
+        <!-- IMAGE -->
+        <div class="relative">
+
+          <div class="relative rounded-xl overflow-hidden aspect-[4/3]">
+            <img src="images/aboutimg.png" class="w-full h-full object-cover">
+          </div>
+
+          <div class="absolute -bottom-6 -left-4 bg-white shadow-lg rounded-lg px-4 py-3 border-l-4 border-[#F6B100]">
+            <span class="text-xl font-bold text-[#0F2A4F]">8+</span>
+            <p class="text-[10px] uppercase text-gray-500">Years Experience</p>
+          </div>
+
+          <div class="absolute -top-5 -right-2 bg-white shadow-lg rounded-lg px-4 py-2 border-r-4 border-[#0F2A4F]">
+            <span class="text-xs font-medium text-[#0F2A4F]">100+ Projects Delivered</span>
+          </div>
+
+        </div>
+
+        <!-- CONTENT -->
+        <div class="space-y-6">
+
+          <div class="inline-block px-4 py-1 rounded-full bg-[#EFF4FC] border border-[#C0D4F0]">
+            <span class="text-[11px] font-semibold text-[#0F2A4F]">ESTABLISHED 2018</span>
+          </div>
+
+          <h2 class="text-3xl md:text-4xl font-light text-[#0F2A4F] leading-tight">
+            Engineering Structures
+            <span class="font-bold relative">
+              With Purpose
+              <span class="absolute -bottom-1 left-0 w-full h-[3px] bg-[#F6B100]/60"></span>
+            </span>
+          </h2>
+
+          <p class="text-gray-500 text-sm leading-relaxed max-w-lg">
+            We deliver high-quality industrial and infrastructure projects through
+            precision engineering, advanced construction methods, and efficient
+            project execution. Our mission is to build durable and sustainable
+            infrastructure that supports growth and innovation.
+          </p>
+
+          <!-- SERVICES -->
+          <div class="grid grid-cols-2 gap-x-6 gap-y-2 text-sm text-gray-600">
+
+            <div class="flex items-center gap-2">
+              <div class="w-2 h-2 bg-[#F6B100] rounded-full"></div>
+              Industrial Infrastructure
+            </div>
+
+            <div class="flex items-center gap-2">
+              <div class="w-2 h-2 bg-[#F6B100] rounded-full"></div>
+              Commercial Development
+            </div>
+
+            <div class="flex items-center gap-2">
+              <div class="w-2 h-2 bg-[#F6B100] rounded-full"></div>
+              Structural Engineering
+            </div>
+
+            <div class="flex items-center gap-2">
+              <div class="w-2 h-2 bg-[#F6B100] rounded-full"></div>
+              Project Consulting
+            </div>
+
+          </div>
+
+          <!-- STATS -->
+          <div class="grid grid-cols-4 gap-4 pt-3 border-t border-gray-100">
+
+            <div>
+              <div class="text-xl font-bold text-[#0F2A4F]">100+</div>
+              <div class="text-[10px] uppercase text-gray-400">Projects</div>
+            </div>
+
+            <div>
+              <div class="text-xl font-bold text-[#0F2A4F]">7</div>
+              <div class="text-[10px] uppercase text-gray-400">Cities</div>
+            </div>
+
+            <div>
+              <div class="text-xl font-bold text-[#0F2A4F]">50+</div>
+              <div class="text-[10px] uppercase text-gray-400">Clients</div>
+            </div>
+
+            <div>
+              <div class="text-xl font-bold text-[#0F2A4F]">98%</div>
+              <div class="text-[10px] uppercase text-gray-400">Success</div>
+            </div>
+
+          </div>
+
+          <!-- CTA -->
+          <div class="flex gap-4 pt-2">
+
+            <a href="gallery.html"
+              class="px-6 py-2.5 bg-[#0F2A4F] text-white text-sm rounded-full hover:bg-[#F6B100] transition">
+              View Projects
+            </a>
+
+            <a href="about.html"
+              class="px-6 py-2.5 border border-[#C0D4F0] text-[#0F2A4F] text-sm rounded-full hover:border-[#F6B100]">
+              Learn More
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SECTORS SECTION -->
+  <section class="py-16 bg-[#F7F9FC] overflow-hidden">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+      <!-- HEADER -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-12 border-b border-[#0F2A4F]/10 pb-6">
+
+        <!-- LEFT -->
+        <div>
+          <p class="text-xs uppercase tracking-[0.25em] text-[#F6B100] mb-3 font-semibold">
+            SECTORS WE SERVE
+          </p>
+
+          <h2 class="text-4xl md:text-5xl font-light text-[#0F2A4F] leading-tight">
+            Expertise Across
+            <span class="font-semibold">Key Industries</span>
+          </h2>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="max-w-md mt-6 lg:mt-0">
+          <p class="text-sm text-gray-600 mb-3 leading-relaxed">
+            We deliver engineering and construction excellence across
+            diverse industries, ensuring durable infrastructure,
+            modern facilities, and sustainable growth.
+          </p>
+
+          <a href="contact.html"
+            class="inline-flex items-center gap-2 text-sm font-semibold text-[#0F2A4F] hover:text-[#F6B100] transition">
+            Get in touch →
+          </a>
+        </div>
+
+      </div>
+
+
+      <!-- CARDS GRID -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+
+        <!-- CARD -->
+        <a href="industrial.html"
+          class="group relative h-64 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition duration-500">
+
+          <img src="images/industrial.jfif"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
+
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0F2A4F]/90 via-[#0F2A4F]/40 to-transparent"></div>
+
+          <div class="absolute bottom-0 p-5 text-white">
+
+            <h3 class="text-lg font-semibold mb-1">Industrial</h3>
+
+            <!-- <p class="text-xs opacity-80 mb-4">
+            Delivering advanced manufacturing facilities and
+            industrial infrastructure solutions.
+          </p> -->
+
+            <span
+              class="w-9 h-9 bg-[#F6B100] text-[#0F2A4F] rounded-full flex items-center justify-center font-bold group-hover:translate-x-1 transition">
+              →
+            </span>
+
+          </div>
+        </a>
+
+
+        <!-- CARD -->
+        <a href="commercial.html"
+          class="group relative h-64 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition duration-500">
+
+          <img src="images/commercial.jfif"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
+
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0F2A4F]/90 via-[#0F2A4F]/40 to-transparent"></div>
+
+          <div class="absolute bottom-0 p-5 text-white">
+
+            <h3 class="text-lg font-semibold mb-1">Commercial</h3>
+
+            <!-- <p class="text-xs opacity-80 mb-4">
+            Creating modern commercial environments that support
+            business innovation and growth.
+          </p> -->
+
+            <span
+              class="w-9 h-9 bg-[#F6B100] text-[#0F2A4F] rounded-full flex items-center justify-center font-bold group-hover:translate-x-1 transition">
+              →
+            </span>
+
+          </div>
+        </a>
+
+
+        <!-- CARD -->
+        <a href="residential.html"
+          class="group relative h-64 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition duration-500">
+
+          <img src="images/residential.jfif"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
+
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0F2A4F]/90 via-[#0F2A4F]/40 to-transparent"></div>
+
+          <div class="absolute bottom-0 p-5 text-white">
+
+            <h3 class="text-lg font-semibold mb-1">Residential</h3>
+            <!-- 
+          <p class="text-xs opacity-80 mb-4">
+            Building contemporary residential communities designed
+            for comfort and sustainability.
+          </p> -->
+
+            <span
+              class="w-9 h-9 bg-[#F6B100] text-[#0F2A4F] rounded-full flex items-center justify-center font-bold group-hover:translate-x-1 transition">
+              →
+            </span>
+
+          </div>
+        </a>
+
+
+        <!-- CARD -->
+        <a href="institutional.html"
+          class="group relative h-64 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition duration-500">
+
+          <img src="images/institutional.jfif"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
+
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0F2A4F]/90 via-[#0F2A4F]/40 to-transparent"></div>
+
+          <div class="absolute bottom-0 p-5 text-white">
+
+            <h3 class="text-lg font-semibold mb-1">Institutional</h3>
+            <!-- 
+          <p class="text-xs opacity-80 mb-4">
+            Developing schools, hospitals, and institutional
+            infrastructure with precision.
+          </p> -->
+
+            <span
+              class="w-9 h-9 bg-[#F6B100] text-[#0F2A4F] rounded-full flex items-center justify-center font-bold group-hover:translate-x-1 transition">
+              →
+            </span>
+
+          </div>
+        </a>
+
+
+        <!-- CARD -->
+        <a href="public-infrastructure.html"
+          class="group relative h-64 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition duration-500">
+
+          <img src="images/public.jfif"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
+
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0F2A4F]/90 via-[#0F2A4F]/40 to-transparent"></div>
+
+          <div class="absolute bottom-0 p-5 text-white">
+
+            <h3 class="text-lg font-semibold mb-1">Public Infrastructure</h3>
+
+            <!-- <p class="text-xs opacity-80 mb-4">
+            Delivering large-scale infrastructure projects that
+            empower cities and communities.
+          </p> -->
+
+            <span
+              class="w-9 h-9 bg-[#F6B100] text-[#0F2A4F] rounded-full flex items-center justify-center font-bold group-hover:translate-x-1 transition">
+              →
+            </span>
+
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!------------PROJECT SECTION --------------------->
+  <section class="py-14 md:py-8 bg-gradient-to-br from-[#F5F8FF] via-white to-[#EEF3FF] overflow-hidden relative">
+
+    <!-- Architectural Decorative Shapes -->
+
+    <!-- Top Right Blueprint Lines -->
+    <div class="absolute top-0 right-0 w-[420px] h-[420px] opacity-[0.06] pointer-events-none">
+      <svg viewBox="0 0 500 500" class="w-full h-full text-[#0F2A4F]">
+        <rect x="60" y="60" width="300" height="300" stroke="currentColor" stroke-width="2" fill="none" />
+        <rect x="120" y="120" width="300" height="300" stroke="currentColor" stroke-width="2" fill="none" />
+        <line x1="0" y1="200" x2="500" y2="200" stroke="currentColor" stroke-width="1" />
+        <line x1="200" y1="0" x2="200" y2="500" stroke="currentColor" stroke-width="1" />
+      </svg>
+    </div>
+
+    <!-- Bottom Left Diagonal Architectural Shape -->
+    <div class="absolute -bottom-24 -left-24 w-[420px] h-[420px] opacity-[0.05] rotate-12 pointer-events-none">
+      <svg viewBox="0 0 400 400" class="w-full h-full text-[#F6B100]">
+        <polygon points="0,200 200,0 400,200 200,400" stroke="currentColor" stroke-width="2" fill="none" />
+        <polygon points="80,200 200,80 320,200 200,320" stroke="currentColor" stroke-width="2" fill="none" />
+        <line x1="0" y1="200" x2="400" y2="200" stroke="currentColor" stroke-width="1" />
+      </svg>
+    </div>
+
+
+    <div class="container mx-auto px-6 max-w-7xl">
+
+      <!-- Section Header -->
+      <div class="max-w-3xl mx-auto text-center mb-10">
+
+        <span
+          class="inline-block px-4 py-1.5 rounded-full bg-[#E9F0FB] text-[#0F2A4F] text-xs font-semibold tracking-wider mb-3">
+          OUR PORTFOLIO
+        </span>
+
+        <h2 class="text-3xl md:text-4xl font-semibold text-[#0F2A4F]">
+          Projects That <span class="text-[#F6B100]">Define Our Expertise</span>
+        </h2>
+
+        <p class="text-gray-600 mt-3 text-sm md:text-base">
+          Delivering excellence across industrial, commercial, residential and infrastructure developments.
+        </p>
+
+        <div class="w-20 h-1 bg-[#F6B100] mx-auto mt-5 rounded-full"></div>
+
+      </div>
+
+
+      <!-- Auto Scrolling Projects -->
+      <div class="relative">
+
+        <div class="flex gap-6 animate-autoscroll pause-autoscroll">
+
+          <!-- Project Set -->
+          <div class="flex gap-6">
+
+            <!-- Project 1 -->
+            <div class="flex-shrink-0 w-72">
+              <div
+                class="bg-white rounded-2xl border border-[#D7E3F8] overflow-hidden shadow-sm hover:shadow-lg transition">
+
+                <div class="h-44 relative">
+                  <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e"
+                    class="w-full h-full object-cover">
+                  <div
+                    class="absolute top-3 right-3 bg-[#F6B100] text-[#0F2A4F] text-xs font-semibold px-3 py-1 rounded-full">
+                    Completed
+                  </div>
+                </div>
+
+                <div class="p-5">
+                  <span class="text-xs bg-[#EFF4FC] text-[#0F2A4F] px-3 py-1 rounded-full">
+                    Industrial
+                  </span>
+
+                  <h3 class="text-lg font-semibold text-[#0F2A4F] mt-2">
+                    Advanced Manufacturing Unit
+                  </h3>
+
+                  <p class="text-gray-600 text-sm mt-1">
+                    Chakan, Pune · 120,000 sq.ft
+                  </p>
+
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Project 2 -->
+            <div class="flex-shrink-0 w-72">
+              <div
+                class="bg-white rounded-2xl border border-[#D7E3F8] overflow-hidden shadow-sm hover:shadow-lg transition">
+
+                <div class="h-44 relative">
+                  <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab"
+                    class="w-full h-full object-cover">
+                  <div
+                    class="absolute top-3 right-3 bg-[#F6B100] text-[#0F2A4F] text-xs font-semibold px-3 py-1 rounded-full">
+                    Completed
+                  </div>
+                </div>
+
+                <div class="p-5">
+                  <span class="text-xs bg-[#EFF4FC] text-[#0F2A4F] px-3 py-1 rounded-full">
+                    Commercial
+                  </span>
+
+                  <h3 class="text-lg font-semibold text-[#0F2A4F] mt-2">
+                    Corporate Business Park
+                  </h3>
+
+                  <p class="text-gray-600 text-sm mt-1">
+                    Hinjewadi, Pune · 95,000 sq.ft
+                  </p>
+
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Project 3 -->
+            <div class="flex-shrink-0 w-72">
+              <div
+                class="bg-white rounded-2xl border border-[#D7E3F8] overflow-hidden shadow-sm hover:shadow-lg transition">
+
+                <div class="h-44 relative">
+                  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+                    class="w-full h-full object-cover">
+                  <div
+                    class="absolute top-3 right-3 bg-[#F6B100] text-[#0F2A4F] text-xs font-semibold px-3 py-1 rounded-full">
+                    Ongoing
+                  </div>
+                </div>
+
+                <div class="p-5">
+                  <span class="text-xs bg-[#EFF4FC] text-[#0F2A4F] px-3 py-1 rounded-full">
+                    Residential
+                  </span>
+
+                  <h3 class="text-lg font-semibold text-[#0F2A4F] mt-2">
+                    Luxury Residential Towers
+                  </h3>
+
+                  <p class="text-gray-600 text-sm mt-1">
+                    Wakad, Pune · 200 Apartments
+                  </p>
+
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Project 4 -->
+            <div class="flex-shrink-0 w-72">
+              <div
+                class="bg-white rounded-2xl border border-[#D7E3F8] overflow-hidden shadow-sm hover:shadow-lg transition">
+
+                <div class="h-44 relative">
+                  <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5"
+                    class="w-full h-full object-cover">
+                  <div
+                    class="absolute top-3 right-3 bg-[#F6B100] text-[#0F2A4F] text-xs font-semibold px-3 py-1 rounded-full">
+                    Completed
+                  </div>
+                </div>
+
+                <div class="p-5">
+                  <span class="text-xs bg-[#EFF4FC] text-[#0F2A4F] px-3 py-1 rounded-full">
+                    Healthcare
+                  </span>
+
+                  <h3 class="text-lg font-semibold text-[#0F2A4F] mt-2">
+                    Multi-Speciality Hospital
+                  </h3>
+
+                  <p class="text-gray-600 text-sm mt-1">
+                    Nagpur · 450 Bed Facility
+                  </p>
+
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Project 5 -->
+            <div class="flex-shrink-0 w-72">
+              <div
+                class="bg-white rounded-2xl border border-[#D7E3F8] overflow-hidden shadow-sm hover:shadow-lg transition">
+
+                <div class="h-44 relative">
+                  <img src="https://images.unsplash.com/photo-1497366216548-37526070297c"
+                    class="w-full h-full object-cover">
+                  <div
+                    class="absolute top-3 right-3 bg-[#F6B100] text-[#0F2A4F] text-xs font-semibold px-3 py-1 rounded-full">
+                    Completed
+                  </div>
+                </div>
+
+                <div class="p-5">
+                  <span class="text-xs bg-[#EFF4FC] text-[#0F2A4F] px-3 py-1 rounded-full">
+                    Office
+                  </span>
+
+                  <h3 class="text-lg font-semibold text-[#0F2A4F] mt-2">
+                    Tech Innovation Campus
+                  </h3>
+
+                  <p class="text-gray-600 text-sm mt-1">
+                    Bangalore · 150,000 sq.ft
+                  </p>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+          <!-- Duplicate Set For Infinite Loop -->
+          <div class="flex gap-6">
+
+            <!-- Repeat cards -->
+            <div class="flex-shrink-0 w-72">
+              <div class="bg-white rounded-2xl border border-[#D7E3F8] overflow-hidden shadow-sm">
+
+                <div class="h-44">
+                  <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e"
+                    class="w-full h-full object-cover">
+                </div>
+
+                <div class="p-5">
+                  <span class="text-xs bg-[#EFF4FC] text-[#0F2A4F] px-3 py-1 rounded-full">
+                    Industrial
+                  </span>
+
+                  <h3 class="text-lg font-semibold text-[#0F2A4F] mt-2">
+                    Advanced Manufacturing Unit
+                  </h3>
+
+                  <p class="text-gray-600 text-sm mt-1">
+                    Chakan, Pune · 120,000 sq.ft
+                  </p>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- CTA -->
+      <div class="text-center mt-10">
+
+        <a href="#"
+          class="inline-flex items-center gap-3 bg-[#0F2A4F] hover:bg-[#1E3A5F] text-white font-medium py-3 px-8 rounded-full text-sm transition">
+
+          View Complete Portfolio
+          <span class="text-[#F6B100] text-lg">→</span>
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <style>
+      @keyframes smoothScroll {
+        0% {
+          transform: translateX(0);
+        }
+
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      .animate-autoscroll {
+        animation: smoothScroll 35s linear infinite;
+      }
+
+      .pause-autoscroll:hover {
+        animation-play-state: paused;
+      }
+    </style>
+
+  </section>
+
+
+  <!--------------- WHY CHOOSE US SECTION --------------------->
+  <section class="relative py-20 bg-[#f8fbff] overflow-hidden">
+
+    <!-- Background Shapes -->
+    <div class="absolute top-0 right-0 w-72 h-72 bg-[#F2C94C]/20 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-[#11224E]/10 rounded-full blur-3xl"></div>
+
+    <!-- Blueprint Grid -->
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(#11224E 1px, transparent 1px),
+    linear-gradient(to right,#11224E 1px, transparent 1px);
+    background-size: 60px 60px;">
+    </div>
+
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+
+      <!-- Header -->
+      <div class="text-center mb-16 -mt-8">
+        <p class="text-[#F2C94C] uppercase tracking-[4px] text-sm mb-3">
+          Why Choose Us
+        </p>
+
+        <h2 class="text-4xl font-bold text-[#11224E] mb-4">
+          Engineering Excellence At Every Step
+        </h2>
+
+        <p class="text-gray-600 max-w-2xl mx-auto text-sm">
+          Our engineering approach combines strategic planning,
+          advanced technology, and efficient project management.
+        </p>
+      </div>
+
+      <!-- Timeline -->
+      <div class="relative">
+
+        <!-- Timeline line -->
+        <div class="absolute left-6 md:left-1/2 top-0 h-full w-[2px] bg-[#11224E]/10 md:-translate-x-1/2"></div>
+
+        <!-- Item -->
+        <div class="relative grid md:grid-cols-2 gap-10 mb-14 items-center">
+
+          <!-- Icon -->
+          <div
+            class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-[#F2C94C] text-white shadow">
+            <i class="fas fa-drafting-compass"></i>
+          </div>
+
+          <!-- Left Content -->
+          <div class="md:text-right pl-16 md:pl-0 md:pr-16">
+            <h3 class="text-xl font-semibold text-[#11224E] mb-2">
+              Strategic Planning
+            </h3>
+            <p class="text-gray-600 text-sm">
+              Every project begins with comprehensive planning,
+              feasibility studies, and engineering assessments.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Item -->
+        <div class="relative grid md:grid-cols-2 gap-10 mb-14 items-center">
+
+          <!-- Icon -->
+          <div
+            class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-[#11224E] text-white shadow">
+            <i class="fas fa-hard-hat"></i>
+          </div>
+
+          <!-- Right Content -->
+          <div class="md:col-start-2 pl-16 md:pl-16">
+            <h3 class="text-xl font-semibold text-[#11224E] mb-2">
+              Construction Expertise
+            </h3>
+            <p class="text-gray-600 text-sm">
+              Our teams deliver infrastructure projects with
+              precision, strict safety protocols, and efficiency.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Item -->
+        <div class="relative grid md:grid-cols-2 gap-10 mb-14 items-center">
+
+          <!-- Icon -->
+          <div
+            class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-[#F2C94C] text-white shadow">
+            <i class="fas fa-cogs"></i>
+          </div>
+
+          <!-- Left Content -->
+          <div class="md:text-right pl-16 md:pl-0 md:pr-16">
+            <h3 class="text-xl font-semibold text-[#11224E] mb-2">
+              Technology Integration
+            </h3>
+            <p class="text-gray-600 text-sm">
+              Advanced digital tools and engineering technologies
+              enhance project accuracy and efficiency.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Item -->
+        <div class="relative grid md:grid-cols-2 gap-10 items-center">
+
+          <!-- Icon -->
+          <div
+            class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-[#11224E] text-white shadow">
+            <i class="fas fa-chart-line"></i>
+          </div>
+
+          <!-- Right Content -->
+          <div class="md:col-start-2 pl-16 md:pl-16">
+            <h3 class="text-xl font-semibold text-[#11224E] mb-2">
+              Reliable Delivery
+            </h3>
+            <p class="text-gray-600 text-sm">
+              Our commitment to quality and efficiency ensures
+              projects are delivered on time and within scope.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!--------- CLIENT SECTION -------------->
+  <section class="relative py-10 bg-white overflow-hidden">
+
+    <!-- Soft background image -->
+    <div
+      class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1920&h=1080&auto=format&fit=crop&q=20')] bg-cover bg-center opacity-5">
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-8 md:px-12 lg:px-20">
+
+      <h2 class="text-5xl font-medium text-[#11224E] mb-6">Our Clients</h2>
+
+      <p class="text-gray-600 mb-10 whitespace-nowrap">
+        Clients who have been making our journey special
+      </p>
+
+      <div class="border-t border-gray-300 mb-12"></div>
+
+      <!-- Marquee container -->
+      <div class="relative overflow-hidden py-8">
+
+        <!-- Row 1 -->
+        <div class="flex animate-marquee-left whitespace-nowrap">
+
+          <div class="flex gap-16 items-center px-8">
+
+            <img src="https://dummyimage.com/160x70/e5e7eb/6b7280&text=Client+1"
+              class="h-16 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="https://dummyimage.com/160x70/e5e7eb/6b7280&text=Client+2"
+              class="h-16 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="https://dummyimage.com/160x70/e5e7eb/6b7280&text=Client+3"
+              class="h-16 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="https://dummyimage.com/160x70/e5e7eb/6b7280&text=Client+4"
+              class="h-16 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="https://dummyimage.com/160x70/e5e7eb/6b7280&text=Client+5"
+              class="h-16 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="https://dummyimage.com/160x70/e5e7eb/6b7280&text=Client+6"
+              class="h-16 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="https://dummyimage.com/160x70/e5e7eb/6b7280&text=Client+7"
+              class="h-16 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="https://dummyimage.com/160x70/e5e7eb/6b7280&text=Client+8"
+              class="h-16 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="https://dummyimage.com/160x70/e5e7eb/6b7280&text=Client+9"
+              class="h-16 object-contain opacity-70 hover:opacity-100 transition">
+
+            <!-- duplicate for seamless loop -->
+            <img src="https://dummyimage.com/160x70/e5e7eb/6b7280&text=Client+1"
+              class="h-16 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="https://dummyimage.com/160x70/e5e7eb/6b7280&text=Client+2"
+              class="h-16 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="https://dummyimage.com/160x70/e5e7eb/6b7280&text=Client+3"
+              class="h-16 object-contain opacity-70 hover:opacity-100 transition">
+
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="flex animate-marquee-right whitespace-nowrap mt-12">
+
+          <div class="flex gap-16 items-center px-8">
+
+            <img src="https://dummyimage.com/160x70/e5e7eb/6b7280&text=Client+4"
+              class="h-16 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="https://dummyimage.com/160x70/e5e7eb/6b7280&text=Client+5"
+              class="h-16 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="https://dummyimage.com/160x70/e5e7eb/6b7280&text=Client+6"
+              class="h-16 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="https://dummyimage.com/160x70/e5e7eb/6b7280&text=Client+7"
+              class="h-16 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="https://dummyimage.com/160x70/e5e7eb/6b7280&text=Client+8"
+              class="h-16 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="https://dummyimage.com/160x70/e5e7eb/6b7280&text=Client+9"
+              class="h-16 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="https://dummyimage.com/160x70/e5e7eb/6b7280&text=Client+1"
+              class="h-16 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="https://dummyimage.com/160x70/e5e7eb/6b7280&text=Client+2"
+              class="h-16 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="https://dummyimage.com/160x70/e5e7eb/6b7280&text=Client+3"
+              class="h-16 object-contain opacity-70 hover:opacity-100 transition">
+
+            <!-- duplicate -->
+            <img src="https://dummyimage.com/160x70/e5e7eb/6b7280&text=Client+4"
+              class="h-16 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="https://dummyimage.com/160x70/e5e7eb/6b7280&text=Client+5"
+              class="h-16 object-contain opacity-70 hover:opacity-100 transition">
+            <img src="https://dummyimage.com/160x70/e5e7eb/6b7280&text=Client+6"
+              class="h-16 object-contain opacity-70 hover:opacity-100 transition">
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MARQUEE ANIMATION -->
+  <style>
+    @keyframes marquee-left {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    @keyframes marquee-right {
+      0% {
+        transform: translateX(-50%);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .animate-marquee-left {
+      animation: marquee-left 25s linear infinite;
+    }
+
+    .animate-marquee-right {
+      animation: marquee-right 25s linear infinite;
+    }
+  </style>
+
+
+  <!-- FOOTER -->
+  <footer class="relative text-white py-12 overflow-hidden 
+bg-gradient-to-b from-[#0E1B3D] via-[#11224E] to-[#0A1530]">
+
+    <!-- Background shapes -->
+    <div class="absolute top-0 right-0 w-72 h-72 bg-yellow-400/20 blur-3xl rounded-full"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-blue-400/10 blur-3xl rounded-full"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+
+        <!-- Company -->
+        <div>
+          <div class="mb-5">
+            <img src="Images/Sdcpl logo.png" alt="logo" class="h-24 object-contain">
+          </div>
+
+          <p class="text-gray-300 text-sm leading-relaxed mb-5">
+            Delivering innovative infrastructure and construction solutions
+            with a commitment to quality, reliability, and engineering excellence.
+          </p>
+
+          <div class="flex gap-3">
+
+            <a href="#"
+              class="w-9 h-9 bg-[#162B5B] rounded-md flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+
+            <a href="#"
+              class="w-9 h-9 bg-[#162B5B] rounded-md flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+              <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="#"
+              class="w-9 h-9 bg-[#162B5B] rounded-md flex items-center justify-center hover:bg-yellow-400 hover:text-black transition">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+
+          </div>
+        </div>
+
+
+        <!-- Explore -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4 border-l-4 border-yellow-400 pl-3">
+            Explore
+          </h3>
+
+          <ul class="space-y-2 text-sm">
+
+            <li><a href="index.html" class="text-gray-300 hover:text-yellow-400 transition">Home</a></li>
+            <li><a href="about.html" class="text-gray-300 hover:text-yellow-400 transition">About</a></li>
+            <li><a href="projects.html" class="text-gray-300 hover:text-yellow-400 transition">Projects</a></li>
+            <li><a href="interior.html" class="text-gray-300 hover:text-yellow-400 transition">Interior Design</a></li>
+            <li><a href="gallery.html" class="text-gray-300 hover:text-yellow-400 transition">Gallery</a></li>
+            <li><a href="contact.html" class="text-gray-300 hover:text-yellow-400 transition">Contact</a></li>
+
+          </ul>
+        </div>
+
+
+        <!-- Sectors -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4 border-l-4 border-yellow-400 pl-3">
+            Sectors
+          </h3>
+
+          <ul class="space-y-2 text-sm">
+
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Residential</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Commercial</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Industrial</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Institutional</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition">Infrastructure</a></li>
+
+          </ul>
+        </div>
+
+
+        <!-- Contact -->
+        <div>
+
+          <h3 class="text-lg font-semibold mb-4 border-l-4 border-yellow-400 pl-3">
+            Contact
+          </h3>
+
+          <div class="space-y-4 text-sm text-gray-300">
+
+            <div class="flex gap-3 items-start">
+              <i class="fas fa-map-marker-alt text-yellow-400 mt-1"></i>
+              <a href="https://www.google.com/maps/place/C-803,+Amar+Business+Zone,+Baner,+Pune+411045" target="_blank"
+                class="hover:text-yellow-400 transition">
+                B-400 Amar Business Zone, Baner, Pune – 411047
+              </a>
+            </div>
+
+            <div class="flex gap-3 items-center">
+              <i class="fas fa-phone text-yellow-400"></i>
+              <a href="tel:+919549543838" class="hover:text-yellow-400 transition">
+                +91 95495 53538
+              </a>
+            </div>
+
+            <div class="flex gap-3 items-center">
+              <i class="fas fa-envelope text-yellow-400"></i>
+              <a href="mailto:info@sddcpl.com" class="hover:text-yellow-400 transition">
+                info@sddcpl.com
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Bottom -->
+      <div
+        class="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+
+        <span>
+          © 2025 SDDCPL. All rights reserved.Developed by Kunash Media.
+        </span>
+
+        <div class="flex gap-5 mt-3 md:mt-0">
+
+          <a href="#" class="hover:text-yellow-400 transition">Privacy</a>
+          <a href="#" class="hover:text-yellow-400 transition">Terms</a>
+          <a href="#" class="hover:text-yellow-400 transition">Sitemap</a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script src="homescript.js"></script>
+  <script>
+    // Optimized image loading
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    images.forEach((img) => {
+      if (img.complete) {
+        img.classList.add("loaded");
+      } else {
+        img.addEventListener("load", () => {
+          img.classList.add("loaded");
+        });
+      }
+    });
+
+    // Optimized intersection observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px",
+    };
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, observerOptions);
+
+    // Observe all fade-in elements
+    document.querySelectorAll(".fade-in").forEach((el) => {
+      fadeObserver.observe(el);
+    });
+
+    // Staggered animation for sectors
+    const staggerObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const cards = entry.target.querySelectorAll(".card-hover");
+          cards.forEach((card, index) => {
+            setTimeout(() => {
+              card.classList.add("animate");
+            }, index * 100);
+          });
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll(".stagger-animation").forEach((section) => {
+      staggerObserver.observe(section);
+    });
+
+    //header js
+    // Load header.html and then initialize header JS
+    fetch("header.html")
+      .then((res) => res.text())
+      .then((data) => {
+        document.getElementById("header").innerHTML = data;
+
+        // ✅ Elements
+        const mobileMenuToggle =
+          document.getElementById("mobile-menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const menuIcon = document.getElementById("menu-icon");
+
+        const mobileAboutToggle = document.getElementById(
+          "mobile-about-toggle"
+        );
+        const mobileAbout = document.getElementById("mobile-about");
+        const mobileSectorsToggle = document.getElementById(
+          "mobile-sectors-toggle"
+        );
+        const mobileSectors = document.getElementById("mobile-sectors");
+        const mobileCareersToggle = document.getElementById(
+          "mobile-careers-toggle"
+        );
+        const mobileCareers = document.getElementById("mobile-careers");
+
+        // Function to close all mobile dropdowns
+        function closeAllMobileDropdowns() {
+          mobileAbout?.classList.remove("open");
+          mobileSectors?.classList.remove("open");
+          mobileCareers?.classList.remove("open");
+          mobileAboutToggle?.classList.remove("active");
+          mobileSectorsToggle?.classList.remove("active");
+          mobileCareersToggle?.classList.remove("active");
+
+          // Also close all sector submenus
+          document.querySelectorAll('.sector-menu').forEach(menu => {
+            menu.style.maxHeight = '0px';
+          });
+          document.querySelectorAll('.sector-toggle i').forEach(icon => {
+            icon.style.transform = 'rotate(0deg)';
+          });
+        }
+
+        // Toggle Mobile Menu
+        mobileMenuToggle?.addEventListener("click", (e) => {
+          e.stopPropagation();
+          mobileMenu.classList.toggle("open");
+
+          if (mobileMenu.classList.contains("open")) {
+            menuIcon.classList.remove("fa-bars");
+            menuIcon.classList.add("fa-times");
+          } else {
+            menuIcon.classList.remove("fa-times");
+            menuIcon.classList.add("fa-bars");
+            closeAllMobileDropdowns();
+          }
+        });
+
+        // Toggle Mobile About Dropdown
+        mobileAboutToggle?.addEventListener("click", (e) => {
+          e.stopPropagation();
+          mobileAbout.classList.toggle("open");
+          mobileAboutToggle.classList.toggle("active");
+
+          // Close other dropdowns if open
+          if (mobileAbout.classList.contains("open")) {
+            mobileSectors?.classList.remove("open");
+            mobileCareers?.classList.remove("open");
+            mobileSectorsToggle?.classList.remove("active");
+            mobileCareersToggle?.classList.remove("active");
+
+            // Close sector submenus
+            document.querySelectorAll('.sector-menu').forEach(menu => {
+              menu.style.maxHeight = '0px';
+            });
+            document.querySelectorAll('.sector-toggle i').forEach(icon => {
+              icon.style.transform = 'rotate(0deg)';
+            });
+          }
+        });
+
+        // Toggle Mobile Sectors Dropdown
+        mobileSectorsToggle?.addEventListener("click", (e) => {
+          e.stopPropagation();
+
+          // Toggle main sectors dropdown
+          if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+            // Collapse main sectors
+            mobileSectors.style.maxHeight = '0px';
+            mobileSectorsToggle.querySelector('i').style.transform = 'rotate(0deg)';
+            mobileSectorsToggle.classList.remove("active");
+
+            // Also collapse all sector submenus
+            document.querySelectorAll('.sector-menu').forEach(menu => {
+              menu.style.maxHeight = '0px';
+            });
+            document.querySelectorAll('.sector-toggle i').forEach(icon => {
+              icon.style.transform = 'rotate(0deg)';
+            });
+          } else {
+            // Expand main sectors
+            mobileSectors.style.maxHeight = mobileSectors.scrollHeight + 'px';
+            mobileSectorsToggle.querySelector('i').style.transform = 'rotate(180deg)';
+            mobileSectorsToggle.classList.add("active");
+          }
+
+          // Close other dropdowns if opening this one
+          if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+            mobileAbout?.classList.remove("open");
+            mobileCareers?.classList.remove("open");
+            mobileAboutToggle?.classList.remove("active");
+            mobileCareersToggle?.classList.remove("active");
+          }
+        });
+
+        // Toggle Mobile Careers Dropdown (NEW)
+        mobileCareersToggle?.addEventListener("click", (e) => {
+          e.stopPropagation();
+          mobileCareers.classList.toggle("open");
+          mobileCareersToggle.classList.toggle("active");
+
+          // Close other dropdowns if open
+          if (mobileCareers.classList.contains("open")) {
+            mobileAbout?.classList.remove("open");
+            mobileSectors?.classList.remove("open");
+            mobileAboutToggle?.classList.remove("active");
+            mobileSectorsToggle?.classList.remove("active");
+            mobileSectors.style.maxHeight = '0px';
+            mobileSectorsToggle.querySelector('i').style.transform = 'rotate(0deg)';
+
+            // Close sector submenus
+            document.querySelectorAll('.sector-menu').forEach(menu => {
+              menu.style.maxHeight = '0px';
+            });
+            document.querySelectorAll('.sector-toggle i').forEach(icon => {
+              icon.style.transform = 'rotate(0deg)';
+            });
+          }
+        });
+
+        // Handle sector toggle buttons (submenus)
+        document.querySelectorAll('.sector-toggle').forEach(button => {
+          button.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const menu = this.nextElementSibling;
+            const icon = this.querySelector('i');
+
+            // Toggle submenu
+            if (menu.style.maxHeight && menu.style.maxHeight !== '0px') {
+              // Collapse
+              menu.style.maxHeight = '0px';
+              icon.style.transform = 'rotate(0deg)';
+            } else {
+              // Expand
+              menu.style.maxHeight = menu.scrollHeight + 'px';
+              icon.style.transform = 'rotate(180deg)';
+            }
+          });
+        });
+
+        // Close mobile dropdowns when clicking on links inside them
+        document.querySelectorAll(".mobile-dropdown a, .sector-menu a").forEach((link) => {
+          link.addEventListener("click", () => {
+            closeAllMobileDropdowns();
+            mobileMenu?.classList.remove("open");
+            if (menuIcon) {
+              menuIcon.classList.remove("fa-times");
+              menuIcon.classList.add("fa-bars");
+            }
+          });
+        });
+
+        // Close menu if clicked outside
+        document.addEventListener("click", function (event) {
+          if (!mobileMenu || !mobileMenuToggle) return;
+
+          const isClickInsideMenu = mobileMenu.contains(event.target);
+          const isClickOnToggle = mobileMenuToggle.contains(event.target);
+
+          if (
+            !isClickInsideMenu &&
+            !isClickOnToggle &&
+            mobileMenu.classList.contains("open")
+          ) {
+            mobileMenu.classList.remove("open");
+            menuIcon.classList.remove("fa-times");
+            menuIcon.classList.add("fa-bars");
+            closeAllMobileDropdowns();
+          }
+        });
+
+        // Desktop dropdown hover functionality
+        const dropdowns = document.querySelectorAll(".dropdown");
+        dropdowns.forEach((dropdown) => {
+          dropdown.addEventListener("mouseenter", () => {
+            const content = dropdown.querySelector(".dropdown-content");
+            if (content) {
+              content.style.opacity = "1";
+              content.style.visibility = "visible";
+              content.style.transform = "translateY(0)";
+            }
+          });
+
+          dropdown.addEventListener("mouseleave", () => {
+            const content = dropdown.querySelector(".dropdown-content");
+            if (content) {
+              content.style.opacity = "0";
+              content.style.visibility = "hidden";
+              content.style.transform = "translateY(-10px)";
+            }
+          });
+        });
+
+        // Handle window resize - recalculate maxHeight for open menus
+        window.addEventListener('resize', function () {
+          // Recalculate for main sectors dropdown
+          if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+            mobileSectors.style.maxHeight = mobileSectors.scrollHeight + 'px';
+          }
+
+          // Recalculate for open sector submenus
+          document.querySelectorAll('.sector-menu').forEach(menu => {
+            if (menu.style.maxHeight && menu.style.maxHeight !== '0px') {
+              menu.style.maxHeight = menu.scrollHeight + 'px';
+            }
+          });
+        });
+      });
+    // Navbar scroll effect
+    window.addEventListener("scroll", () => {
+      document
+        .getElementById("navbar")
+        ?.classList.toggle("scrolled", window.scrollY > 50);
+    });
+  </script>
+</body>
+
+</html>
